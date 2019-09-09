@@ -16,6 +16,12 @@
           <div class="card-body">
               <h3 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h3>
               <p class="card-text">
+                </br>
+                <%if @user.user_pic.attached?%>
+                  <%= image_tag @user.user_pic, alt: 'user_pic' %>
+                <%else%>
+                  <p>=== Il n'y a pas encore de photo lié à cet utilisateur ===</p>
+                <%end%>
                 </br>Description : <%= @user.description %>
                 </br>Email : <%= @user.email %>
                 </br>
