@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  resources :favorites
+	root 'cities#index'
+  resources :cities do
+  	resources :places
+  end
+  devise_for :users 
+  resources :users, only: [:show, :edit, :update, :destroy]
+
 end
