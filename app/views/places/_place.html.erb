@@ -9,4 +9,6 @@
 	<td><%= link_to 'Show', city_place_path(@city, place) %></td>
 	<td><%= link_to 'Edit', edit_city_place_path(@city, place) %></td>
 	<td><%= link_to 'Destroy', city_place_path(@city, place), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<td><%= render "favorite_place_icon", place: place %></td>
 </tr>
+
