@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_131711) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -34,6 +35,16 @@ ActiveRecord::Schema.define(version: 2019_09_09_131711) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+
+  create_table "attendances", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "place_id"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_attendances_on_place_id"
+    t.index ["user_id"], name: "index_attendances_on_user_id"
+
   end
 
   create_table "cities", force: :cascade do |t|
@@ -50,6 +61,15 @@ ActiveRecord::Schema.define(version: 2019_09_09_131711) do
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_favorites_on_place_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "place_tags", force: :cascade do |t|
+    t.bigint "place_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_place_tags_on_place_id"
+    t.index ["tag_id"], name: "index_place_tags_on_tag_id"
   end
 
   create_table "places", force: :cascade do |t|

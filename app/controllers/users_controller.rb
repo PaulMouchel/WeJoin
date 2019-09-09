@@ -5,6 +5,9 @@ class UsersController < ApplicationController
     @user = User.all.find(params[:id])
   end
   
+  def create
+    
+  end
 
   
   def update
