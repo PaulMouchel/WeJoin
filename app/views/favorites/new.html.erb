@@ -2,4 +2,4 @@
 
 <%= render 'form', favorite: @favorite %>
 
-<%= link_to 'Back', favorites_path %>
+<%= link_to 'Back', user_favorites_path(current_user) %>

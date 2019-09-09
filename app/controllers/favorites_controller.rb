@@ -16,11 +16,14 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.new(favorite_params)
+    @favorite = Favorite.new(user_id: params[:user_id], favorite_place_id: params[:place])
+
 
     respond_to do |format|
       if @favorite.save
-        format.html { redirect_to @favorite, notice: 'Favorite was successfully created.' }
+      	place = @favorite.favorite_place
+  			city = place.city
+        format.html { redirect_to city_place_path(city, place) }
         format.json { render :show, status: :created, location: @favorite }
       else
         format.html { render :new }
@@ -42,9 +45,11 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+  	place = @favorite.favorite_place
+  	city = place.city
     @favorite.destroy
     respond_to do |format|
-      format.html { redirect_to favorites_url, notice: 'Favorite was successfully destroyed.' }
+      format.html { redirect_to city_place_path(city, place) }
       format.json { head :no_content }
     end
   end

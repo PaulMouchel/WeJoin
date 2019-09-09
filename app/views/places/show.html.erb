@@ -44,10 +44,13 @@
 <%= link_to 'Edit', edit_city_place_path(@city, @place) %> |
 <%= link_to 'Back', city_places_path(@city) %>
 
-<%= button_to 'Add to favorite', user_favorites_path(current_user) %>
+
+
 
 <% if @place.is_favorite?(current_user) %>
+	<%= button_to 'Remove from favorite', user_favorite_path(current_user, current_user.favorites.find_by(favorite_place: @place)), method: :delete %>
 	<i class="fas fa-star text-warning fa-2x"></i>
 <% else %>
+	<%= button_to 'Add to favorite', user_favorites_path(current_user, place: @place) %>
 	<i class="far fa-star fa-2x"></i>
 <% end %>
