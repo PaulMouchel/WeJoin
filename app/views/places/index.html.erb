@@ -1,8 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @city.name %>
+  <%if @city.city_pic.attached?%>
+    <%= image_tag @city.city_pic, alt: 'city' %>
+  <%else%>
+    <p>=== Il n'y a pas encore de photo lié à cette ville ===</p>
+  <%end%>
+</p>
+
+<p>
+<strong>Name:</strong>
+<%= @city.name %>
 </p>
 
 <p>
