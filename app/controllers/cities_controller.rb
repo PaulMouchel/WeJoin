@@ -1,11 +1,8 @@
 class CitiesController < ApplicationController
-  before_action :set_city, only: [:show, :edit, :update, :destroy]
+  before_action :set_city, only: [:edit, :update, :destroy]
 
   def index
     @cities = City.all
-  end
-
-  def show
   end
 
   def new
