@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :attendances, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :ratings
-  has_many :favorite_places, through: :favorites, class_name: "Place", dependent: :destroy
+  has_many :favorite_places, through: :favorites, class_name: "Place"
 
   validates :age, numericality: { only_integer: true, greater_than: 0}
   validates :email,
