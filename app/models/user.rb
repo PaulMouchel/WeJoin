@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   after_create :welcome_send
   belongs_to :city, optional: true
   has_many :attendances, dependent: :destroy

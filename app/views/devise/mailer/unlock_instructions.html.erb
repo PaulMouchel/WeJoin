@@ -1,7 +1,8 @@
-<p>Hello <%= @resource.email %>!</p>
+<p>Salut <%= @resource.email %>!</p>
 
-<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+<p>Ton compte a été vérouillé suite à de trop nombreuses tentatives de connexion ayant fait l'objet d'un echec.</p>
 
-<p>Click the link below to unlock your account:</p>
+<p>Tu peux cliquer sur le lien ci-dessous pour dévérouiller ton compte : </p>
 
-<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>
+<p><%= link_to '>DÉVÉROUILLER MON COMPTE<', unlock_url(@resource, unlock_token: @token) %></p>
+<p>L'équipe WeJoin.</p>
