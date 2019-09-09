@@ -18,7 +18,6 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @place.city = @city
     respond_to do |format|
       if @place.save
         format.html { redirect_to city_places_path(@city), notice: 'Place was successfully created.' }
@@ -60,6 +59,6 @@ class PlacesController < ApplicationController
     end
 
     def place_params
-      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password)
+      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password, :city_id)
     end
 end
