@@ -6,7 +6,7 @@ class Place < ApplicationRecord
 
 	belongs_to :city
 	has_many :attendances, dependent: :destroy
-	has_many :favorites, dependent: :destroy
+	has_many :favorites, dependent: :destroy, foreign_key: "favorite_place_id"
 	has_many :ratings, dependent: :destroy
 	has_many :place_tags, dependent: :destroy
 	has_many :tags, through: :place_tags
@@ -19,5 +19,9 @@ class Place < ApplicationRecord
 		else
 			return 0.0
 		end
+	end
+
+	def is_favorite?(user)
+		return user.favorite_places.include?(self)
 	end
 end
