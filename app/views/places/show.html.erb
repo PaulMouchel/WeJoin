@@ -40,10 +40,8 @@
 
 <%= button_to 'Add to favorite', user_favorites_path(current_user) %>
 
-<p> add to favorite <i class="far fa-star fa-2x"></i></p>
-
 <% if @place.is_favorite?(current_user) %>
-<i class="fas fa-star text-warning fa-2x"></i>
+	<i class="fas fa-star text-warning fa-2x"></i>
 <% else %>
-<i class="far fa-star fa-2x"></i>
+	<i class="far fa-star fa-2x"></i>
 <% end %>
