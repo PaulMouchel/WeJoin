@@ -1,0 +1,28 @@
+<div class="container ">
+  <div class="main_menu">
+   <nav class="navbar navbar-expand-sm navbar-light"  id="navbar">
+    <div class="container">
+        <div class="collapse navbar-collapse offset"  id="navbarSupportedContent1">
+          <ul class="nav navbar-nav ml-auto">
+
+            <li class="nav-item"><%= link_to "Home", items_path, class: "nav-link nav-item active" %></li>
+
+            <% if current_user != nil %>
+              <% if !user_signed_in? %>
+                <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up / Login </a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
+                </ul>
+                </li>
+              <% else %>
+                <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>      
+      </div>
+    </nav>
+  </div>
+</div> 
