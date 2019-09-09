@@ -1,0 +1,50 @@
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6 col-md-6 mt-5">
+        <br/>
+        <br/>
+
+			<h1 class="h3 mb-3 font-weight-normal text-center">EDITER MON PROFIL</h1>
+			<br/> <br/>
+			
+
+		<%= form_for current_user, url: {action: "update"} do |f| %>
+
+        <div class="form-group">
+
+          <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control", placeholder:"Prénom", required: true %>
+        </div><br/> <br/>
+
+
+        <div class="form-group">
+
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control", placeholder:"Nom", required: true %>
+        </div><br/> <br/>
+       
+
+        <div class="form-group">
+
+          <%= f.number_field :age, autofocus: true, autocomplete: "age", class: "form-control", placeholder:"Âge", required: true %>
+        </div><br/> <br/>
+       
+
+        <div class="form-group">
+
+          <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder:"Description", required: true %>
+        </div>
+	     
+
+
+		<div class="actions mt-5">
+          <%= f.submit "EDIT", class: "btn btn-lg btn-primary btn-block" %>
+        </div></br>
+
+
+
+			<%= link_to 'Back', user_path(current_user.id) %>
+<% end %>
+
+
+		</div>
+    </div>
+  </div>
