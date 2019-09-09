@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :place_tags
   resources :tags
   resources :ratings
 	root 'cities#index'
