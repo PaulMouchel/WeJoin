@@ -5,18 +5,22 @@
         <div class="collapse navbar-collapse offset"  id="navbarSupportedContent1">
           <ul class="nav navbar-nav ml-auto">
 
-            <li class="nav-item"><%= link_to "Home", cities_path, class: "nav-link nav-item active" %></li>
+            <li class="nav-item"><%= link_to "EXPLORER", cities_path, class: "nav-link nav-item active" %></li>
 
               <% if !user_signed_in? %>
                 <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up / Login </a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INSCRIPTION / CONNEXION</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
-                  <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to "S'Inscrire", new_user_registration_path, class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Se Connecter", new_user_session_path, class: "nav-link" %></li>
                 </ul>
                 </li>
               <% else %>
-                <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROFIL / DÉCONNEXION</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><%= link_to "Mon Profil", user_path(current_user.id), class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
               <% end %>
           </ul>
         </div>      
