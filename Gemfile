@@ -67,5 +67,5 @@ gem 'jquery-rails'
 gem 'table_print'
 gem 'letter_opener'
 gem 'faker'
-gem 'stripe'
 gem 'dotenv-rails' 
+gem "aws-sdk-s3", require: false

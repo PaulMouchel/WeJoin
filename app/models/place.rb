@@ -1,4 +1,6 @@
 class Place < ApplicationRecord
+	has_one_attached :place_pic
+
 	validates :name, presence: true
 	validates :address, presence: true
 
