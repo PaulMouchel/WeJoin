@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :place_tags
   resources :tags
   resources :ratings
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users 
   resources :users, only: [:show, :edit, :update, :destroy] do
   	resources :favorites
+  	resources :attendances
   end
 
 end
