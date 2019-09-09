@@ -9,7 +9,7 @@
 
               <% if !user_signed_in? %>
                 <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up / Login </a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up / Login</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
                   <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
