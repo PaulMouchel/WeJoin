@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  resources :attendances
   resources :tags
   resources :ratings
 	root 'cities#index'
@@ -10,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :users 
   resources :users, only: [:show, :edit, :update, :destroy] do
   	resources :favorites
+  	resources :attendances
   end
 
 end
