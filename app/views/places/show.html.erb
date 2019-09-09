@@ -48,9 +48,11 @@
 
 
 <% if @place.is_favorite?(current_user) %>
-	<%= button_to 'Remove from favorite', user_favorite_path(current_user, current_user.favorites.find_by(favorite_place: @place)), method: :delete %>
-	<i class="fas fa-star text-warning fa-2x"></i>
+	<%= link_to user_favorite_path(current_user, current_user.favorites.find_by(favorite_place: @place)), method: :delete  do%>
+		<i class="fas fa-star text-warning fa-2x"></i>
+	<% end %>
 <% else %>
-	<%= button_to 'Add to favorite', user_favorites_path(current_user, place: @place) %>
-	<i class="far fa-star fa-2x"></i>
+	<%= link_to user_favorites_path(current_user, place: @place), method: :post do %>
+		<i class="far fa-star fa-2x"></i>
+	<% end %>
 <% end %>
