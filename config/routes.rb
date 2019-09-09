@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :ratings
   resources :favorites
 	root 'cities#index'
   resources :cities do
