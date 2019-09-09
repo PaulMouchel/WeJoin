@@ -1,5 +1,5 @@
 class AddForeignKeyCityToPlaces < ActiveRecord::Migration[5.2]
   def change
-  	add_foreign_key :places, :cities
+  	add_reference :places, :city, index: true
   end
 end
