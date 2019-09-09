@@ -11,29 +11,27 @@
 		<%= form_for current_user, url: {action: "update"} do |f| %>
 
         <div class="form-group">
-
           <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control", placeholder:"Prénom", required: true %>
         </div><br/> <br/>
 
 
         <div class="form-group">
-
           <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control", placeholder:"Nom", required: true %>
         </div><br/> <br/>
        
 
         <div class="form-group">
-
           <%= f.number_field :age, autofocus: true, autocomplete: "age", class: "form-control", placeholder:"Âge", required: true %>
         </div><br/> <br/>
        
 
         <div class="form-group">
-
           <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder:"Description", required: true %>
         </div>
-	     
 
+        <div class="form-group">
+          <%= f.file_field :user_pic, autocomplete: :user_pic %><br />
+        </div>
 
 		<div class="actions mt-5">
           <%= f.submit "EDITER", class: "btn btn-lg btn-primary btn-block" %>
