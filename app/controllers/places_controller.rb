@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+	before_action :set_city
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -50,6 +51,10 @@ class PlacesController < ApplicationController
   end
 
   private
+  	def set_city
+      @city = City.find(params[:city_id])
+    end
+
     def set_place
       @place = Place.find(params[:id])
     end
