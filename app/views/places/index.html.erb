@@ -1,5 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <%if @city.city_pic.attached?%>
+    <%= image_tag @city.city_pic, alt: 'city' %>
+  <%else%>
+    <p>=== Il n'y a pas encore de photo lié à cette ville ===</p>
+  <%end%>
+</p>
+
+<p>
+<strong>Name:</strong>
+<%= @city.name %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @city.zip_code %>
+</p>
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>
+
 <h1>Places</h1>
 
 <table>
@@ -26,9 +47,9 @@
         <td><%= place.tea_price %></td>
         <td><%= place.beer_price %></td>
         <td><%= place.wifi_password %></td>
-        <td><%= link_to 'Show', place %></td>
-        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', city_place_path(@city, place) %></td>
+        <td><%= link_to 'Edit', edit_city_place_path(@city, place) %></td>
+        <td><%= link_to 'Destroy', city_place_path(@city, place), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +57,4 @@
 
 <br>
 
-<%= link_to 'New Place', new_place_path %>
+<%= link_to 'New Place', new_city_place_path(@city) %>

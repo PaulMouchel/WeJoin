@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%if @place.place_pic.attached?%>
+    <%= image_tag @place.place_pic, alt: 'place' %>
+  <%else%>
+    <p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>
+  <%end%></p>
+<p>
   <strong>Name:</strong>
   <%= @place.name %>
 </p>
@@ -35,5 +41,5 @@
   <%= @place.wifi_password %>
 </p>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<%= link_to 'Edit', edit_city_place_path(@city, @place) %> |
+<%= link_to 'Back', city_places_path(@city) %>

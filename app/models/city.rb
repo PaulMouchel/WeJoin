@@ -1,4 +1,6 @@
 class City < ApplicationRecord
+	has_one_attached :city_pic
+	
 	validates :name, presence: true
 	validates :zip_code, 
 	presence: true, 
