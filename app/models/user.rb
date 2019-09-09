@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   after_create :welcome_send
   belongs_to :city
   has_many :attendances, dependent: :destroy
@@ -11,6 +12,7 @@ class User < ApplicationRecord
   presence: true,
   uniqueness: true,
   format: { with: /\A[^@\s]+@([^@\s]+.)+[^@\s]+\z/, message: "Merci de renseigner un email valide" }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

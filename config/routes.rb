@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :favorites
 	root 'cities#index'
   resources :cities do
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
   end
   devise_for :users 
   resources :users, only: [:show, :edit, :update, :destroy]
+
 end
