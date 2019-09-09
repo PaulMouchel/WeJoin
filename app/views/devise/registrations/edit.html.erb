@@ -42,14 +42,15 @@
             <div class="actions mt-5">
               <%= f.submit "METTRE À JOUR LES INFORMATIONS", class: "btn btn-lg btn-primary btn-block" %>
             </div>
-          <% end %>
+          <% end %></br>
+          <%= link_to "Retour", :back %>
 
           <br><br><br><br><br><br><br><br><br><br><br><br>
           <h3 class="h3 mb-3 font-weight-normal text-center">SUPPRIMER MON COMPTE</h3>
 
           <p>Vous désirez supprimer vos données ? <%= button_to "SUPPRIMER MON COMPTE", registration_path(resource_name), data: { confirm: "Êtes-vous sûr (ATTENTION : Cette action sera définitive) ?" }, method: :delete, class: "btn btn-lg btn-primary btn-block" %></p>
 
-          <%= link_to "Back", :back %><br><br><br>
+          <%= link_to "Retour", :back %><br><br><br>
         </div>
       </div>
     </div>
