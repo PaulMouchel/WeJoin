@@ -26,13 +26,13 @@ RSpec.describe City, type: :model do
 
     describe "users" do
       it "should have_many users" do
-        user = User.create(city: @city, name:"ma place" address:"9 boulevard de la liberté 35000 RENNES")
+        user = User.create(city: @city, email:"john.doe@yopmail.com", password:"azerty", password_confirmation:"azerty")
         expect(@city.users.include?(user)).to eq(true)
       end
     end
     describe "places" do
       it "should have_many places" do
-        place = Place.create(city: @city, email:"john.doe@yopmail.com" password:"azerty", password_confirmation:"azerty")
+        place = Place.create(city: @city, name:"ma place", address:"9 boulevard de la liberté 35000 RENNES")
         expect(@city.places.include?(place)).to eq(true)
       end
     end
