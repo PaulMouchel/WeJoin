@@ -25,8 +25,8 @@ class User < ApplicationRecord
   end
 
   def validate_age
-    if birth_date.present? && birth_date > 0.years.ago.to_i
-      errors.add(:birth_date, 'Must be an integer.')
+    if birth_date.present? && birth_date > 0.years.ago.to_date
+      errors.add(:birth_date, 'You must be born. Nice try !')
     end
   end
 

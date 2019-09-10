@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         flash[:success] = 'You account was successfully updated.'
         redirect_to user_path(current_user.id)
       else
-        flash.now[:error] = @user.errors.full_messages.to_sentence
+        flash.now[:error] = current_user.errors.full_messages.to_sentence
         render :edit
       end
   end
