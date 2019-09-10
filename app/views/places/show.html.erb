@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%if @place.place_pics.attached?%>
+    <% @place.place_pics.each do |image| %>
+      <%= image_tag image %> <br />
+    <% end %>
+  <%else%>
+    <p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>
+  <%end%></p>
+<p>
   <strong>Name:</strong>
   <%= @place.name %>
 </p>
@@ -37,3 +45,8 @@
 
 <%= link_to 'Edit', edit_city_place_path(@city, @place) %> |
 <%= link_to 'Back', city_places_path(@city) %>
+
+
+
+
+<td><%= render "favorite_place_icon", place: @place %></td>

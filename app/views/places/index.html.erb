@@ -1,8 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @city.name %>
+  <%if @city.city_pic.attached?%>
+    <%= image_tag @city.city_pic, alt: 'city' %>
+  <%else%>
+    <p>=== Il n'y a pas encore de photo lié à cette ville ===</p>
+  <%end%>
+</p>
+
+<p>
+<strong>Name:</strong>
+<%= @city.name %>
 </p>
 
 <p>
@@ -31,18 +39,7 @@
 
   <tbody>
     <% @places.each do |place| %>
-      <tr>
-        <td><%= place.name %></td>
-        <td><%= place.address %></td>
-        <td><%= place.description %></td>
-        <td><%= place.coffee_price %></td>
-        <td><%= place.tea_price %></td>
-        <td><%= place.beer_price %></td>
-        <td><%= place.wifi_password %></td>
-        <td><%= link_to 'Show', city_place_path(@city, place) %></td>
-        <td><%= link_to 'Edit', edit_city_place_path(@city, place) %></td>
-        <td><%= link_to 'Destroy', city_place_path(@city, place), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    	<%= render "place", place: place %>
     <% end %>
   </tbody>
 </table>
