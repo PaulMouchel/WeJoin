@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%if @place.place_pic.attached?%>
-    <%= image_tag @place.place_pic, alt: 'place' %>
+  <%if @place.place_pics.attached?%>
+    <% @place.place_pics.each do |image| %>
+      <%= image_tag image %> <br />
+    <% end %>
   <%else%>
     <p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>
   <%end%></p>
