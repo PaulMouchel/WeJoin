@@ -18,9 +18,10 @@ class Admin::PlacesController < AdminController
 
   def create
     @place = Place.new(place_params)
+    @place.city = @city
     respond_to do |format|
       if @place.save
-        format.html { redirect_to city_places_path(@city) 
+        format.html { redirect_to admin_city_places_path(@city) 
         flash[:success] = 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
@@ -34,7 +35,7 @@ class Admin::PlacesController < AdminController
   def update
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to city_places_path(@city) 
+        format.html { redirect_to admin_city_places_path(@city) 
         flash[:success] = 'Place was successfully updated.' }
         format.json { render :show, status: :ok, location: @place }
       else
@@ -49,7 +50,7 @@ class Admin::PlacesController < AdminController
     @place.destroy
     @place.place_pics.purge
     respond_to do |format|
-      format.html { redirect_to city_places_path(@city) 
+      format.html { redirect_to admin_city_places_path(@city) 
       flash[:success] = 'Place was successfully destroyed.' }
       format.json { head :no_content }
     end
@@ -65,7 +66,7 @@ class Admin::PlacesController < AdminController
     end
 
     def place_params
-      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password, :city_id,
+      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password,
       place_pics: [])
     end
 end

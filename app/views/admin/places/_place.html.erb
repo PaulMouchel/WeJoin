@@ -6,9 +6,9 @@
 	<td><%= place.tea_price %></td>
 	<td><%= place.beer_price %></td>
 	<td><%= place.wifi_password %></td>
-	<td><%= link_to 'Show', city_place_path(place.city, place) %></td>
-	<td><%= link_to 'Edit', edit_city_place_path(place.city, place) %></td>
-	<td><%= link_to 'Destroy', city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<td><%= link_to 'Show', admin_city_place_path(place.city, place) %></td>
+	<td><%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %></td>
+	<td><%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	<td><%= render "places/favorite_place_icon", place: place %></td>
 </tr>
 
