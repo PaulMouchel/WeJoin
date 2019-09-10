@@ -29,7 +29,7 @@ class CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to @city, notice: 'City was successfully updated.' }
+        format.html { redirect_to city_places_path(@city), notice: 'City was successfully updated.' }
         format.json { render :show, status: :ok, location: @city }
       else
         format.html { render :edit }
@@ -40,8 +40,9 @@ class CitiesController < ApplicationController
 
   def destroy
     @city.destroy
+    @city.city_pic.purge
     respond_to do |format|
-      format.html { redirect_to cities_url, notice: 'City was successfully destroyed.' }
+      format.html { redirect_to city_places_path, notice: 'City was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -52,6 +53,6 @@ class CitiesController < ApplicationController
     end
 
     def city_params
-      params.require(:city).permit(:name, :zip_code)
+      params.require(:city).permit(:name, :zip_code, :city_pic)
     end
 end
