@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_one_attached :user_pic
 
   after_create :welcome_send
+
   belongs_to :city, optional: true
   has_many :attendances, dependent: :destroy
   has_many :favorites, dependent: :destroy

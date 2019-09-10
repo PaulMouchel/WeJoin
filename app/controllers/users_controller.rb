@@ -5,11 +5,6 @@ class UsersController < ApplicationController
     @user = User.all.find(params[:id])
   end
   
-  def create
-    
-  end
-
-  
   def update
     current_user.update(user_params)
       if current_user.save
@@ -23,6 +18,7 @@ class UsersController < ApplicationController
   
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :description, :age)
+      params.require(:user).permit(:first_name, :last_name, :description, :age, :birth_date)
     end
+
 end
