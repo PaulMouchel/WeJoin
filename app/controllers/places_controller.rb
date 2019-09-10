@@ -43,6 +43,7 @@ class PlacesController < ApplicationController
 
   def destroy
     @place.destroy
+    @place.place_pics.purge
     respond_to do |format|
       format.html { redirect_to city_places_path(@city), notice: 'Place was successfully destroyed.' }
       format.json { head :no_content }
@@ -59,6 +60,6 @@ class PlacesController < ApplicationController
     end
 
     def place_params
-      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password, :city_id)
+      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password, :city_id, :place_pics)
     end
 end

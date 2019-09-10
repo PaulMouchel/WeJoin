@@ -23,6 +23,6 @@ class UsersController < ApplicationController
   
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :description, :age)
+      params.require(:user).permit(:first_name, :last_name, :description, :age, :user_pic)
     end
 end
