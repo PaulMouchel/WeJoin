@@ -58,6 +58,6 @@ class CitiesController < ApplicationController
     end
 
     def city_params
-      params.require(:city).permit(:name, :zip_code, :city_pic)
+      params.require(:city).permit(:name, :city_pic)
     end
 end
