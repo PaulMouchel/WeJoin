@@ -1,5 +1,5 @@
 class Place < ApplicationRecord
-	has_one_attached :place_pic
+	has_many_attached :place_pics
 
 	validates :name, presence: true
 	validates :address, presence: true
@@ -22,6 +22,7 @@ class Place < ApplicationRecord
 	end
 
 	def is_favorite?(user)
+		return false if user == nil
 		return user.favorite_places.include?(self)
 	end
 end
