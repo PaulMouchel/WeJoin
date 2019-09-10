@@ -20,10 +20,12 @@ class RatingsController < ApplicationController
 
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
+        format.html { redirect_to @rating 
+        flash[:success] = 'Rating was successfully created.' }
         format.json { render :show, status: :created, location: @rating }
       else
-        format.html { render :new }
+        format.html { flash.now[:error] = @rating.errors.full_messages.to_sentence
+          render :new }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
       end
     end
@@ -32,10 +34,12 @@ class RatingsController < ApplicationController
   def update
     respond_to do |format|
       if @rating.update(rating_params)
-        format.html { redirect_to @rating, notice: 'Rating was successfully updated.' }
+        format.html { redirect_to @rating 
+        flash[:success] = 'Rating was successfully updated.' }
         format.json { render :show, status: :ok, location: @rating }
       else
-        format.html { render :edit }
+        format.html { flash.now[:error] = @rating.errors.full_messages.to_sentence
+          render :edit }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
       end
     end
@@ -44,7 +48,8 @@ class RatingsController < ApplicationController
   def destroy
     @rating.destroy
     respond_to do |format|
-      format.html { redirect_to ratings_url, notice: 'Rating was successfully destroyed.' }
+      format.html { redirect_to ratings_url 
+      flash[:success] = 'Rating was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -20,10 +20,12 @@ class PlaceTagsController < ApplicationController
 
     respond_to do |format|
       if @place_tag.save
-        format.html { redirect_to @place_tag, notice: 'Place tag was successfully created.' }
+        format.html { redirect_to @place_tag 
+        flash[:success] = 'Place tag was successfully created.' }
         format.json { render :show, status: :created, location: @place_tag }
       else
-        format.html { render :new }
+        format.html { flash.now[:error] = @place_tag.errors.full_messages.to_sentence
+          render :new }
         format.json { render json: @place_tag.errors, status: :unprocessable_entity }
       end
     end
@@ -32,10 +34,12 @@ class PlaceTagsController < ApplicationController
   def update
     respond_to do |format|
       if @place_tag.update(place_tag_params)
-        format.html { redirect_to @place_tag, notice: 'Place tag was successfully updated.' }
+        format.html { redirect_to @place_tag 
+        flash[:success] = 'Place tag was successfully updated.' }
         format.json { render :show, status: :ok, location: @place_tag }
       else
-        format.html { render :edit }
+        format.html { flash.now[:error] = @place_tag.errors.full_messages.to_sentence
+          render :edit }
         format.json { render json: @place_tag.errors, status: :unprocessable_entity }
       end
     end
@@ -44,7 +48,8 @@ class PlaceTagsController < ApplicationController
   def destroy
     @place_tag.destroy
     respond_to do |format|
-      format.html { redirect_to place_tags_url, notice: 'Place tag was successfully destroyed.' }
+      format.html { redirect_to place_tags_url 
+      flash[:success] = 'Place tag was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

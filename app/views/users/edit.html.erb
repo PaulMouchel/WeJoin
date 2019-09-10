@@ -11,22 +11,22 @@
 		<%= form_for current_user, url: {action: "update"} do |f| %>
 
         <div class="form-group">
-          <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control", placeholder:"Prénom", required: true %>
+          <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control", placeholder:"Prénom" %>
         </div><br/> <br/>
 
 
         <div class="form-group">
-          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control", placeholder:"Nom", required: true %>
-        </div><br/> <br/>
-       
-
-        <div class="form-group">
-          <%= f.number_field :age, autofocus: true, autocomplete: "age", class: "form-control", placeholder:"Âge", required: true %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control", placeholder:"Nom" %>
         </div><br/> <br/>
        
 
         <div class="form-group">
-          <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder:"Description", required: true %>
+         <%= f.date_field :birth_date,  autofocus: true, autocomplete: "birth_date", class: "form-control", placeholder:"Date de naissance" %>
+        </div><br/> <br/>
+
+
+        <div class="form-group">
+          <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder:"Description" %>
         </div>
 
         <div class="form-group">
