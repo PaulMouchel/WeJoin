@@ -13,6 +13,10 @@
   <tbody>
     <% @cities.each do |city| %>
       <tr>
+        <td>
+        <%if city.city_pic.attached?%>
+          <%= image_tag city.city_pic, alt: 'city' %>
+        <%end%></td>
         <td><%= city.name %></td>
         <td><%= link_to 'Show', city_places_path(city) %></td>
         <td><%= link_to 'Edit', edit_city_path(city) %></td>
@@ -23,5 +27,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New City', new_city_path %>
