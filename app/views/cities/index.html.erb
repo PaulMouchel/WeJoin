@@ -18,9 +18,6 @@
           <%= image_tag city.city_pic, alt: 'city' %>
         <%end%></td>
         <td><%= city.name %></td>
-        <td><%= link_to 'Show', city_places_path(city) %></td>
-        <td><%= link_to 'Edit', edit_city_path(city) %></td>
-        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
