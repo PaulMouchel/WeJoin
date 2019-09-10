@@ -1,12 +1,9 @@
 class FavoritesController < ApplicationController
 	before_action :set_user
-  before_action :set_favorite, only: [:show, :edit, :update, :destroy]
+  before_action :set_favorite, only: [:edit, :update, :destroy]
 
   def index
     @favorite_places = @user.favorite_places.all
-  end
-
-  def show
   end
 
   def new
