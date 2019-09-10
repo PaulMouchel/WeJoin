@@ -18,6 +18,7 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
+    @place.city = @city
     respond_to do |format|
       if @place.save
         format.html { redirect_to city_places_path(@city) 
