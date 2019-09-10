@@ -25,14 +25,18 @@ class User < ApplicationRecord
   end
 
   def validate_age
-    if birth_date.present? && birth_date > 12.years.ago.to_d
-        errors.add(:birth_date, 'You should be over 12 years old.')
+    if birth_date.present? && birth_date > 0.years.ago.to_date
+      errors.add(:birth_date, 'You must be born. Nice try !')
     end
   end
 
   def age
-    birthday = self.birth_date
-    now = Time.now
-    return  (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
+    if self.birth_date != nil
+      birthday = self.birth_date
+      now = Time.now
+      return  (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
+    else
+      return "Non renseigné"
+    end
   end
 end
