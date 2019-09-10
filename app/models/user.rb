@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :ratings
   has_many :favorite_places, through: :favorites, class_name: "Place"
 
-  validates :age, numericality: { only_integer: true, greater_than: 0}, :allow_nil => true
+  validates :birth_date, numericality: { only_integer: true, greater_than: 0}, :allow_nil => true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
