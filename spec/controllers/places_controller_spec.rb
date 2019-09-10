@@ -23,10 +23,10 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe CitiesController, type: :controller do
+RSpec.describe PlacesController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # City. As you add validations to City, be sure to
+  # Place. As you add validations to Place, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -38,12 +38,12 @@ RSpec.describe CitiesController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # CitiesController. Be sure to keep this updated too.
+  # PlacesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      City.create! valid_attributes
+      Place.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
@@ -51,8 +51,8 @@ RSpec.describe CitiesController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      city = City.create! valid_attributes
-      get :show, params: {id: city.to_param}, session: valid_session
+      place = Place.create! valid_attributes
+      get :show, params: {id: place.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -66,29 +66,29 @@ RSpec.describe CitiesController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      city = City.create! valid_attributes
-      get :edit, params: {id: city.to_param}, session: valid_session
+      place = Place.create! valid_attributes
+      get :edit, params: {id: place.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new City" do
+      it "creates a new Place" do
         expect {
-          post :create, params: {city: valid_attributes}, session: valid_session
-        }.to change(City, :count).by(1)
+          post :create, params: {place: valid_attributes}, session: valid_session
+        }.to change(Place, :count).by(1)
       end
 
-      it "redirects to the created city" do
-        post :create, params: {city: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(City.last)
+      it "redirects to the created place" do
+        post :create, params: {place: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(Place.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {city: invalid_attributes}, session: valid_session
+        post :create, params: {place: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -100,41 +100,41 @@ RSpec.describe CitiesController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested city" do
-        city = City.create! valid_attributes
-        put :update, params: {id: city.to_param, city: new_attributes}, session: valid_session
-        city.reload
+      it "updates the requested place" do
+        place = Place.create! valid_attributes
+        put :update, params: {id: place.to_param, place: new_attributes}, session: valid_session
+        place.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the city" do
-        city = City.create! valid_attributes
-        put :update, params: {id: city.to_param, city: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(city)
+      it "redirects to the place" do
+        place = Place.create! valid_attributes
+        put :update, params: {id: place.to_param, place: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(place)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        city = City.create! valid_attributes
-        put :update, params: {id: city.to_param, city: invalid_attributes}, session: valid_session
+        place = Place.create! valid_attributes
+        put :update, params: {id: place.to_param, place: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested city" do
-      city = City.create! valid_attributes
+    it "destroys the requested place" do
+      place = Place.create! valid_attributes
       expect {
-        delete :destroy, params: {id: city.to_param}, session: valid_session
-      }.to change(City, :count).by(-1)
+        delete :destroy, params: {id: place.to_param}, session: valid_session
+      }.to change(Place, :count).by(-1)
     end
 
-    it "redirects to the cities list" do
-      city = City.create! valid_attributes
-      delete :destroy, params: {id: city.to_param}, session: valid_session
-      expect(response).to redirect_to(cities_url)
+    it "redirects to the places list" do
+      place = Place.create! valid_attributes
+      delete :destroy, params: {id: place.to_param}, session: valid_session
+      expect(response).to redirect_to(places_url)
     end
   end
 

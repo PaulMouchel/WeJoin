@@ -4,10 +4,12 @@ RSpec.describe "cities/index", type: :view do
   before(:each) do
     assign(:cities, [
       City.create!(
-        :name => "Name"
+        :name => "Name",
+        :zip_code => "Zip Code"
       ),
       City.create!(
-        :name => "Name"
+        :name => "Name",
+        :zip_code => "Zip Code"
       )
     ])
   end
@@ -15,5 +17,6 @@ RSpec.describe "cities/index", type: :view do
   it "renders a list of cities" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
+    assert_select "tr>td", :text => "Zip Code".to_s, :count => 2
   end
 end
