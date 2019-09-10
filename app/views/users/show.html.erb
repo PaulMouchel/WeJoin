@@ -1,0 +1,51 @@
+<% if user_signed_in? %>
+  
+
+    <div class="container text-center">
+          </br>
+          </br>
+          <%if current_user == @user%>
+          <h1>MON PROFIL</h1>
+          <%else%>
+          <h1>PROFIL</h1>
+          <%end%>
+          </br>
+          </br>
+
+        <div class="card">
+          <div class="card-body">
+              <h3 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h3>
+              <p class="card-text">
+                </br>
+                <%if @user.user_pic.attached?%>
+                  <%= image_tag @user.user_pic, alt: 'user_pic' %>
+                <%else%>
+                  <p>=== Il n'y a pas encore de photo lié à cet utilisateur ===</p>
+                <%end%>
+                </br>Description : <%= @user.description %>
+                </br>Email : <%= @user.email %>
+              </br>Âge : <%= @user.age %>
+                </br>
+
+                <%if current_user == @user%>
+                <%= link_to "Editer mes identifiants de connexion", edit_user_registration_path %>
+                </br>
+                <%= link_to "Editer mon profil", edit_user_path %>
+                <%end%>
+              </p>
+              
+                      
+           </div>  
+        </div>
+    </div>
+
+
+  <% else %>
+  
+    </br></br></br></br></br></br></br>
+    <h1 class="h1 mb-3 font-weight-normal text-center">WELCOME TO OUR WEBSITE !</h1>
+    </br></br>
+    <h4 class="h3 mb-3 font-weight-normal text-center">PLEASE REGISTER, OR LOG IN IF YOU ALREADY HAVE AN ACCOUNT !</h4>
+
+    
+  <% end %>
