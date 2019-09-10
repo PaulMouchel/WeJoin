@@ -1,15 +1,4 @@
 <%= form_with(model: place_tag, local: true) do |form| %>
-  <% if place_tag.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(place_tag.errors.count, "error") %> prohibited this place_tag from being saved:</h2>
-
-      <ul>
-      <% place_tag.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="actions">
     <%= form.submit %>
