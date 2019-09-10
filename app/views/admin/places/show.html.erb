@@ -43,7 +43,8 @@
   <%= @place.wifi_password %>
 </p>
 
-<%= link_to 'Back', city_places_path(@city) %>
+<%= link_to 'Edit', edit_admin_city_place_path(@city, @place) %> |
+<%= link_to 'Back', admin_city_places_path(@city) %>
 
 
 

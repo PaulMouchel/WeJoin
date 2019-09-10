@@ -13,7 +13,9 @@
 <%= @city.name %>
 </p>
 
-<%= link_to 'Back', cities_path %>
+
+<%= link_to 'Edit', edit_admin_city_path(@city) %> |
+<%= link_to 'Back', admin_cities_path %>
 
 <h1>Places</h1>
 
@@ -40,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Place', new_city_place_path(@city) %>
+<%= link_to 'New Place', new_admin_city_place_path(@city) %>
