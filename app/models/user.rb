@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :ratings
   has_many :favorite_places, through: :favorites, class_name: "Place"
 
-  validates :birth_date, numericality: { only_integer: true, greater_than: 0}, :allow_nil => true
+  validate :validate_age
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -22,6 +22,12 @@ class User < ApplicationRecord
 
   def name
       return "#{first_name} #{last_name}"
+  end
+
+  def validate_age
+    if birth_date.present? && birth_date > 12.years.ago.to_d
+        errors.add(:birth_date, 'You should be over 12 years old.')
+    end
   end
 
   def age
