@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+	before_action :set_user
   before_action :set_favorite, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -53,6 +54,10 @@ class FavoritesController < ApplicationController
   end
 
   private
+  	def set_user
+      @user = User.find(params[:user_id])
+    end
+
     def set_favorite
       @favorite = Favorite.find(params[:id])
     end
