@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   devise_for :users 
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :user_pics, only: [:create]
-  	resources :favorites
+  	resources :favorites, except: [:show]
   	resources :attendances
   end
 end

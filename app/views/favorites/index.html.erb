@@ -10,16 +10,13 @@
   </thead>
 
   <tbody>
-    <% @favorites.each do |favorite| %>
-      <tr>
-        <td><%= link_to 'Show', favorite %></td>
-        <td><%= link_to 'Edit', edit_favorite_path(favorite) %></td>
-        <td><%= link_to 'Destroy', favorite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% @favorite_places.each do |place| %>
+    	<%= render "places/place", place: place %></td>
+      
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Favorite', new_favorite_path %>
+<%= link_to 'New Favorite', new_user_favorite_path(current_user) %>
