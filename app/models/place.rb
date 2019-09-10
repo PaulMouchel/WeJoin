@@ -22,6 +22,7 @@ class Place < ApplicationRecord
 	end
 
 	def is_favorite?(user)
+		return false if user == nil
 		return user.favorite_places.include?(self)
 	end
 end
