@@ -17,7 +17,7 @@
         <%if city.city_pic.attached?%>
           <%= image_tag city.city_pic, alt: 'city' %>
         <%end%></td>
-        <td><%= city.name %></td>
+        <td><%= link_to "#{city.name}", city_places_path(city.id) %></td>
       </tr>
     <% end %>
   </tbody>
