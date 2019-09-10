@@ -20,10 +20,12 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
+        format.html { redirect_to @attendance 
+        flash[:success] = 'Attendance was successfully created.' }
         format.json { render :show, status: :created, location: @attendance }
       else
-        format.html { render :new }
+        format.html { flash.now[:error] = @attendance.errors.full_messages.to_sentence
+          render :new }
         format.json { render json: @attendance.errors, status: :unprocessable_entity }
       end
     end
@@ -32,10 +34,12 @@ class AttendancesController < ApplicationController
   def update
     respond_to do |format|
       if @attendance.update(attendance_params)
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully updated.' }
+        format.html { redirect_to @attendance 
+        flash[:success] = 'Attendance was successfully updated.' }
         format.json { render :show, status: :ok, location: @attendance }
       else
-        format.html { render :edit }
+        format.html { flash.now[:error] = @attendance.errors.full_messages.to_sentence
+          render :edit }
         format.json { render json: @attendance.errors, status: :unprocessable_entity }
       end
     end
@@ -44,7 +48,8 @@ class AttendancesController < ApplicationController
   def destroy
     @attendance.destroy
     respond_to do |format|
-      format.html { redirect_to attendances_url, notice: 'Attendance was successfully destroyed.' }
+      format.html { redirect_to attendances_url 
+      flash[:success] = 'Attendance was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
