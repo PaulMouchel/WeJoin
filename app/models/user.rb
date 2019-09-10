@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :ratings
   has_many :favorite_places, through: :favorites, class_name: "Place"
 
-  validates :birth_date, numericality: { only_integer: true, greater_than: 0}, :allow_nil => true
+  validate :validate_age
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -24,9 +24,19 @@ class User < ApplicationRecord
       return "#{first_name} #{last_name}"
   end
 
+  def validate_age
+    if birth_date.present? && birth_date > 0.years.ago.to_date
+      errors.add(:birth_date, 'You must be born. Nice try !')
+    end
+  end
+
   def age
-    birthday = self.birth_date
-    now = Time.now
-    return  (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
+    if self.birth_date != nil
+      birthday = self.birth_date
+      now = Time.now
+      return  (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
+    else
+      return "Non renseigné"
+    end
   end
 end
