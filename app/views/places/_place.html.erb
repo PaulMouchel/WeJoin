@@ -7,7 +7,9 @@
 		    	
 		    
 <div class="card">
-	<%= image_tag place.place_pics.first, class:"card-img-top" %>
+	<%if place.place_pics.attached?%>
+		<%= image_tag place.place_pics.first, class:"card-img-top" %>
+	<% end %>
 	<div class="card-body">
 		<h4 class="card-title"><%= place.name %></h4>
 		<p class="card-text"><%= place.address %></p>
