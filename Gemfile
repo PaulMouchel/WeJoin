@@ -70,4 +70,9 @@ gem 'letter_opener'
 gem 'faker'
 gem 'dotenv-rails' 
 gem "aws-sdk-s3", require: false
-gem 'file_validators'
+
+# Rails 5.2 and Rails 6
+gem 'active_storage_validations'
+
+# Optional, to use :dimension validator or :aspect_ratio validator
+gem 'mini_magick', '>= 4.9.5'
