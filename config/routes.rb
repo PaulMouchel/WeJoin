@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+  	resources :tags, except: [:show]
     resources :cities, except: [:show] do
       resources :city_pics
       resources :places do 
@@ -14,7 +15,6 @@ Rails.application.routes.draw do
     end
   end
   resources :place_tags
-  resources :tags
 	root 'cities#index'
   resources :cities, only: [:index] do
     resources :city_pics, only: [:create]
