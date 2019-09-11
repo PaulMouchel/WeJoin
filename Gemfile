@@ -70,3 +70,4 @@ gem 'letter_opener'
 gem 'faker'
 gem 'dotenv-rails' 
 gem "aws-sdk-s3", require: false
+gem 'file_validators'
