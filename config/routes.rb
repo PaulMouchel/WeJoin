@@ -7,6 +7,11 @@ Rails.application.routes.draw do
         resources :place_pics
       end
     end
+    resources :users do
+      resources :user_pics, only: [:create]
+      resources :favorites, except: [:show]
+      resources :attendances
+    end
   end
   resources :place_tags
   resources :tags

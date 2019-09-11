@@ -1,0 +1,40 @@
+<% if current_user != nil %>
+    <% if current_user.is_admin %>
+    
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link">ADMIN DASHBOARD<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  CITIES
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to "Index", admin_cities_path, class: "dropdown-item" %>
+                  <%= link_to "New",  new_admin_city_path, class: "dropdown-item" %>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  PLACES
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to "Index",  '#', class: "dropdown-item" %>
+                  <%= link_to "New",  '#', class: "dropdown-item" %>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  USERS
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to "Index", admin_users_path, class: "dropdown-item" %>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    <% end %>
+<% end %>
