@@ -1,4 +1,5 @@
-<%= form_with(model: current_user, local: true) do |f| %>
+
+  <%= form_with(model: model, local: true) do |f| %>
 
   <div class="form-group">
     <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control", placeholder:"Prénom" %>
@@ -18,6 +19,10 @@
   <div class="form-group">
     <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder:"Description" %>
   </div>
+
+  <% if is_admin %>
+    <%= f.check_box :is_admin, autofocus: true, autocomplete: "is_admin" %><br><br>
+  <% end %><br/> <br/>
 
   <div class="form-group">
     <%= f.file_field :user_pic, autocomplete: :user_pic %><br />

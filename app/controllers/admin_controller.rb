@@ -6,5 +6,7 @@ class AdminController < ApplicationController
 
   def check_if_admin
     redirect_to cities_path if !current_user.is_admin
+    @is_admin = true
   end
+  
 end
