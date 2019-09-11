@@ -2,17 +2,23 @@
   <div class="row justify-content-center">
     <div class="col-6 col-md-6 mt-5"><br/><br/>
       <% if current_user != nil %>
-        <% if is_admin %>
+        <% if @is_admin %>
           <h1 class="h3 mb-3 font-weight-normal text-center">EDITER PROFIL n°<%= @user.id %></h1>
         <% else %>
           <h1 class="h3 mb-3 font-weight-normal text-center">EDITER MON PROFIL</h1>
         <% end %>
       <% end %><br/> <br/>
 
-      <%= render 'form' %>
+      <% if current_user != nil %>
+        <% if @is_admin %>
+      <%= render 'users/form', model: [:admin, @user], is_admin: @is_admin %>
+        <% else %>
+      <%= render 'users/form', model: @user, is_admin: @is_admin %>
+        <% end %>
+      <% end %>
 
       <% if current_user != nil %>
-        <% if is_admin %>
+        <% if @is_admin %>
           <%= link_to 'Retour', admin_users_path %>
         <% else %>
           <%= link_to 'Retour', cities_path %>
