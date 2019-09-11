@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_one_attached :user_pic
 
   after_create :welcome_send
@@ -10,6 +11,8 @@ class User < ApplicationRecord
   has_many :favorite_places, through: :favorites, class_name: "Place"
 
   validate :validate_age
+
+  validates :user_pic, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: { less_than: 1.megabyte , message: ': Ta photo doit être inférieure à 1 Mo.' }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -24,12 +27,6 @@ class User < ApplicationRecord
       return "#{first_name} #{last_name}"
   end
 
-  def validate_age
-    if birth_date.present? && birth_date > 0.years.ago.to_date
-      errors.add(:birth_date, 'You must be born. Nice try !')
-    end
-  end
-
   def age
     if self.birth_date != nil
       birthday = self.birth_date
@@ -37,6 +34,24 @@ class User < ApplicationRecord
       return  (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
     else
       return "Non renseigné"
+    end
+  end
+
+  def rate_place(place, stars)
+  	rating = self.ratings.find_by(place_id: place.id)
+  	if rating
+  		rating.stars = stars
+  	else
+  		rating = self.ratings.new(place_id: place.id, stars: stars)
+  	end
+  	return rating
+  end
+
+  private
+
+  def validate_age
+    if birth_date.present? && birth_date > 0.years.ago.to_date
+      errors.add(:birth_date, 'You must be born. Nice try !')
     end
   end
 end

@@ -10,6 +10,10 @@
     <%= form.file_field :city_pic, autocomplete: :city_pic %><br />
   </div>
 
+  <div>
+    <%= link_to  "Delete photo", admin_city_city_pic_path(@city), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
