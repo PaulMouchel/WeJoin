@@ -27,7 +27,7 @@
                 <%if @user.user_pic.attached?%>
                   <%= image_tag @user.user_pic, alt: 'user_pic' %>
                 <%else%>
-                  <p>=== Il n'y a pas encore de photo lié à cet utilisateur ===</p>
+                  <img src="https://avatar-cdn.atlassian.com/002477b8b40d9d4396b551a8973aa1f8" >
                 <%end%>
                 </br>Description : <%= @user.description %>
                 </br>Email : <%= @user.email %>
