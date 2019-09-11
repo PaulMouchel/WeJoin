@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   end
   resources :place_tags
   resources :tags
-  resources :ratings
 	root 'cities#index'
   resources :cities, only: [:index] do
     resources :city_pics, only: [:create]
@@ -23,5 +22,6 @@ Rails.application.routes.draw do
     resources :user_pics, only: [:create]
   	resources :favorites, except: [:show]
   	resources :attendances
+  	resources :ratings
   end
 end
