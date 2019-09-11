@@ -18,7 +18,10 @@
           <%= image_tag city.city_pic, alt: 'city' %>
         <%end%></td>
         <td><%= city.name %></td>
-          <% if current_user != nil %>
+          <% if current_user == nil %>
+          <td><%= link_to 'Show', admin_city_places_path(city) %></td>
+          <% end %>
+            <% if current_user != nil %>
             <% if is_admin %>
               <td><%= link_to 'Show', admin_city_places_path(city) %></td>
               <td><%= link_to 'Edit', edit_admin_city_path(city) %></td>
