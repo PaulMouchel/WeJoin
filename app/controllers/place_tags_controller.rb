@@ -16,19 +16,22 @@ class PlaceTagsController < ApplicationController
   end
 
   def create
-    @place_tag = PlaceTag.new(place_tag_params)
+  	
 
-    respond_to do |format|
-      if @place_tag.save
-        format.html { redirect_to @place_tag 
-        flash[:success] = 'Place tag was successfully created.' }
-        format.json { render :show, status: :created, location: @place_tag }
-      else
-        format.html { flash.now[:error] = @place_tag.errors.full_messages.to_sentence
-          render :new }
-        format.json { render json: @place_tag.errors, status: :unprocessable_entity }
-      end
-    end
+  	
+    # @place_tag = PlaceTag.new(place_tag_params)
+
+    # respond_to do |format|
+    #   if @place_tag.save
+    #     format.html { redirect_to @place_tag 
+    #     flash[:success] = 'Place tag was successfully created.' }
+    #     format.json { render :show, status: :created, location: @place_tag }
+    #   else
+    #     format.html { flash.now[:error] = @place_tag.errors.full_messages.to_sentence
+    #       render :new }
+    #     format.json { render json: @place_tag.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def update
