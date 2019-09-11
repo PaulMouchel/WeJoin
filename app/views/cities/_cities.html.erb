@@ -1,37 +1,7 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Cities</h1>
+<div class="row">
+  <% @cities.each do |city| %>
+    <%= render 'city', city:city %>
+  <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cities.each do |city| %>
-      <tr>
-        <td>
-        <%if city.city_pic.attached?%>
-          <%= image_tag city.city_pic, alt: 'city' %>
-        <%end%></td>
-        <td><%= city.name %></td>
-          <% if current_user != nil %>
-            <% if is_admin %>
-              <td><%= link_to 'Show', admin_city_places_path(city) %></td>
-              <td><%= link_to 'Edit', edit_admin_city_path(city) %></td>
-              <td><%= link_to 'Destroy', admin_city_path(city), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% else %>
-              <td><%= link_to 'Show', city_places_path(city) %></td>
-            <% end %>
-          <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New City', new_admin_city_path %>
