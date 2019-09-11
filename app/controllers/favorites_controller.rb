@@ -22,7 +22,7 @@ class FavoritesController < ApplicationController
         format.json { render :show, status: :created, location: @favorite }
       else
         format.html { flash.now[:error] = @favorite.errors.full_messages.to_sentence
-          render :new }
+          redirect_back(fallback_location: root_path) }
         format.json { render json: @favorite.errors, status: :unprocessable_entity }
       end
     end
@@ -36,7 +36,7 @@ class FavoritesController < ApplicationController
         format.json { render :show, status: :ok, location: @favorite }
       else
         format.html { flash.now[:error] = @favorite.errors.full_messages.to_sentence
-          render :edit }
+          redirect_back(fallback_location: root_path) }
         format.json { render json: @favorite.errors, status: :unprocessable_entity }
       end
     end

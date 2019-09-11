@@ -24,12 +24,6 @@ class User < ApplicationRecord
       return "#{first_name} #{last_name}"
   end
 
-  def validate_age
-    if birth_date.present? && birth_date > 0.years.ago.to_date
-      errors.add(:birth_date, 'You must be born. Nice try !')
-    end
-  end
-
   def age
     if self.birth_date != nil
       birthday = self.birth_date
@@ -37,6 +31,24 @@ class User < ApplicationRecord
       return  (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
     else
       return "Non renseigné"
+    end
+  end
+
+  def rate_place(place, stars)
+  	rating = self.ratings.find_by(place_id: place.id)
+  	if rating
+  		rating.stars = stars
+  	else
+  		rating = self.ratings.new(place_id: place.id, stars: stars)
+  	end
+  	return rating
+  end
+
+  private
+
+  def validate_age
+    if birth_date.present? && birth_date > 0.years.ago.to_date
+      errors.add(:birth_date, 'You must be born. Nice try !')
     end
   end
 end
