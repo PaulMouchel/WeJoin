@@ -34,4 +34,12 @@ class Place < ApplicationRecord
 		return false if user == nil
 		return user.favorite_places.include?(self)
 	end
+
+	def all_tags=(names)
+	  self.tags = names.split(",").map {|name| Tag.where(name: name.strip).first} - [nil]
+	end
+
+	def all_tags
+	  self.tags.map(&:name).join(", ")
+	end
 end
