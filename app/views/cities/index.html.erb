@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 
 <div class="container">
 	<div class="row justify-content-center">
@@ -6,8 +7,8 @@
 			<h1 class="home_text">DÉCOUVRE LES MEILLEURS ENDROITS POUR TRAVAILLER</h1>
 		</div>
 	</div>
+
+	<div class="row">
+	<%= render 'cities', is_admin: false %>
+	</div>
 </div>
-
-
-
-<%= render 'cities', is_admin: false %>

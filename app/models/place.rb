@@ -13,11 +13,20 @@ class Place < ApplicationRecord
 
 	def average_rating
 		if self.ratings.length > 0
-			ratings_sum = self.ratings.inject { |sum, rating| sum + rating.stars }
+			ratings_sum = self.ratings.all.inject(0){|sum,e| sum + e.stars }
 			ratings_average = ratings_sum.to_f/self.ratings.length
-			return '%.1f' % ratings_average
+			return ratings_average
 		else
 			return 0.0
+		end
+	end
+
+	def my_rating(user)
+		rating = self.ratings.find_by(user: user)
+		if rating != nil
+			return rating.stars
+		else
+			return 0
 		end
 	end
 
