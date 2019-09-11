@@ -3,7 +3,7 @@ class Admin::PlacesController < AdminController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @places = Place.all
+    @places = @city.places
   end
 
   def show
