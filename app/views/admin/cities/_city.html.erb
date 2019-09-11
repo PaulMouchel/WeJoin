@@ -12,7 +12,6 @@
                 <%= link_to 'Show', admin_city_places_path(city) %>
                 <%= link_to 'Edit', edit_admin_city_path(city) %>
                 <%= link_to 'Destroy', admin_city_path(city), method: :delete, data: { confirm: 'Are you sure?' } %>
-                <%= link_to 'New City', new_admin_city_path %>
               <% else %>
                 <%= link_to 'Show', city_places_path(city) %>
               <% end %>

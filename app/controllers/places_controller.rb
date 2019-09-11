@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
 	before_action :set_city
   before_action :set_place, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new, :show, :create, :update]
 
   def index
     @places = @city.places.all

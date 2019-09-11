@@ -33,6 +33,15 @@
                   <%= link_to "Index", admin_users_path, class: "dropdown-item" %>
                 </div>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  TAGS
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to "Index", admin_tags_path, class: "dropdown-item" %>
+                  <%= link_to "New",  new_admin_tag_path, class: "dropdown-item" %>
+                </div>
+              </li>
             </ul>
           </div>
         </nav>
