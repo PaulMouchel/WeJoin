@@ -63,6 +63,16 @@ body {
   background-color: #fff;
 }
 
+.img-size {
+
+  object-fit: cover; 
+    width:  250px;
+    height: 170px;
+    margin-bottom: 20px;
+
+}
+
+
 .bloc {
 	margin-top: 150px;
 	background-color: var(--blue_light);
@@ -4730,18 +4740,24 @@ input[type="button"].btn-block {
 }
 
 .card-img {
+  object-fit: cover; 
   width: 100%;
+  height: 300px;
   border-radius: calc(0.25rem - 1px);
 }
 
 .card-img-top {
+  object-fit: cover; 
   width: 100%;
+  height: 300px;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
 }
 
 .card-img-bottom {
+  object-fit: cover; 
   width: 100%;
+  height: 300px;
   border-bottom-right-radius: calc(0.25rem - 1px);
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
