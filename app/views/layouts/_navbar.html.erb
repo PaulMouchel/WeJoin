@@ -1,5 +1,5 @@
-<div class="container mt-5">
-   <nav class="navbar navbar-expand-lg"  id="navbar">
+  <%= render 'layouts/admin_navbar' %>
+   <nav class="navbar navbar-expand-lg mt-5"  id="navbar">
     <a class="navbar-brand" href="#">WEJOIN</a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -23,15 +23,13 @@
                 </li>
               <% else %>
               <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROFIL / DÉCONNEXION</a>
+                <a href="#" class="nav-link dropdown-toggle btn-primary" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROFIL / DÉCONNEXION</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><%= link_to "Mon Profil", user_path(current_user.id), class: "nav-link btn btn-primary" %></li>
-                  <li class="nav-item"><%= link_to "Mes lieux favoris", user_favorites_path(current_user), class: "nav-link btn btn-primary" %></li>
-                  <li class="nav-item"><%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to "MON PROFIL", user_path(current_user.id), class: "nav-link btn btn-primary" %></li>
+                  <li class="nav-item"><%= link_to "MES LIEUX FAVORIS", user_favorites_path(current_user), class: "nav-link btn btn-primary" %></li>
+                  <li class="nav-item"><%= link_to "SE DÉCONNECTER", destroy_user_session_path, method: :delete, class: "nav-link btn-primary" %></li>
               <% end %>
-              <li class="nav-item"><%= link_to "AJOUTER UN LIEU", cities_path, class: "nav-link nav-item btn-primary" %></li>
           </ul>
         </div>      
       <!-- </div> -->
     </nav>
-</div> 

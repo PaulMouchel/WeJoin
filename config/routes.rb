@@ -2,10 +2,15 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :cities, except: [:show] do
-      resources :city_pics, only: [:create]
+      resources :city_pics
       resources :places do 
-        resources :place_pics, only: [:create]
+        resources :place_pics
       end
+    end
+    resources :users do
+      resources :user_pics, only: [:create]
+      resources :favorites, except: [:show]
+      resources :attendances
     end
   end
   resources :place_tags
@@ -14,7 +19,7 @@ Rails.application.routes.draw do
 	root 'cities#index'
   resources :cities, only: [:index] do
     resources :city_pics, only: [:create]
-    resources :places do 
+    resources :places, except: [:edit, :update, :destroy] do 
       resources :place_pics, only: [:create]
     end
   end

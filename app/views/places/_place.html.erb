@@ -1,14 +1,22 @@
-<tr>
-	<td><%= place.name %></td>
-	<td><%= place.address %></td>
-	<td><%= place.description %></td>
-	<td><%= place.coffee_price %></td>
-	<td><%= place.tea_price %></td>
-	<td><%= place.beer_price %></td>
-	<td><%= place.wifi_password %></td>
-	<td><%= link_to 'Show', city_place_path(place.city, place) %></td>
-	<td><%= link_to 'Edit', edit_city_place_path(place.city, place) %></td>
-	<td><%= link_to 'Destroy', city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	<td><%= render "places/favorite_place_icon", place: place %></td>
-</tr>
+
+
+  
+      
+
+		
+		    	
+		    
+<div class="card">
+	<%if place.place_pics.attached?%>
+		<%= image_tag place.place_pics.first, class:"card-img-top" %>
+	<% end %>
+	<div class="card-body">
+		<h4 class="card-title"><%= place.name %></h4>
+		<p class="card-text"><%= place.address %></p>
+		<%= link_to 'Voir le lieu', city_place_path(place.city, place), class:'btn-primary' %>
+		<%= render "places/favorite_place_icon", place: place %>
+	</div>
+</div>
+			
+
 
