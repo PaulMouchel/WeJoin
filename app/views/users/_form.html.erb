@@ -28,6 +28,10 @@
     <%= f.file_field :user_pic, autocomplete: :user_pic %><br />
   </div>
 
+  <div>
+    <%= link_to  "Delete photo", user_user_pic_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+  </div>
+
   <div class="actions mt-5">
     <%= f.submit "EDITER", class: "btn btn-lg btn-primary btn-block" %>
   </div><br>

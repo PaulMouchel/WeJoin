@@ -2,8 +2,11 @@
 
 <p>
   <%if @place.place_pics.attached?%>
-    <% @place.place_pics.each do |image| %>
+    <% @place.place_pics.each_with_index do |image, index| %>
       <%= image_tag image %> <br />
+    <div>
+      <%= link_to  "Delete photo", city_place_place_pic_path(@place.city, @place, index: index), method: :delete, data: { confirm: 'Are you sure?' } %><br />
+    </div>
     <% end %>
   <%else%>
     <p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>

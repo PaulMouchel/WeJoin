@@ -4,4 +4,10 @@ class Admin::CityPicsController < AdminController
     @city.city_pic.attach(params[:city_pic])
     redirect_to(admin_city_path(@city))
   end
+
+  def destroy
+    @city = City.find(params[:city_id])
+    @city.city_pic.purge
+    redirect_to(admin_cities_path)
+  end
 end
