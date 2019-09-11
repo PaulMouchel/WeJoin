@@ -46,8 +46,8 @@
 <%= link_to 'Back', city_places_path(@city) %>
 
 
+<p><%= render "places/tags_list", tags: @place.tags %></p>
 
-
-<td><%= render "favorite_place_icon", place: @place %></td>
+<p><%= render "favorite_place_icon", place: @place %></p>
 <br><br>
 <p><%= render "ratings", place: @place %></p>
