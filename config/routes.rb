@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+    root 'cities#home'
   namespace :admin do
   	resources :tags, except: [:show]
     resources :cities, except: [:show] do
@@ -13,12 +13,12 @@ Rails.application.routes.draw do
     end
   end
   resources :place_tags
-	root 'cities#index'
   resources :cities, only: [:index] do
     resources :city_pics, only: [:create, :destroy]
     resources :places, except: [:edit, :update, :destroy] do 
       resources :place_pics, only: [:create, :destroy]
     end
+
   end
   devise_for :users 
   resources :users, only: [:show, :edit, :update, :destroy] do
