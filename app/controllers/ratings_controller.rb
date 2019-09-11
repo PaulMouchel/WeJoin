@@ -16,16 +16,17 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @rating = Rating.new(rating_params)
-
+    #@rating = Rating.new(rating_params)
+		@place = Place.find(params[:place_id])
+    @rating = current_user.rate_place(@place, params[:stars])
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to @rating 
+        format.html { redirect_back(fallback_location: root_path) 
         flash[:success] = 'Rating was successfully created.' }
         format.json { render :show, status: :created, location: @rating }
       else
         format.html { flash.now[:error] = @rating.errors.full_messages.to_sentence
-          render :new }
+          redirect_back(fallback_location: root_path) }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
       end
     end
@@ -60,6 +61,6 @@ class RatingsController < ApplicationController
     end
 
     def rating_params
-      params.require(:rating).permit(:stars)
+      params.permit(:stars, :place_id, :user_id)
     end
 end
