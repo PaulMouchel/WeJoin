@@ -90,6 +90,12 @@ body {
   transition: border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
+.home_text {
+	font-weight: 800;
+	font-size: 500%;
+}
+
+
 .btn-submit:hover {
   color: var(--blue);
   background-color: white;
@@ -103,7 +109,7 @@ body {
 }
 
 .space {
-	height: 100px;
+	height: 150px;
 } 
 
 [tabindex="-1"]:focus {
@@ -4690,9 +4696,10 @@ input[type="button"].btn-block {
   border-top: 0;
 }
 
+
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: var(--blue_light);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -5948,6 +5955,7 @@ a.close.disabled {
 }
 
 .modal-footer {
+	background-color: var(--blue_light);
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -10069,6 +10077,7 @@ a.text-dark:hover, a.text-dark:focus {
     size: a3;
   }
   body {
+  	height: 100%;
     min-width: 992px !important;
   }
   .container {

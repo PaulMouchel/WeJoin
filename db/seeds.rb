@@ -1,6 +1,6 @@
-rennes = City.find_by(zip_code:"35000")
+rennes = City.find_by(name:"Rennes")
 if rennes == nil
-	rennes = City.create(name: "Rennes", zip_code:"35000")
+	rennes = City.create(name: "Rennes")
 end
 
 name = "Loco Loca"
