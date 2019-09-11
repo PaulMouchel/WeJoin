@@ -21,7 +21,7 @@
         <% if @is_admin %>
           <%= link_to 'Retour', admin_users_path %>
         <% else %>
-          <%= link_to 'Retour', cities_path %>
+          <%= link_to 'Retour', user_path(current_user.id) %>
         <% end %>
       <% end %>
     </div>
