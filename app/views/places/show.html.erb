@@ -3,7 +3,7 @@
 <p>
   <%if @place.place_pics.attached?%>
     <% @place.place_pics.each do |image| %>
-      <%= image_tag image %> <br />
+      <%= image_tag image, class:"card-img-top"%> <br />
     <% end %>
   <%else%>
     <p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>
