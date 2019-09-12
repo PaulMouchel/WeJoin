@@ -16,14 +16,13 @@ class RatingsController < ApplicationController
   end
 
   def create
-    #@rating = Rating.new(rating_params)
 		@place = Place.find(params[:place_id])
     @rating = current_user.rate_place(@place, params[:stars])
     respond_to do |format|
       if @rating.save
         format.html { redirect_back(fallback_location: root_path) 
         flash[:success] = 'Rating was successfully created.' }
-        format.json { render :show, status: :created, location: @rating }
+        format.js { }
       else
         format.html { flash.now[:error] = @rating.errors.full_messages.to_sentence
           redirect_back(fallback_location: root_path) }
