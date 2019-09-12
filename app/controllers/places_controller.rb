@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :show, :create, :update]
 
   def index
-    @places = @city.places.all
+    @places = @city.places.where(validated: true)
   end
 
   def show

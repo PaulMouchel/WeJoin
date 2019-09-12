@@ -1,6 +1,10 @@
 class Admin::PlacesController < AdminController
-	before_action :set_city
+	before_action :set_city, except: [:all]
   before_action :set_place, only: [:show, :edit, :update, :destroy]
+
+  def all
+    @places = Place.all
+  end
 
   def index
     @places = @city.places
