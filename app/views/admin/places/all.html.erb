@@ -1,0 +1,58 @@
+<h1>Places to be validated</h1>
+
+<% @to_be_validated.each do |place| %>
+  <div class="col-lg-4">	    			    
+    <div class="card">
+      <% if place.place_pics.attached?%>
+        <%= image_tag place.place_pics.first, class:"card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
+        <p class="card-text"><%= place.address %></p>
+          <%= link_to 'Show', admin_city_place_path(place.city, place) %>
+          <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
+          <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= render "places/tags_list", tags: place.tags %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<h1>Validated places</h1>
+
+<% @validated.each do |place| %>
+  <div class="col-lg-4">	    			    
+    <div class="card">
+      <%if place.place_pics.attached?%>
+        <%= image_tag place.place_pics.first, class:"card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
+        <p class="card-text"><%= place.address %></p>
+          <%= link_to 'Show', admin_city_place_path(place.city, place) %>
+          <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
+          <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= render "places/tags_list", tags: place.tags %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<h1>Rejected places</h1>
+<% @non_validated.each do |place| %>
+  <div class="col-lg-4">	    			    
+    <div class="card">
+      <%if place.place_pics.attached?%>
+        <%= image_tag place.place_pics.first, class:"card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
+        <p class="card-text"><%= place.address %></p>
+          <%= link_to 'Show', admin_city_place_path(place.city, place) %>
+          <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
+          <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= render "places/tags_list", tags: place.tags %>
+      </div>
+    </div>
+  </div>
+<% end %>
