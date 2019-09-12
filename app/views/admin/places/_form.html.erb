@@ -40,6 +40,11 @@
     <%= form.file_field :place_pics, multiple: true %><br />
   </div>
 
+  <div class="form-group">
+  	Tags possibles : <%= render "places/tags_list", tags: Tag.all %>
+	<%= form.text_field :all_tags, placeholder: "Tags separated with comma" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

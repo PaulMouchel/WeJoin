@@ -3,7 +3,7 @@ class Admin::PlacesController < AdminController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @places = Place.all
+    @places = @city.places
   end
 
   def show
@@ -11,6 +11,7 @@ class Admin::PlacesController < AdminController
 
   def new
     @place = Place.new
+    @tags = Tag.all
   end
 
   def edit
@@ -66,7 +67,7 @@ class Admin::PlacesController < AdminController
     end
 
     def place_params
-      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password,
+      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password, :all_tags,
       place_pics: [])
     end
 end
