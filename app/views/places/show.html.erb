@@ -1,21 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="space"></div>
+<div class="row justify-content-center">
+	<div class="col-lg-8">
+		<div class="card">
+			<%if @place.place_pics.attached?%>
+			<% @place.place_pics.each do |image| %>
+			  <%= image_tag image, class:"card-img-top"%> <br />
+			<% end %>
+			<%else%>
+			<p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>
+			<%end%>
+		  	<div class="card-body">
+				<%= render 'show_places' %>
 
-<p>
-  <%if @place.place_pics.attached?%>
-    <% @place.place_pics.each do |image| %>
-      <%= image_tag image, class:"card-img-top"%> <br />
-    <% end %>
-  <%else%>
-    <p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>
-  <%end%></p>
-  
-<%= render 'show_places' %>
+				<p><%= render "places/tags_list", tags: @place.tags %></p>
 
-<%= link_to 'Back', city_places_path(@city) %>
-
-
-<p><%= render "places/tags_list", tags: @place.tags %></p>
-
-<p><%= render "favorite_place_icon", place: @place %></p>
-<br><br>
-<p><%= render "ratings", place: @place %></p>
+				<p><%= render "favorite_place_icon", place: @place %></p>
+				<br><br>
+				<p><%= render "ratings", place: @place %></p>
+			</div>
+		</div>
+		<%= link_to 'Back', city_places_path(@city) %>
+	</div>
+</div>
