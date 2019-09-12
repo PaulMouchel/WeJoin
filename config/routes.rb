@@ -25,6 +25,6 @@ Rails.application.routes.draw do
     resources :user_pics, only: [:create, :destroy]
   	resources :favorites, only: [:index, :create, :destroy]
   	resources :attendances
-  	resources :ratings
+  	resources :ratings, only: [:create]
   end
 end
