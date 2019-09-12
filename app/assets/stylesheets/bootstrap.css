@@ -63,6 +63,18 @@ body {
   background-color: #fff;
 }
 
+.favorite{
+  z-index: 999;
+  position: relative;
+}
+
+.position_favorite {
+  position: absolute;
+    z-index: 999;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
 .img-size {
 
   object-fit: cover; 
