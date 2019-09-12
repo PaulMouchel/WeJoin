@@ -1,22 +1,20 @@
-
-
-  
-      
-
-		
-		    	
-		    
-<div class="card">
-	<%if place.place_pics.attached?%>
-		<%= image_tag place.place_pics.first, class:"card-img-top" %>
-	<% end %>
-	<div class="card-body">
-		<h4 class="card-title"><%= place.name %></h4>
-		<p class="card-text"><%= place.address %></p>
-		<%= link_to 'Voir le lieu', city_place_path(place.city, place), class:'btn-primary' %>
-		<%= render "places/favorite_place_icon", place: place %>
+<div class="col-lg-4">	    			    
+	<div class="card">
+		<%if place.place_pics.attached?%>
+			<%= image_tag place.place_pics.first, class:"card-img-top" %>
+		<% end %>
+		<div class="card-body">
+			<h4 class="card-title"><%= place.name %></h4>
+			<p class="card-text"><%= place.address %></p>
+			<% if @is_admin %>
+				<%= link_to 'Show', admin_city_place_path(place.city, place) %>
+				<%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
+				<%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+			<% else %>
+				<%= link_to '', city_place_path(place.city, place), class:'btn-primary, stretched-link' %>
+			<% end %>
+			<%= render "places/favorite_place_icon", place: place %>
+			<%= render "places/tags_list", tags: place.tags %>
+		</div>
 	</div>
 </div>
-			
-
-

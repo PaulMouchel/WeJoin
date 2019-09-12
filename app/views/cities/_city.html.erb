@@ -1,33 +1,30 @@
 <div class="col-lg-4">
-
-  <div class="card-hover">
-    <div class="card-cities">
-      <%if city.city_pic.attached?%>
-        <%= image_tag city.city_pic, alt: 'city', class:"card-img-top" %>
-      <%else%>
-        <p>=== Il n'y a pas encore de photo lié à cette ville ===</p>
-      <%end%>
-
-      <div class="card-img-overlay">
-        <% if current_user != nil %>
-                <% if @is_admin %>
-                  <%= link_to "", city_places_path(city), class:'stretched-link' %>
-                  <%= link_to 'Edit', edit_admin_city_path(city) %>
-                  <%= link_to 'Destroy', admin_city_path(city), method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <%= link_to 'New City', new_admin_city_path %>
-                <% else %>
-                  <%= link_to "", city_places_path(city), class:'stretched-link' %>
-                <% end %>
-              <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-12 text-center ">
-        <h2 class="card-title-cities"><%= city.name %></h2>
-      </div>
-    </div>
-
-  </div>
+  	<div class="card-hover">
+    	<div class="card-cities">
+      		<%if city.city_pic.attached?%>
+        		<%= image_tag city.city_pic, alt: 'city', class:"card-img-top" %>
+      		<%else%>
+        		<p>=== Il n'y a pas encore de photo lié à cette ville ===</p>
+      		<%end%>
+      		<div class="card-img-overlay">
+            <% if current_user == nil %>
+              <%= link_to "", city_places_path(city), class:'stretched-link' %>
+            <%end%>
+        		<% if current_user != nil %>
+                	<% if @is_admin %>
+                  		<%= link_to 'Show', admin_city_places_path(city), class: "btn btn-primary" %>
+                  		<%= link_to 'Edit', edit_admin_city_path(city), class: "btn btn-primary" %>
+                  		<%= link_to 'Destroy', admin_city_path(city), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+                	<% else %>
+                  		<%= link_to "", city_places_path(city), class:'stretched-link' %>
+                	<% end %>
+              	<% end %>
+      		</div>
+    	</div>
+    	<div class="row">
+      		<div class="col-lg-12 text-center ">
+        		<h2 class="card-title-cities"><%= city.name %></h2>
+      		</div>
+    	</div>
+  	</div>
 </div>
-

@@ -8,48 +8,15 @@
       <%= link_to  "Delete photo", city_place_place_pic_path(@place.city, @place, index: index), method: :delete, data: { confirm: 'Are you sure?' } %><br />
     </div>
     <% end %>
-  <%else%>
-    <p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>
   <%end%></p>
-<p>
-  <strong>Name:</strong>
-  <%= @place.name %>
-</p>
+  
+  <%= render 'places/show_places' %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @place.address %>
-</p>
+    <p><%= button_to 'Valider', admin_city_place_places_submission_path(@place.city, @place), method: :put, class:"btn btn-success float-right mt-1" %></p>
+    <p><%= link_to 'Refuser', admin_city_place_places_submission_path(@place.city, @place), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger float-right mt-1" %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @place.description %>
-</p>
-
-<p>
-  <strong>Coffee price:</strong>
-  <%= @place.coffee_price %>
-</p>
-
-<p>
-  <strong>Tea price:</strong>
-  <%= @place.tea_price %>
-</p>
-
-<p>
-  <strong>Beer price:</strong>
-  <%= @place.beer_price %>
-</p>
-
-<p>
-  <strong>Wifi password:</strong>
-  <%= @place.wifi_password %>
-</p>
-
-<%= link_to 'Edit', edit_admin_city_place_path(@city, @place) %> |
-<%= link_to 'Back', admin_city_places_path(@city) %>
+  <%= link_to 'Edit', edit_admin_city_place_path(@city, @place) %> |
+  <%= link_to 'Back', admin_city_places_path(@city) %>
 
 
-
-
-<td><%= render "favorite_place_icon", place: @place %></td>
+<td><%= render "places/favorite_place_icon", place: @place %></td>

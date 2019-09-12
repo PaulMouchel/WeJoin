@@ -1,46 +1,46 @@
-<%= form_with(model: [@city, @place], local: true) do |form| %>
+<%= form_with(model: model, local: true) do |form| %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div >
+    <%= form.text_field :name, placeholder:"nom",class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+  <div >
+    <%= form.text_field :address, placeholder:"adresse", class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div >
+    <%= form.text_area :description, placeholder:"description", class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div >
     <%= form.label :coffee_price %>
-    <%= form.text_field :coffee_price %>
+    <%= form.number_field(:coffee_price, in: 0.0..20.0, step: 0.05) %>
   </div>
 
-  <div class="field">
+  <div >
     <%= form.label :tea_price %>
-    <%= form.text_field :tea_price %>
+    <%= form.number_field(:tea_price, in: 0.0..20.0, step: 0.05) %>
   </div>
 
-  <div class="field">
+  <div >
     <%= form.label :beer_price %>
-    <%= form.text_field :beer_price %>
+    <%= form.number_field(:beer_price, in: 0.0..20.0, step: 0.05) %>
   </div>
 
-  <div class="field">
-    <%= form.label :wifi_password %>
-    <%= form.text_field :wifi_password %>
+  <div >
+    <%= form.text_field :wifi_password, placeholder:"mot de passe wifi", class:"form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :place_pics %>
-    <%= form.file_field :place_pics, multiple: true %><br />
+    <%= form.file_field :place_pics, multiple: true, placeholder:"photo", class:"btn-primary" %><br />
+  </div>
+
+  <div class="form-group">
+  	<%= render "places/tags_list", tags: Tag.all %>
+	<%= form.text_field :all_tags, placeholder: "choisir un ou plusieurs tags" ,  class:"form-control"%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn-submit float-right" %>
   </div>
 <% end %>

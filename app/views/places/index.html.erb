@@ -1,21 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-
 <div class="space"></div>
 <h1 class="home_text text-center" ><%= @city.name %></h1>
-
+<div class="space"></div>
 <%= link_to 'Back', cities_path %>
 
 <div class="row">
-  
-    <% @places.each do |place| %>
-    <div class="col-lg-4">
-    	<%= render "place", place: place %>
-      </div>
-    <% end %>
-  
+  	<%= render "places", places: @places %>    
+	<div class="col-lg-4">	    			    
+		<div class="card">
+			<img>
+			<div class="card-body">
+				<h4 class="card-title"><%= link_to 'AJOUTE UN LIEU', new_city_place_path(@city) %></h4>
+			</div>
+		</div>
+	</div>
 </div>
-
-<br>
-
-<%= link_to 'New Place', new_city_place_path(@city) %>

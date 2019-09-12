@@ -1,0 +1,28 @@
+
+
+<h1 class="card-title"><%= @place.name %></h1>
+
+<h4><%= @place.address %></h4>
+<p><strong>Description : </strong><%= @place.description %></p>
+<br> <br>
+<div class="row">
+  <div class="col-lg-3">
+    <p><strong>Coffee price : </strong><%= @place.coffee_price %></p>
+
+    <p>
+      <strong>Tea price : </strong>
+      <%= @place.tea_price %>
+    </p>
+
+    <p>
+      <strong>Beer price : </strong>
+      <%= @place.beer_price %>
+    </p>
+  </div>
+  <div class="col-lg-4">
+    <p>
+      <strong>Wifi password : </strong>
+      <%= @place.wifi_password %>
+    </p>
+  </div>
+ </div> 

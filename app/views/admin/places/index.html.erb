@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<div class="space"></div>
+<h1 class="home_text text-center" ><%= @city.name %></h1>
 
 <p>
   <%if @city.city_pic.attached?%>
@@ -8,37 +9,16 @@
   <%end%>
 </p>
 
-<p>
-<strong>Name:</strong>
-<%= @city.name %>
-</p>
+<h1>Places</h1>
 
+<div class="row">
+  	<%= render "places/places", places: @places %>
+</div>
+
+<br>
 
 <%= link_to 'Edit', edit_admin_city_path(@city) %> |
 <%= link_to 'Back', admin_cities_path %>
-
-<h1>Places</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Description</th>
-      <th>Coffee price</th>
-      <th>Tea price</th>
-      <th>Beer price</th>
-      <th>Wifi password</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @city.places.each do |place| %>
-    	<%= render "place", place: place %>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 

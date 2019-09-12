@@ -5,8 +5,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
-  --blue: #0000ff;
-  --blue_light: #edeffe;
+
+  --gray_light: #E8E8E8;
 
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -58,7 +58,7 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--blue);
+  color: black;
   text-align: left;
   background-color: #fff;
 }
@@ -94,7 +94,7 @@ body {
 
 .bloc {
 	margin-top: 150px;
-	background-color: var(--blue_light);
+	background-color: var(--gray_light);
 	padding: 80px;
 	border-radius: 30px;
 }
@@ -113,8 +113,8 @@ body {
   font-weight: 500;
   color: white;
   padding: 10px;
-  background-color: var(--blue);
-  border: 2px solid var(--blue);
+  background-color: black;
+  border: 2px solid black;
   border-radius: 45px;
   transition: border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
@@ -126,15 +126,15 @@ body {
 
 
 .btn-submit:hover {
-  color: var(--blue);
+  color: black;
   background-color: white;
   border: 2px solid white;
-  box-shadow: 0px 0px 8px 0.4px var(--blue);
+  box-shadow: 0px 0px 8px 0.4px black;
 }
 
 .btn-submit:focus, .btn-submit.focus {
-  color: var(--blue);
-  box-shadow: 0px 0px 8px 0.4px var(--blue);
+  color: black;
+  box-shadow: 0px 0px 8px 0.4px black;
 }
 
 .space {
@@ -1946,10 +1946,10 @@ pre code {
   border: 1px solid #ced4da;
   border-radius: 30px;
   
-  color: var(--blue);
+  color: black;
   background-color: white;
   border: 2px solid white;
-  box-shadow: 0px 0px 8px 0.4px var(--blue);
+  box-shadow: 0px 0px 8px 0.4px black;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -1965,34 +1965,34 @@ pre code {
 }
 
 .form-control:focus {
-/*  border: 1px solid var(--blue);*/
+/*  border: 1px solid black;*/
   outline: 0;
-  box-shadow: 0px 0px 0px 0px var(--blue);
+  box-shadow: 0px 0px 0px 0px black;
   /*box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);*/
 }
 
 .form-control::-webkit-input-placeholder {
-  color: var(--blue);
+  color: black;
   opacity: 1;
 }
 
 .form-control::-moz-placeholder {
-  color: var(--blue);
+  color: black;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: var(--blue);
+  color: black;
   opacity: 1;
 }
 
 .form-control::-ms-input-placeholder {
-  color: var(--blue);
+  color: black;
   opacity: 1;
 }
 
 .form-control::placeholder {
-  color: var(--blue);
+  color: black;
   opacity: 1;
 }
 
@@ -2503,24 +2503,23 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   font-weight: 500;
-  color: var(--blue);
-  background-color: var(--blue_light);
-  border: 2px solid var(--blue);
+  color: black;
+  border: 2px solid black;
   border-radius: 45px;
   transition: border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 
 }
 
 .btn-primary:hover {
-  color: var(--blue);
-  background-color: white;
-  border: 2px solid white;
-  box-shadow: 0px 0px 8px 0.4px var(--blue);
+  color: white;
+  background-color: black;
+  border: 2px solid black;
+
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  color: var(--blue);
-  box-shadow: 0px 0px 8px 0.4px var(--blue);
+  color: black;
+  box-shadow: 0px 0px 8px 0.4px black;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
@@ -2531,16 +2530,16 @@ fieldset:disabled a.btn {
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-  color: var(--blue);
+  color: black;
   background-color: white;
-  box-shadow: 0px 0px 8px 0.4px var(--blue);
+  box-shadow: 0px 0px 8px 0.4px black;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  color: var(--blue);
+  color: black;
   background-color: white;
-  box-shadow: 0px 0px 8px 0.4px var(--blue);
+  box-shadow: 0px 0px 8px 0.4px black;
 }
 
 .btn-secondary {
@@ -3167,7 +3166,7 @@ input[type="button"].btn-block {
   clear: both;
   font-weight: 400;
   line-height: 1.42857143;
-  color: var(--blue);
+  color: black;
   white-space: nowrap;
 }
 
@@ -4276,15 +4275,16 @@ input[type="button"].btn-block {
   line-height: inherit;
   white-space: nowrap;
   font-family: 'Work Sans', sans-serif;
-  font-weight: 500;
-  color: var(--blue);
-  background-color: white;
-  box-shadow: 0px 0px 8px 0.4px var(--blue);
+  font-weight: 600;
+  color: white;
+  background-color: black;
   border-radius: 45px;
 }
 
-.navbar-brand:hover, .navbar-brand:focus {
+.navbar-brand:hover {
   text-decoration: none;
+  color:white;
+
 }
 
 .navbar-nav {
@@ -4678,6 +4678,7 @@ filter: none;
 
 
 .card {
+  margin-bottom: 60px;
   position: relative;
   display: -ms-flexbox;
   display: flex;
@@ -4761,7 +4762,7 @@ filter: none;
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: var(--blue_light);
+  background-color: var(--gray_light);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -6027,7 +6028,7 @@ a.close.disabled {
 }
 
 .modal-footer {
-	background-color: var(--blue_light);
+	background-color: var(--gray_light);
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;

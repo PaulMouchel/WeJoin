@@ -1,9 +1,15 @@
 class Admin::PlacesController < AdminController
-	before_action :set_city
+	before_action :set_city, except: [:all]
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
+  def all
+    @validated = Place.where(reviewed: true, validated: true)
+    @non_validated = Place.where(validated: false, reviewed: true)
+    @to_be_validated = Place.where(reviewed: false, validated: false)
+  end
+
   def index
-    @places = Place.all
+    @places = @city.places
   end
 
   def show
