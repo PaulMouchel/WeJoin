@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   root 'cities#home'
   namespace :admin do
+    get '/places', to: 'places#all'
   	resources :tags, except: [:show]
     resources :cities, except: [:show] do
       resources :city_pics, only: [:create, :destroy]
-      resources :places
+      resources :places do 
+        resources :places_submissions, only: [:update, :destroy]
+      end
     end
     resources :users do
       resources :user_pics, only: [:create, :destroy]
-      resources :favorites, except: [:show, :destroy]
       resources :attendances
     end
   end

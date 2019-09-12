@@ -11,10 +11,15 @@
 				<%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
 				<%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
 			<% else %>
-				<%= link_to 'Voir le lieu', city_place_path(place.city, place), class:'btn-primary' %>
+				<%= link_to '', city_place_path(place.city, place), class:'btn-primary, stretched-link' %>
 			<% end %>
-			<%= render "places/favorite_place_icon", place: place %>
+
 			<%= render "places/tags_list", tags: place.tags %>
 		</div>
-	</div>
+		<div class="position_favorite">
+			<div class="favorite">
+			<%= render "places/favorite_place_icon", place: place %>
+			</div>
+		</div>	
+	</div>	
 </div>
