@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    root 'cities#home'
+  root 'cities#home'
   namespace :admin do
   	resources :tags, except: [:show]
     resources :cities, except: [:show] do

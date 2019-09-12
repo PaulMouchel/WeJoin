@@ -1,6 +1,6 @@
 <h1>Editing Place</h1>
 
-<%= render 'form', place: @place %>
+<%= render 'places/form', model: [:admin, @city, @place], is_admin: @is_admin %>
 
 <%= link_to 'Show', admin_city_places_path(@city) %> |
 <%= link_to 'Back', admin_city_path %>
