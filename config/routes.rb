@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   devise_for :users 
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :user_pics, only: [:create, :destroy]
-  	resources :favorites, except: [:show]
+  	resources :favorites, only: [:index, :create, :destroy]
   	resources :attendances
   	resources :ratings
   end
