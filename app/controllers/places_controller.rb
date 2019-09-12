@@ -23,7 +23,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       if @place.save
         format.html { redirect_to city_places_path(@city) 
-        flash[:success] = 'Place was successfully created.' }
+        flash[:success] = 'Great ! Thank you very much ! Your place was successfully sent and will be reviewed shorty by the team !' }
         format.json { render :show, status: :created, location: @place }
       else
         format.html { flash.now[:error] = @place.errors.full_messages.to_sentence
