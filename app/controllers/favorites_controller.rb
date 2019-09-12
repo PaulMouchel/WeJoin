@@ -1,16 +1,9 @@
 class FavoritesController < ApplicationController
 	before_action :set_user
-  before_action :set_favorite, only: [:edit, :update, :destroy]
+  before_action :set_favorite, only: [:destroy]
 
   def index
     @favorite_places = @user.favorite_places.all
-  end
-
-  def new
-    @favorite = Favorite.new
-  end
-
-  def edit
   end
 
   def create
@@ -19,25 +12,11 @@ class FavoritesController < ApplicationController
     respond_to do |format|
       if @favorite.save
   			format.html { redirect_back(fallback_location: root_path) }
-        format.json { render :show, status: :created, location: @favorite }
+        format.js { }
       else
         format.html { flash.now[:error] = @favorite.errors.full_messages.to_sentence
           redirect_back(fallback_location: root_path) }
-        format.json { render json: @favorite.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @favorite.update(favorite_params)
-        format.html { redirect_to @favorite 
-        flash[:success] = 'Favorite was successfully updated.' }
-        format.json { render :show, status: :ok, location: @favorite }
-      else
-        format.html { flash.now[:error] = @favorite.errors.full_messages.to_sentence
-          redirect_back(fallback_location: root_path) }
-        format.json { render json: @favorite.errors, status: :unprocessable_entity }
+        format.js { }
       end
     end
   end
@@ -46,7 +25,7 @@ class FavoritesController < ApplicationController
     @favorite.destroy
     respond_to do |format|
     	format.html { redirect_back(fallback_location: root_path) }
-      format.json { head :no_content }
+      format.js { }
     end
   end
 
