@@ -4678,6 +4678,7 @@ filter: none;
 
 
 .card {
+  margin-bottom: 60px;
   position: relative;
   display: -ms-flexbox;
   display: flex;
