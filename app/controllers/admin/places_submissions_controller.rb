@@ -2,10 +2,6 @@ class Admin::PlacesSubmissionsController < AdminController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @places = Place.where(reviewed: true)
-    @non_reviewed = Place.where(reviewed: false)
-    @validated = Place.where(validated: true)
-    @non_validated = Place.where(validated: false)
   end
 
   def show
