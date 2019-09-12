@@ -1,0 +1,8 @@
+console.log("create");
+favorite = document.getElementById("favorite-<%= @favorite.favorite_place.id %>");
+favorite.classList.add("fas");
+favorite.classList.add("text-warning");
+favorite.classList.remove("far");
+favoriteLink = document.getElementById("link-favorite-<%= @favorite.favorite_place.id %>");
+favoriteLink.setAttribute('data-method', 'delete');
+favoriteLink.setAttribute('href', "/users/<%= @favorite.user.id %>/favorites/<%= @favorite.id %>");
