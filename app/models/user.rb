@@ -47,6 +47,10 @@ class User < ApplicationRecord
   	return rating
   end
 
+  def has_attendance(date)
+  	return self.attendances.where(date: date).length != 0
+  end
+
   private
 
   def validate_age

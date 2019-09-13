@@ -13,12 +13,31 @@
 				<%= render 'show_places' %>
 
 				<p><%= render "places/tags_list", tags: @place.tags %></p>
-
-				<p><%= render "favorite_place_icon", place: @place %></p>
 				<br><br>
-				<p><%= render "ratings", place: @place %></p>
+				
+			</div>
+			<div class="position_favorite">
+			<%= render "favorite_place_icon", place: @place %>
 			</div>
 		</div>
-		<%= link_to 'Back', city_places_path(@city) %>
+
+		<%= month_calendar events: @attendances do |date, attendances| %>
+		  <%= date %>
+		  <% attendances.each do |attendance| %>
+		    <div>
+		      <%= render 'users/user_pic', user: attendance.user, class_list:"h-25 w-25" %>
+		      <%= link_to 'supprimer', user_attendance_path(current_user, attendance, date: date, place_id: @place.id), method: :delete %>
+		    </div>
+		  <% end %>
+		  <% if !current_user.has_attendance(date) %>
+		  	<%= link_to 'Rejoindre', user_attendances_path(current_user, date: date, place_id: @place.id), method: :post %>
+		  <% end %>
+		<% end %>
+
+		<%= link_to 'Update', new_city_place_place_edition_path(@city, @place), class:'btn-back' %>
+		<%= link_to 'Back', city_places_path(@city), class:'btn-back' %>
 	</div>
 </div>
+
+
+

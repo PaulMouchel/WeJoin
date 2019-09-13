@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def update
     current_user.update(user_params)
       if current_user.save
-        flash[:success] = 'You account was successfully updated.'
+        flash[:success] = 'Ton compte a bien été modifié ! :)'
         redirect_to user_path(current_user.id)
       else
         flash.now[:error] = current_user.errors.full_messages.to_sentence

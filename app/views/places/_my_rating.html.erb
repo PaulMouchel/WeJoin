@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+	<% 1.upto(5) do |i| %>
+		<%= link_to user_ratings_path(current_user, place_id: place.id, stars: i), method: :post, remote: true  do%>
+			<% if place.my_rating(current_user) >= i %>
+				<i id="my-star-<%= i %>" class="fas fa-star text-warning"></i>
+			<% else %>
+				<i id="my-star-<%= i %>" class="far fa-star text-warning"></i>
+			<% end %>
+		<% end %>
+	<% end %>
+
+	<p>ma note : <span id="my-rating"><%= place.my_rating(current_user) %></span></p>
+<% end %>

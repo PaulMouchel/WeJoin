@@ -6,12 +6,12 @@ class RatingsController < ApplicationController
     respond_to do |format|
       if @rating.save
         format.html { redirect_back(fallback_location: root_path) 
-        flash[:success] = 'Rating was successfully created.' }
+        flash[:success] = 'Ton vote a bien été pris en compte !' }
         format.js { }
       else
         format.html { flash.now[:error] = @rating.errors.full_messages.to_sentence
-          redirect_back(fallback_location: root_path) }
-        format.json { render json: @rating.errors, status: :unprocessable_entity }
+        redirect_back(fallback_location: root_path) }
+        format.js { }
       end
     end
   end
