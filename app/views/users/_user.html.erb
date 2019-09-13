@@ -24,11 +24,7 @@
               <h3 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h3>
               <p class="card-text">
                 </br>
-                <%if @user.user_pic.attached?%>
-                  <%= image_tag @user.user_pic, alt: 'user_pic' %>
-                <%else%>
-                  <img src="https://avatar-cdn.atlassian.com/002477b8b40d9d4396b551a8973aa1f8" >
-                <%end%>
+                <%= render 'user_pic', user: @user, class_list:"" %>
                 </br>Description : <%= @user.description %>
                 </br>Email : <%= @user.email %>
               </br>Âge : <%= @user.age %>
