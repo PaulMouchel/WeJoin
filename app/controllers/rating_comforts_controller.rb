@@ -10,7 +10,8 @@ def create
 	      else
 	        format.html { flash.now[:error] = @rating.errors.full_messages.to_sentence
 	          redirect_back(fallback_location: root_path) }
-	        format.json { render json: @rating.errors, status: :unprocessable_entity }
+	        format.js { flash.now[:error] = @rating.errors.full_messages.to_sentence
+		redirect_back(fallback_location: root_path)}
 	      end
 	    end
   	end
