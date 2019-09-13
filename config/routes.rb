@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   	resources :ratings, only: [:create]
     resources :rating_outlets, only: [:create]
     resources :rating_noise_levels, only: [:create]
+    resources :rating_wifi_qualities, only: [:create]
   end
 end

@@ -33,5 +33,18 @@
 		<% end %>
 	<% end %>
 
-	<p>bruit ambiant : <span id="my-rating"><%= place.my_rating_noise_levels(current_user) %></span></p>
+	<p>tranquilité : <span id="my-rating"><%= place.my_rating_noise_levels(current_user) %></span></p>
+
+	<% 1.upto(5) do |i| %>
+		<%= link_to user_rating_wifi_qualities_path(current_user, place_id: place.id, wifi_qualities: i), method: :post, remote: true  do%>
+			<% if place.my_rating_wifi_qualities(current_user) >= i %>
+				<i id="my-star-<%= i %>" class="fas fa-wifi text-primary"></i>
+			<% else %>
+				<i id="my-star-<%= i %>" class="fas fa-wifi text-black-50"></i>
+			<% end %>
+		<% end %>
+	<% end %>
+
+	<p>qualité du wifi : <span id="my-rating"><%= place.my_rating_wifi_qualities(current_user) %></span></p>
 <% end %>
+

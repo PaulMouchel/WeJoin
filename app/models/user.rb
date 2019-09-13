@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :ratings
   has_many :rating_outlets
   has_many :rating_noise_levels
+  has_many :rating_wifi_qualities
   has_many :favorite_places, through: :favorites, class_name: "Place"
 
   validate :validate_age
@@ -65,6 +66,16 @@ class User < ApplicationRecord
       rating.noise_levels = noise_levels
     else
       rating = self.rating_noise_levels.new(place_id: place.id, noise_levels: noise_levels)
+    end
+    return rating
+  end
+
+  def rate_place_wifi_qualities(place, wifi_qualities)
+    rating = self.rating_wifi_qualities.find_by(place_id: place.id)
+    if rating
+      rating.wifi_qualities = wifi_qualities
+    else
+      rating = self.rating_wifi_qualities.new(place_id: place.id, wifi_qualities: wifi_qualities)
     end
     return rating
   end

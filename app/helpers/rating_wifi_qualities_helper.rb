@@ -1,0 +1,2 @@
+module RatingWifiQualitiesHelper
+end
