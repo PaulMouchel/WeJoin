@@ -21,6 +21,16 @@
 			</div>
 		</div>
 
+		<%= month_calendar events: @attendances do |date, attendances| %>
+		  <%= date %>
+		  <% attendances.each do |attendance| %>
+		    <div>
+		      <%= attendance.user.email %>
+		    </div>
+		  <% end %>
+		  <%= link_to 'Rejoindre', user_attendances_path(current_user, date: date, place_id: @place.id), method: :post %>
+		<% end %>
+
 		<%= link_to 'Update', new_city_place_place_edition_path(@city, @place), class:'btn-back' %>
 		<%= link_to 'Back', city_places_path(@city), class:'btn-back' %>
 	</div>
