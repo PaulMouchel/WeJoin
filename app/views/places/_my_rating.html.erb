@@ -22,4 +22,16 @@
 	<% end %>
 
 	<p>prises disponibles : <span id="my-rating"><%= place.my_rating_outlets(current_user) %></span></p>
+
+	<% 1.upto(5) do |i| %>
+		<%= link_to user_rating_noise_levels_path(current_user, place_id: place.id, noise_levels: i), method: :post, remote: true  do%>
+			<% if place.my_rating_noise_levels(current_user) >= i %>
+				<i id="my-star-<%= i %>" class="fas fa-volume-down text-orange"></i>
+			<% else %>
+				<i id="my-star-<%= i %>" class="fas fa-volume-down text-black-50"></i>
+			<% end %>
+		<% end %>
+	<% end %>
+
+	<p>bruit ambiant : <span id="my-rating"><%= place.my_rating_noise_levels(current_user) %></span></p>
 <% end %>

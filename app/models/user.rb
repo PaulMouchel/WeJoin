@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :ratings
   has_many :rating_outlets
+  has_many :rating_noise_levels
   has_many :favorite_places, through: :favorites, class_name: "Place"
 
   validate :validate_age
@@ -54,6 +55,16 @@ class User < ApplicationRecord
       rating.outlets = outlets
     else
       rating = self.rating_outlets.new(place_id: place.id, outlets: outlets)
+    end
+    return rating
+  end
+
+  def rate_place_noise_levels(place, noise_levels)
+    rating = self.rating_noise_levels.find_by(place_id: place.id)
+    if rating
+      rating.noise_levels = noise_levels
+    else
+      rating = self.rating_noise_levels.new(place_id: place.id, noise_levels: noise_levels)
     end
     return rating
   end

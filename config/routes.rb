@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   	resources :attendances
   	resources :ratings, only: [:create]
     resources :rating_outlets, only: [:create]
+    resources :rating_noise_levels, only: [:create]
   end
 end

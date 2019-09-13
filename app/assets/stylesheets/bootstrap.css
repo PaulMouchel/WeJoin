@@ -10107,6 +10107,10 @@ a.text-dark:hover, a.text-dark:focus {
   color: #6f42c1 !important;
 }
 
+.text-orange {
+  color: #fd7e14 !important;
+}
+
 .text-hide {
   font: 0/0 a;
   color: transparent;

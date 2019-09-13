@@ -10,6 +10,7 @@ class Place < ApplicationRecord
 	has_many :favorites, dependent: :destroy, foreign_key: "favorite_place_id"
 	has_many :ratings, dependent: :destroy
 	has_many :rating_outlets, dependent: :destroy
+	has_many :rating_noise_levels, dependent: :destroy
 	has_many :place_tags, dependent: :destroy
 	has_many :tags, through: :place_tags
 
@@ -46,6 +47,25 @@ class Place < ApplicationRecord
 		rating = self.rating_outlets.find_by(user: user)
 		if rating != nil
 			return rating.outlets
+		else
+			return 0
+		end
+	end
+
+	def average_rating_noise_levels
+		if self.rating_noise_levels.length > 0
+			ratings_sum = self.rating_noise_levels.all.inject(0){|sum,e| sum + e.noise_levels }
+			ratings_average = ratings_sum.to_f/self.rating_noise_levels.length
+			return ratings_average
+		else
+			return 0.0
+		end
+	end
+
+	def my_rating_noise_levels(user)
+		rating = self.rating_noise_levels.find_by(user: user)
+		if rating != nil
+			return rating.noise_levels
 		else
 			return 0
 		end
