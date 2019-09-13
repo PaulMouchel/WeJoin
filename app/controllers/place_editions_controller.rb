@@ -12,15 +12,12 @@ class PlaceEditionsController < ApplicationController
   def create
     @place_edition = PlaceEdition.new(place_edition_params)
     @place_edition.place = @place
-    respond_to do |format|
       if @place_edition.save
-        format.html { redirect_to city_place_path(@city, @place) 
-        flash[:success] = 'Merci ! Notre équipe validera tes modifications bientôt !' }
-        format.json { render :show, status: :created, location: @place_edition }
+        redirect_to city_place_path(@city, @place) 
+        flash[:success] = 'Merci ! Notre équipe validera tes modifications bientôt !'
       else
-        format.html { flash.now[:error] = @place_edition.errors.full_messages.to_sentence
-          render :new }
-        format.json { render json: @place_edition.errors, status: :unprocessable_entity }
+        flash.now[:error] = @place_edition.errors.full_messages.to_sentence
+        render :new
       end
     end
   end
