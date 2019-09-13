@@ -7,22 +7,30 @@
 <br> <br>
 <div class="row">
   <div class="col-lg-3">
-    <p><strong>Coffee price : </strong><%= @place.coffee_price %></p>
+    <p><strong>Prix du café : </strong><%= @place.coffee_price %></p>
 
     <p>
-      <strong>Tea price : </strong>
+      <strong>Prix du thé : </strong>
       <%= @place.tea_price %>
     </p>
 
     <p>
-      <strong>Beer price : </strong>
+      <strong>Prix d'une bière : </strong>
       <%= @place.beer_price %>
     </p>
   </div>
   <div class="col-lg-4">
     <p>
-      <strong>Wifi password : </strong>
+      <strong>Nom du réseau WIFI : </strong>
+      <%= @place.wifi_identification %>
+    </p>
+    <p>
+      <strong>Mot de passe du réseau WIFI : </strong>
+      <%= if @place.wifi_password == nil %>
+      <p>non défini</p>
+      <%= else %>
       <%= @place.wifi_password %>
+      <% end %>
     </p>
   </div>
  </div> 
