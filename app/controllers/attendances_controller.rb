@@ -1,5 +1,5 @@
 class AttendancesController < ApplicationController
-	before_action :set_place, only: [:create]
+	before_action :set_place, only: [:create, :destroy]
   before_action :set_attendance, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -49,14 +49,14 @@ class AttendancesController < ApplicationController
   def destroy
     @attendance.destroy
     respond_to do |format|
-      format.html { redirect_to attendances_url 
+      format.html { redirect_to city_place_path(@place.city, @place)
       flash[:success] = 'Attendance was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-  def set_place
+  	def set_place
       @place = Place.find(params[:place_id])
     end
     def set_attendance
