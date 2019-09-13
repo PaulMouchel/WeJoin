@@ -19,6 +19,7 @@
 				<p><%= render "ratings", place: @place %></p>
 			</div>
 		</div>
+		<%= link_to 'Update', new_city_place_place_edition_path(@city, @place) %>
 		<%= link_to 'Back', city_places_path(@city) %>
 	</div>
 </div>
