@@ -1,38 +1,13 @@
 <% if user_signed_in? %>
-	<%= link_to user_ratings_path(current_user, place_id: place.id, stars: 1), method: :post  do%>
-		<% if place.my_rating(current_user) >= 1 %>
-			<i class="fas fa-star text-warning"></i>
-		<% else %>
-			<i class="far fa-star text-warning"></i>
+	<% 1.upto(5) do |i| %>
+		<%= link_to user_ratings_path(current_user, place_id: place.id, stars: i), method: :post, remote: true  do%>
+			<% if place.my_rating(current_user) >= i %>
+				<i id="my-star-<%= i %>" class="fas fa-star text-warning"></i>
+			<% else %>
+				<i id="my-star-<%= i %>" class="far fa-star text-warning"></i>
+			<% end %>
 		<% end %>
 	<% end %>
-	<%= link_to user_ratings_path(current_user, place_id: place.id, stars: 2), method: :post  do%>
-		<% if place.my_rating(current_user) >= 2 %>
-			<i class="fas fa-star text-warning"></i>
-		<% else %>
-			<i class="far fa-star text-warning"></i>
-		<% end %>
-	<% end %>
-	<%= link_to user_ratings_path(current_user, place_id: place.id, stars: 3), method: :post  do%>
-		<% if place.my_rating(current_user) >= 3 %>
-			<i class="fas fa-star text-warning"></i>
-		<% else %>
-			<i class="far fa-star text-warning"></i>
-		<% end %>
-	<% end %>
-	<%= link_to user_ratings_path(current_user, place_id: place.id, stars: 4), method: :post  do%>
-		<% if place.my_rating(current_user) >= 4 %>
-			<i class="fas fa-star text-warning"></i>
-		<% else %>
-			<i class="far fa-star text-warning"></i>
-		<% end %>
-	<% end %>
-	<%= link_to user_ratings_path(current_user, place_id: place.id, stars: 5), method: :post  do%>
-		<% if place.my_rating(current_user) >= 5 %>
-			<i class="fas fa-star text-warning"></i>
-		<% else %>
-			<i class="far fa-star text-warning"></i>
-		<% end %>
-	<% end %>
-	<p>ma note : <%= place.my_rating(current_user) %></p>
+
+	<p>ma note : <span id="my-rating"><%= place.my_rating(current_user) %></span></p>
 <% end %>
