@@ -5,7 +5,7 @@
   </div>
   <div class="col-lg-6 my-auto">
     <a href="note" data-toggle="modal" data-target="#note">
-      <h6><%= render "average_rating", place: @place %></h6>
+      <h6><%= render "places/average_rating", place: @place %></h6>
     </a>
   </div>
   <div class="col-lg-12">
@@ -44,7 +44,7 @@
         
         <div class="row justify-content-center">
           <div class="modal-body col-lg-6">
-            <%= render "my_rating", place: @place %>
+            <%= render "places/my_rating", place: @place %>
           </div> 
         </div> 
 
