@@ -1,58 +1,59 @@
-<html>
-  <body>
-    <%= devise_error_messages! %>
+<%= devise_error_messages! %>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <br><br><br>
+<div class="row justify-content-center">
+  <div class="col-lg-7 bloc">
+
+    <div class="row title_bloc">
+      <div class="col-lg-12 text-center ">
+       
+        <h2>EDITER MES I.D. DE CONNEXION</h2>
+        
+      </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-10 col-sm-10">
+
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <h2 class="h3 mb-3 font-weight-normal text-center">EDITER MES IDENTIFIANTS DE CONNEXION</h2>
 
-            <div class="form-group">
-              <%= f.label "Email" %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-            </div>
+            
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:'email', class: "form-control" %>
+            
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
             <br>
 
-            <div class="form-group">
-              <%= f.label "Mot de Passe" %> <i>(laisser vide si vous ne voulez pas le modifier)</i><br />
-              <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+              <%= f.password_field :password, placeholder:'nouveau mot de passe', class: "form-control" %>
               <% if @minimum_password_length %>
                 <em><%= @minimum_password_length %> characters minimum</em>
               <% end %>
-            </div>
-            <br>
+        
 
-            <div class="form-group">
               <%= f.label "Confirmation" %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-            </div>
+              <%= f.password_field :password_confirmation, placeholder:'confirmation nouveau mot de passe', class: "form-control" %>
 
 
-            <div class="form-group">
-              <%= f.label "Mot de Passe actuel" %> <i>(nécessaire afin de valider vos modifications)</i><br />
-              <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
-            </div>
+              <i><%= f.label "nécessaire afin de valider vos modifications" %> </i>
+              <%= f.password_field :current_password, autocomplete: "current-password", placeholder:'mot de passe actuel', class: "form-control" %>
+
 
             <div class="actions mt-5">
-              <%= f.submit "METTRE À JOUR LES INFORMATIONS", class: "btn btn-lg btn-primary btn-block" %>
+              <%= f.submit "METTRE À JOUR LES INFORMATIONS", class: "btn-submit btn-block" %>
             </div>
           <% end %></br>
-          <%= link_to "Retour", :back %>
+          <%= link_to "Retour", :back, class:'btn-back' %>
 
-          <br><br><br><br><br><br><br><br><br><br><br><br>
+          <div class="space"></div>
           <h3 class="h3 mb-3 font-weight-normal text-center">SUPPRIMER MON COMPTE</h3>
 
-          <p>Vous désirez supprimer vos données ? <%= button_to "SUPPRIMER MON COMPTE", registration_path(resource_name), data: { confirm: "Êtes-vous sûr (ATTENTION : Cette action sera définitive) ?" }, method: :delete, class: "btn btn-lg btn-primary btn-block" %></p>
+          <p>Vous désirez supprimer vos données ? <%= button_to "SUPPRIMER MON COMPTE", registration_path(resource_name), data: { confirm: "Êtes-vous sûr (ATTENTION : Cette action sera définitive) ?" }, method: :delete, class: "btn-submit btn-block" %></p>
 
-          <%= link_to "Retour", :back %><br><br><br>
+          <%= link_to "Retour", :back, class:'btn-back' %>
         </div>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+
