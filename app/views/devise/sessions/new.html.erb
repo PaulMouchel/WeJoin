@@ -16,15 +16,10 @@
       <div class="col-lg-10 col-md-10 col-sm-10">
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div >
-            
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email", class:"form-control" %>
-          </div>
 
-          <div >
-            
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email", class:"form-control" %>
+
             <%= f.password_field :password, autocomplete: "current-password", placeholder:"mot de passe", class:"form-control" %>
-          </div>
 
           <% if devise_mapping.rememberable? %>
             <div>
@@ -34,10 +29,10 @@
           <% end %>
 
           <div class="actions">
-            <%= f.submit "SE CONNECTER", class:"btn-submit float-right " %>
+            <%= f.submit "SE CONNECTER", class:"btn-submit btn-block " %>
           </div>
         <% end %>
-
+        <br><br>
         <%= render "devise/shared/links" %>
 
       </div>
