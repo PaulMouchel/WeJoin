@@ -14,9 +14,9 @@
     <% @attendances.each do |attendance| %>
       <tr>
         <td><%= attendance.date %></td>
-        <td><%= link_to 'Show', attendance %></td>
-        <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-        <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', attendance %></td>
+        <td><%= link_to 'Éditer', edit_attendance_path(attendance) %></td>
+        <td><%= link_to 'Supprimer', attendance, method: :delete, data: { confirm: 'Es-tu sûr ?' } %></td>
       </tr>
     <% end %>
   </tbody>
