@@ -4,22 +4,3 @@
     <%= link_to place.place.name, admin_place_edition_path(place) %>
     <% end %>
 </p>
-
-
-
-<%
-=begin%>
- <div class="row">
-  	<%= render "places/places", places: @places %>
-</div>
-
-<br>
-
-<%= link_to 'Edit', edit_admin_city_path(@city) %> |
-<%= link_to 'Back', admin_cities_path %>
-
-<br>
-
-<%= link_to 'New Place', new_admin_city_place_path(@city) %> 
-<%
-=end%>
