@@ -13,7 +13,7 @@ class Admin::UsersController < AdminController
   def update
     @user.update(user_params)
       if @user.save
-        flash[:success] = 'The account was successfully updated.'
+        flash[:success] = 'Le compte utilisateur a bien été modifié !'
         redirect_to admin_user_path(@user.id)
       else
         flash.now[:error] = @user.errors.full_messages.to_sentence
@@ -26,7 +26,7 @@ class Admin::UsersController < AdminController
     @user.user_pic.purge
     respond_to do |format|
       format.html { redirect_to admin_users_path 
-      flash[:success] = 'user was successfully destroyed.' }
+      flash[:success] = 'Le compte utilisateur a bien été supprimé.' }
       format.json { head :no_content }
     end
   end

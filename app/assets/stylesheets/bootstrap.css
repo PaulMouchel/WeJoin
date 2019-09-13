@@ -6,7 +6,7 @@
  */
 :root {
 
-  --gray_light: #E8E8E8;
+  --gray_light: #F0F0F0;
 
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -62,6 +62,24 @@ body {
   text-align: left;
   background-color: #fff;
 }
+
+.btn-back {
+  font-weight: 500;
+  color: black;
+  border: 2px solid black;
+  border-radius: 45px;
+  transition: border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
+  padding:10px;
+}
+
+
+.btn-back:hover {
+  color: white;
+  background-color: black;
+  border: 2px solid black;
+}
+
+
 
 .favorite{
   z-index: 999;
@@ -120,8 +138,29 @@ body {
 	z-index: 999;
 }
 
+.btn-input {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-input input[type=file]{
+  width: 100%;
+  position: absolute;
+  padding-bottom: 19px;
+  padding-left: 10px;
+  padding-right: 16px;
+  left: 0px;
+  top: 0;
+  opacity: 0;
+  outline: none;
+}
+
 
 .btn-submit{
+  outline: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
   font-weight: 500;
   color: white;
   padding: 10px;
@@ -131,23 +170,22 @@ body {
   transition: border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
 }
 
+.btn-submit:hover {
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.btn-submit:focus, .btn-submit.focus {
+  color: black;
+  background-color: white;
+}
+
 .home_text {
 	font-weight: 800;
 	font-size: 500%;
 }
 
-
-.btn-submit:hover {
-  color: black;
-  background-color: white;
-  border: 2px solid white;
-  box-shadow: 0px 0px 8px 0.4px black;
-}
-
-.btn-submit:focus, .btn-submit.focus {
-  color: black;
-  box-shadow: 0px 0px 8px 0.4px black;
-}
 
 .space {
 	height: 150px;
@@ -169,6 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+  font-size:17px;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -250,7 +289,7 @@ a {
 
 a:hover {
   color: #0056b3;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -1960,8 +1999,7 @@ pre code {
   
   color: black;
   background-color: white;
-  border: 2px solid white;
-  box-shadow: 0px 0px 8px 0.4px black;
+  border: 2px solid black;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -2531,7 +2569,6 @@ fieldset:disabled a.btn {
 
 .btn-primary:focus, .btn-primary.focus {
   color: black;
-  box-shadow: 0px 0px 8px 0.4px black;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
@@ -2544,14 +2581,12 @@ fieldset:disabled a.btn {
 .show > .btn-primary.dropdown-toggle {
   color: black;
   background-color: white;
-  box-shadow: 0px 0px 8px 0.4px black;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
   color: black;
   background-color: white;
-  box-shadow: 0px 0px 8px 0.4px black;
 }
 
 .btn-secondary {

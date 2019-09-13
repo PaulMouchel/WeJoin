@@ -1,0 +1,26 @@
+myStarsArray = [""];
+avStarsArray = [""];
+for (i=1 ; i<=5 ; i++) {
+	myStarsArray.push(document.getElementById("my-star-" + i));
+	avStarsArray.push(document.getElementById("av-star-" + i));
+}
+
+myStars = <%= @rating.stars %>;
+avStars = <%= @rating.place.average_rating %>;
+
+actualizeStars(myStarsArray, myStars);
+actualizeStars(avStarsArray, Math.trunc(avStars));
+
+document.getElementById("my-rating").textContent = myStars;
+document.getElementById("av-rating").textContent = avStars.toFixed(1);
+
+function actualizeStars(stars, rating) {
+	for (i=1 ; i<=rating ; i++) {
+		stars[i].classList.add("fas");
+		stars[i].classList.remove("far");
+	}
+	for (i=rating+1 ; i<=5 ; i++) {
+		stars[i].classList.add("far");
+		stars[i].classList.remove("fas");
+	}
+}
