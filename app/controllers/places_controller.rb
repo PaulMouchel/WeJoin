@@ -1,13 +1,14 @@
 class PlacesController < ApplicationController
 	before_action :set_city
   before_action :set_place, only: [:show, :edit]
-    before_action :authenticate_user!, only: [:new, :show, :create]
+  before_action :authenticate_user!, only: [:new, :show, :create]
 
   def index
     @places = @city.places.where(validated: true)
   end
 
   def show
+  	@attendances = @place.attendances
   end
 
   def new
