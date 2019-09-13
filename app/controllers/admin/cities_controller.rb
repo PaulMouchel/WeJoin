@@ -18,7 +18,7 @@ class Admin::CitiesController < AdminController
     respond_to do |format|
       if @city.save
         format.html { redirect_to admin_city_places_path(@city) 
-        flash[:success] = 'City was successfully created.' }
+        flash[:success] = 'La nouvelle ville a bien été créée ! :)' }
         format.json { render :show, status: :created, location: @city }
       else
         format.html { flash.now[:error] = @city.errors.full_messages.to_sentence
@@ -32,7 +32,7 @@ class Admin::CitiesController < AdminController
     respond_to do |format|
       if @city.update(city_params)
         format.html { redirect_to admin_city_places_path(@city) 
-        flash[:success] = 'City was successfully updated.' }
+        flash[:success] = 'La ville a bien été modifiée ! :)' }
         format.json { render :show, status: :ok, location: @city }
       else
         format.html { flash.now[:error] = @city.errors.full_messages.to_sentence
@@ -47,7 +47,7 @@ class Admin::CitiesController < AdminController
     @city.city_pic.purge
     respond_to do |format|
       format.html { redirect_to admin_cities_path 
-      flash[:success] = 'City was successfully destroyed.' }
+      flash[:success] = 'La ville a bien été supprimée de la base.' }
       format.json { head :no_content }
     end
   end

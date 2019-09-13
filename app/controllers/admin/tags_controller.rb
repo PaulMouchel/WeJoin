@@ -18,7 +18,7 @@ class Admin::TagsController < AdminController
     respond_to do |format|
       if @tag.save
         format.html { redirect_to admin_tags_path 
-        flash[:success] = 'Tag was successfully created.' }
+        flash[:success] = 'Le tag a bien été créé !' }
         format.json { render :show, status: :created, location: @tag }
       else
         format.html { flash.now[:error] = @tag.errors.full_messages.to_sentence
@@ -32,7 +32,7 @@ class Admin::TagsController < AdminController
     respond_to do |format|
       if @tag.update(tag_params)
         format.html { redirect_to admin_tags_path 
-        flash[:success] = 'Tag was successfully updated.' }
+        flash[:success] = 'Le tag a bien été modifié.' }
         format.json { render :show, status: :ok, location: @tag }
       else
         format.html { flash.now[:error] = @tag.errors.full_messages.to_sentence
@@ -46,7 +46,7 @@ class Admin::TagsController < AdminController
     @tag.destroy
     respond_to do |format|
       format.html { redirect_to admin_tags_path
-      flash[:success] = 'Tag was successfully destroyed.' }
+      flash[:success] = 'Le tag a bien été supprimé.' }
       format.json { head :no_content }
     end
   end
