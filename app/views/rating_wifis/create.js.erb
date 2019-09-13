@@ -1,0 +1,26 @@
+myStarsArray = [""];
+avStarsArray = [""];
+for (i=1 ; i<=5 ; i++) {
+	myStarsArray.push(document.getElementById("my-wifi-" + i));
+	avStarsArray.push(document.getElementById("av-wifi-" + i));
+}
+
+myStars = <%= @rating_wifis.wifis %>;
+avStars = <%= @rating_wifis.place.average_rating_wifis %>;
+
+actualizeStars(myStarsArray, myStars);
+actualizeStars(avStarsArray, Math.trunc(avStars));
+
+document.getElementById("my-wifis-num").textContent = myStars;
+document.getElementById("av-wifis-num").textContent = avStars.toFixed(1);
+
+function actualizeStars(stars, rating) {
+	for (i=1 ; i<=rating ; i++) {
+		stars[i].classList.add("fas");
+		stars[i].classList.remove("far");
+	}
+	for (i=rating+1 ; i<=5 ; i++) {
+		stars[i].classList.add("far");
+		stars[i].classList.remove("fas");
+	}
+}

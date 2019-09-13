@@ -1,0 +1,26 @@
+myStarsArray = [""];
+avStarsArray = [""];
+for (i=1 ; i<=5 ; i++) {
+	myStarsArray.push(document.getElementById("my-comfort-" + i));
+	avStarsArray.push(document.getElementById("av-comfort-" + i));
+}
+
+myStars = <%= @rating_comfort.comforts %>;
+avStars = <%= @rating_comfort.place.average_rating_comforts %>;
+
+actualizeStars(myStarsArray, myStars);
+actualizeStars(avStarsArray, Math.trunc(avStars));
+
+document.getElementById("my-comfort-num").textContent = myStars;
+document.getElementById("av-comfort-num").textContent = avStars.toFixed(1);
+
+function actualizeStars(stars, rating) {
+	for (i=1 ; i<=rating ; i++) {
+		stars[i].classList.add("fas");
+		stars[i].classList.remove("far");
+	}
+	for (i=rating+1 ; i<=5 ; i++) {
+		stars[i].classList.add("far");
+		stars[i].classList.remove("fas");
+	}
+}
