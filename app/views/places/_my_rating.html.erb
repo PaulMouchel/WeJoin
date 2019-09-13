@@ -15,49 +15,49 @@
 	<% 1.upto(5) do |i| %>
 		<%= link_to user_rating_wifis_path(current_user, place_id: place.id, wifis: i), method: :post, remote: true  do%>
 			<% if place.my_rating_wifis(current_user) >= i %>
-				<i id="my-star-<%= i %>" class="fas fa-wifi text-teal"></i>
+				<i id="my-wifi-<%= i %>" class="fas fa-wifi text-teal"></i>
 			<% else %>
-				<i id="my-star-<%= i %>" class="fas fa-wifi text-black-50"></i>
+				<i id="my-wifi-<%= i %>" class="fas fa-wifi text-black-50"></i>
 			<% end %>
 		<% end %>
 	<% end %>
 
-	<p>qualité du réseau wifi : <span id="my-rating"><%= place.my_rating_wifis(current_user) %></span></p>
+	<p>qualité du réseau wifi : <span id="my-wifi-num"><%= place.my_rating_wifis(current_user) %></span></p>
 
 	<% 1.upto(5) do |i| %>
 		<%= link_to user_rating_comforts_path(current_user, place_id: place.id, comforts: i), method: :post, remote: true  do%>
 			<% if place.my_rating_comforts(current_user) >= i %>
-				<i id="my-star-<%= i %>" class="fas fa-couch text-brown"></i>
+				<i id="my-comfort-<%= i %>" class="fas fa-couch text-brown"></i>
 			<% else %>
-				<i id="my-star-<%= i %>" class="fas fa-couch text-black-50"></i>
+				<i id="my-comfort-<%= i %>" class="fas fa-couch text-black-50"></i>
 			<% end %>
 		<% end %>
 	<% end %>
 
-	<p>niveau de confort : <span id="my-rating"><%= place.my_rating_comforts(current_user) %></span></p>
+	<p>niveau de confort : <span id="my-comfort-num"><%= place.my_rating_comforts(current_user) %></span></p>
 
 	<% 1.upto(5) do |i| %>
 		<%= link_to user_rating_outlets_path(current_user, place_id: place.id, outlets: i), method: :post, remote: true  do%>
 			<% if place.my_rating_outlets(current_user) >= i %>
-				<i id="my-star-<%= i %>" class="fas fa-plug text-purple"></i>
+				<i id="my-outlets-<%= i %>" class="fas fa-plug text-purple"></i>
 			<% else %>
-				<i id="my-star-<%= i %>" class="fas fa-plug text-black-50"></i>
+				<i id="my-outlets-<%= i %>" class="fas fa-plug text-black-50"></i>
 			<% end %>
 		<% end %>
 	<% end %>
 
-	<p>prises disponibles : <span id="my-rating"><%= place.my_rating_outlets(current_user) %></span></p>
+	<p>prises disponibles : <span id="my-outlets-num"><%= place.my_rating_outlets(current_user) %></span></p>
 
 	<% 1.upto(5) do |i| %>
 		<%= link_to user_rating_noise_levels_path(current_user, place_id: place.id, noise_levels: i), method: :post, remote: true  do%>
 			<% if place.my_rating_noise_levels(current_user) >= i %>
-				<i id="my-star-<%= i %>" class="fas fa-volume-down text-orange"></i>
+				<i id="my-noise-<%= i %>" class="fas fa-volume-down text-orange"></i>
 			<% else %>
-				<i id="my-star-<%= i %>" class="fas fa-volume-down text-black-50"></i>
+				<i id="my-noise-<%= i %>" class="fas fa-volume-down text-black-50"></i>
 			<% end %>
 		<% end %>
 	<% end %>
 
-	<p>niveau de tranquilité : <span id="my-rating"><%= place.my_rating_noise_levels(current_user) %></span></p>
+	<p>niveau de tranquilité : <span id="my-noise-num"><%= place.my_rating_noise_levels(current_user) %></span></p>
 <% end %>
 
