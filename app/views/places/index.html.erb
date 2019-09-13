@@ -1,7 +1,7 @@
 <div class="space"></div>
 <h1 class="home_text text-center" ><%= @city.name %></h1>
 <div class="space"></div>
-
+<%= link_to 'Back', cities_path, class:'btn-back' %>
 <div class="row mt-5">
   	<%= render "places", places: @places %>    
 	
@@ -14,5 +14,3 @@
 		</div>
 	</div>
 </div>
-
-<%= link_to 'Back', cities_path %>
