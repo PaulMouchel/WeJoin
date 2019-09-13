@@ -16,11 +16,11 @@ document.getElementById("av-outlets-num").textContent = avStars.toFixed(1);
 
 function actualizeStars(stars, rating) {
 	for (i=1 ; i<=rating ; i++) {
-		stars[i].classList.add("fas");
-		stars[i].classList.remove("far");
+		stars[i].classList.add("text-purple");
+		stars[i].classList.remove("text-black-50");
 	}
 	for (i=rating+1 ; i<=5 ; i++) {
-		stars[i].classList.add("far");
-		stars[i].classList.remove("fas");
+		stars[i].classList.add("text-black-50");
+		stars[i].classList.remove("text-purple");
 	}
 }
