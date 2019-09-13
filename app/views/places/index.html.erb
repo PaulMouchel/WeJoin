@@ -1,17 +1,17 @@
 <div class="space"></div>
 <h1 class="home_text text-center" ><%= @city.name %></h1>
 <div class="space"></div>
-<%= link_to 'Back', cities_path %>
 
 <div class="row">
   	<%= render "places", places: @places %>    
 	<div class="col-lg-4">	    			    
 		<div class="card">
-			<img>
-			<div class="card-body">
-				<%= image_tag ("add.png"), class:"card-img-top" %>
+			<div class="card-body text-center border rounded-circle">
+			<h1  id="add-place">+</h1>
 				<h4 class="card-title"><%= link_to '', new_city_place_path(@city), class:'stretched-link' %></h4>
 			</div>
 		</div>
 	</div>
 </div>
+
+<%= link_to 'Back', cities_path %>
