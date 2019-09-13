@@ -29,13 +29,21 @@
   </div>
   <div class="col-lg-4">
     <p>
+      <strong>Identifiant du réseau WIFI : </strong>
+      <%= @place.wifi_identification %>
+    </p>
+    <p>
       <strong>Mot de passe du réseau WIFI : </strong>
       <%= @place.wifi_password %>
     </p>
   </div>
+</div></br>
 
+<div>
+  <strong>Evaluation du lieu :</strong>
+  <%= render 'average_rating_others' %>
+</div>
 
- </div> 
 
  <div class="modal fade" id="note">
   <div class="modal-dialog modal-md">
