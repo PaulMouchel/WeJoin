@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :attendances, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :ratings
+  has_many :rating_outlets
   has_many :favorite_places, through: :favorites, class_name: "Place"
 
   validate :validate_age
@@ -45,6 +46,16 @@ class User < ApplicationRecord
   		rating = self.ratings.new(place_id: place.id, stars: stars)
   	end
   	return rating
+  end
+
+  def rate_place_outlets(place, outlets)
+    rating = self.rating_outlets.find_by(place_id: place.id)
+    if rating
+      rating.outlets = outlets
+    else
+      rating = self.rating_outlets.new(place_id: place.id, outlets: outlets)
+    end
+    return rating
   end
 
   private
