@@ -21,7 +21,7 @@ teambreizh@yopmail.com en utilisant le mot de passe "teamrennes".
 
 N'hésitez pas à remplir vos endroits préférés sur Paris !
 
-Et si vous en avez d'autres villes, n'hésitez pas non plus à créer la ville en admin puis vos lieux préférés !
+Et si vous avez d'autres villes, n'hésitez pas non plus à créer la ville en admin puis vos lieux préférés !
 
 
 Au cas où, je remets le lien de notre site en production ici : https://tryp-prod.herokuapp.com/
