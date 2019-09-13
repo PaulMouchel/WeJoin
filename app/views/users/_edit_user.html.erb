@@ -21,24 +21,23 @@
 
         <% if current_user != nil %>
           <% if @is_admin %>
-        <%= render 'users/form', model: [:admin, @user], is_admin: @is_admin %>
+            <%= render 'users/form', model: [:admin, @user], is_admin: @is_admin %>
           <% else %>
-        <%= render 'users/form', model: @user, is_admin: @is_admin %>
+            <%= render 'users/form', model: @user, is_admin: @is_admin %>
           <% end %>
         <% end %>
+        <br><br>
+        
+        <% if current_user != nil %>
+          <% if @is_admin %>
+            <%= link_to 'Retour', admin_users_path, class:'btn-back'%>
+          <% else %>
+            <%= link_to 'Retour', user_path(current_user.id), class:'btn-back' %>
+          <% end %>
+        <% end %>
+
       </div>
     </div>
   </div>
 </div>
 
-<div class="row justify-content-center">
-  <div class="col-lg-7 mt-5">
-    <% if current_user != nil %>
-      <% if @is_admin %>
-        <%= link_to 'Retour', admin_users_path, class:'btn-back'%>
-      <% else %>
-        <%= link_to 'Retour', user_path(current_user.id), class:'btn-back' %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
