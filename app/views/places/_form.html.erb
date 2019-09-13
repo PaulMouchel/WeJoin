@@ -18,7 +18,7 @@
   <%= form.text_field :wifi_password, placeholder:"mot de passe wifi", class:"form-control" %>
 
   <div class="btn-input mb-3">
-    <button class="btn-submit btn-block">Sélectionne un fichier
+    <button class="btn-submit btn-block">Sélectionner un fichier
       <%= form.file_field :place_pics, multiple: true %>
     </button>
   </div>
@@ -27,6 +27,6 @@
 	<%= form.text_field :all_tags, placeholder: "choisir un ou plusieurs tags" ,  class:"form-control"%>
 
   <div class="actions mt-5">
-    <%= form.submit class:"btn-submit btn-block" %>
+    <%= form.submit 'ENVOYER', class:"btn-submit btn-block" %>
   </div>
 <% end %>
