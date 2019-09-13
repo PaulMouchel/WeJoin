@@ -138,8 +138,26 @@ body {
 	z-index: 999;
 }
 
+.btn-input {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-input input[type=file]{
+  width: 100%;
+  position: absolute;
+  padding-bottom: 19px;
+  padding-left: 10px;
+  padding-right: 16px;
+  left: 0px;
+  top: 0;
+  opacity: 0;
+  outline: none;
+}
+
 
 .btn-submit{
+  outline: none;
   text-transform: uppercase;
   font-size: 20px;
   text-align: center;
@@ -160,6 +178,7 @@ body {
 
 .btn-submit:focus, .btn-submit.focus {
   color: black;
+  background-color: white;
 }
 
 .home_text {
@@ -188,6 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+  font-size:17px;
   margin-top: 0;
   margin-bottom: 1rem;
 }
