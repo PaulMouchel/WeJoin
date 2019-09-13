@@ -21,16 +21,8 @@
   </div>
   <div class="col-lg-4">
     <p>
-      <strong>Nom du réseau WIFI : </strong>
-      <%= @place.wifi_identification %>
-    </p>
-    <p>
       <strong>Mot de passe du réseau WIFI : </strong>
-      <%= if @place.wifi_password == nil %>
-      <p>non défini</p>
-      <%= else %>
       <%= @place.wifi_password %>
-      <% end %>
     </p>
   </div>
  </div> 
