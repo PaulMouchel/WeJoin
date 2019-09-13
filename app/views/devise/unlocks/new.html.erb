@@ -1,18 +1,35 @@
 <%= devise_error_messages! %>
 
+<div class="row justify-content-center">
+  <div class="col-lg-7 bloc">
 
-<h2>Resend unlock instructions</h2>
+    <div class="row title_bloc">
+      <div class="col-lg-12 text-center ">
+       
+        <h2>RENVOYER LE MAIL DE DÉVEROUILLAGE</h2>
+        
+      </div>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-10 col-sm-10">
+
+		<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+
+		  <div class="field">
+		    <%= f.label :email %><br />
+		    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email", class:"form-control" %>
+		  </div>
+
+		  <div class="actions">
+		    <%= f.submit "RENVOYER LE MAIL DE DÉVEROUILLAGE", class:"btn-submit btn-block " %>
+		  </div>
+		<% end %>
+		<br><br>
+		<%= render "devise/shared/links" %>
+
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
