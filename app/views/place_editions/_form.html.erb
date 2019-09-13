@@ -1,4 +1,4 @@
-<%= form_with(model: model, local: true) do |form| %>
+<%= form_with(model: [@city, @place, @place_edition], local: true) do |form| %>
 
   <%= form.text_field :name, placeholder:"nom",class:"form-control" %>
 
@@ -22,9 +22,6 @@
       <%= form.file_field :place_pics, multiple: true %>
     </button>
   </div>
-
-  <%= render "places/tags_list", tags: Tag.all %>
-	<%= form.text_field :all_tags, placeholder: "choisir un ou plusieurs tags" ,  class:"form-control"%>
 
   <div class="actions mt-5">
     <%= form.submit 'ENVOYER', class:"btn-submit btn-block" %>

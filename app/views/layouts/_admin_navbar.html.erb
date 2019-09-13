@@ -5,31 +5,32 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link">ADMIN DASHBOARD<span class="sr-only">(current)</span></a>
+                <a class="nav-link">DASHBOARD ADMIN<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  CITIES
+                  VILLES
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to "All cities", admin_cities_path, class: "dropdown-item" %>
-                  <%= link_to "Create city",  new_admin_city_path, class: "dropdown-item" %>
+                  <%= link_to "Liste des villes", admin_cities_path, class: "dropdown-item" %>
+                  <%= link_to "Créer une ville",  new_admin_city_path, class: "dropdown-item" %>
                 </div>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  PLACES
+                  LIEUX
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to "All places",  admin_places_path, class: "dropdown-item" %>
+                  <%= link_to "Liste des lieux et validations",  admin_places_path, class: "dropdown-item" %>
+                  <%= link_to "Éditions des lieux à valider",  admin_place_editions_path, class: "dropdown-item" %>
                 </div>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  USERS
+                  TRYPERS
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to "All users", admin_users_path, class: "dropdown-item" %>
+                  <%= link_to "Liste des trypers", admin_users_path, class: "dropdown-item" %>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -37,8 +38,8 @@
                   TAGS
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to "All tags", admin_tags_path, class: "dropdown-item" %>
-                  <%= link_to "Create tag",  new_admin_tag_path, class: "dropdown-item" %>
+                  <%= link_to "Liste des tags", admin_tags_path, class: "dropdown-item" %>
+                  <%= link_to "Créer un tag",  new_admin_tag_path, class: "dropdown-item" %>
                 </div>
               </li>
             </ul>

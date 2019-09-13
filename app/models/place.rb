@@ -1,6 +1,5 @@
 class Place < ApplicationRecord
 	has_many_attached :place_pics
-
 	validates :name, presence: true
 	validates :address, presence: true
 	validates :place_pics, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: { less_than: 1.megabyte , message: ': Ta photo doit être inférieure à 1 Mo.' }
@@ -15,6 +14,7 @@ class Place < ApplicationRecord
 	has_many :rating_comforts, dependent: :destroy
 	has_many :place_tags, dependent: :destroy
 	has_many :tags, through: :place_tags
+	has_many :place_editions
 
 	def average_rating
 		if self.ratings.length > 0

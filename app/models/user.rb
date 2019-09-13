@@ -51,6 +51,7 @@ class User < ApplicationRecord
   	return rating
   end
 
+<<<<<<< HEAD
   def rate_place_outlets(place, outlets)
     rating = self.rating_outlets.find_by(place_id: place.id)
     if rating
@@ -89,6 +90,10 @@ class User < ApplicationRecord
       rating = self.rating_comforts.new(place_id: place.id, comforts: comforts)
     end
     return rating
+  end
+  
+  def has_attendance(date)
+  	return self.attendances.where(date: date).length != 0
   end
 
   private

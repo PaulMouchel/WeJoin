@@ -60,6 +60,20 @@ ActiveRecord::Schema.define(version: 2019_09_13_155440) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "place_editions", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.text "description"
+    t.float "coffee_price"
+    t.float "tea_price"
+    t.float "beer_price"
+    t.string "wifi_password"
+    t.bigint "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_place_editions_on_place_id"
+  end
+
   create_table "place_tags", force: :cascade do |t|
     t.bigint "place_id"
     t.bigint "tag_id"

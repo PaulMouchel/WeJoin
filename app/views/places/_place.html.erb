@@ -2,14 +2,16 @@
 	<div class="card">
 		<%if place.place_pics.attached?%>
 			<%= image_tag place.place_pics.first, class:"card-img-top" %>
+		<% else %>
+			<p>Veuillez ajouter une photo</p>	
 		<% end %>
 		<div class="card-body">
 			<h4 class="card-title"><%= place.name %></h4>
 			<p class="card-text"><%= place.address %></p>
 			<% if @is_admin %>
-				<%= link_to 'Show', admin_city_place_path(place.city, place) %>
-				<%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
-				<%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= link_to 'Voir', admin_city_place_path(place.city, place) %>
+				<%= link_to 'Éditer', edit_admin_city_place_path(place.city, place) %>
+				<%= link_to 'Supprimer', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Es-tu sûr ?' } %>
 			<% else %>
 				<%= link_to '', city_place_path(place.city, place), class:'btn-primary, stretched-link' %>
 			<% end %>
@@ -18,7 +20,7 @@
 		</div>
 		<div class="position_favorite">
 			<div class="favorite">
-			<%= render "places/favorite_place_icon", place: place %>
+				<%= render "places/favorite_place_icon", place: place %>
 			</div>
 		</div>	
 	</div>	
@@ -26,49 +28,3 @@
 
 
 
-<div class="modal fade" id="dogman">
-  <div class="modal-dialog modal-xl">
-
-    <div class="modal-content modal-dialog modal-dialog-scrollable modal-xl">
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 id="titre">Dogman</h2>
-          </div>
-        </div>
-        
-        <div class="row justify-content-center">
-        <div class="modal-body col-md-8">
-          
-            
-              <div class="embed-responsive embed-responsive-21by9">
-                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NexVlXsyHc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-              <br/>
-
-              <p> <strong>Film de Matteo Garrone<br/>2018<br/> <span class="badge badge-pill badge-dark">Drame</span> <span class="badge badge-pill badge-dark">Policier</span> <br/>01:39 heures<br/></p>
-              <p id="date">Séance : 05 août 2019 - 18h30</p></strong> 
-              </p><br/>
-
-              <p>Dans une banlieue déshéritée, Marcello, toiletteur pour chiens discret et apprécié de tous, voit revenir de prison son ami Simoncino, un ancien boxeur accro à la cocaïne qui, très vite, rackette et brutalise le quartier. D’abord confiant, Marcello se laisse entraîner malgré lui dans une spirale criminelle. Il fait alors l’apprentissage de la trahison et de l’abandon, avant d’imaginer une vengeance féroce... </p><br/>
-
-              <a href="#billeterie"><button type="button" class="btn btn-dark" data-dismiss="modal">Billeterie</button></a>
-              
-        </div> 
-        </div> 
-
-      <div class="modal-footer">
-      <div class="row">
-        <div class="col-md-12">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-        </div>
-        
-      </div>
-      </div>
-
-     </div> 
-      
-    </div>
-  </div>
-</div>
