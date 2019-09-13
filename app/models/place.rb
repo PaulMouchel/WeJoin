@@ -42,7 +42,7 @@ class Place < ApplicationRecord
 		end
 	end
 
-	def my_rating(user)
+	def my_rating_outlets(user)
 		rating = self.rating_outlets.find_by(user: user)
 		if rating != nil
 			return rating.outlets

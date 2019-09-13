@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   	resources :favorites, only: [:index, :create, :destroy]
   	resources :attendances
   	resources :ratings, only: [:create]
+    resources :rating_outlets, only: [:create]
   end
 end
