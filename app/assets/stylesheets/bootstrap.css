@@ -10229,6 +10229,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 #add-place {
-  font-size: 305px;
+  font-size: 150px;
+  width: 180px;
 }
 /*# sourceMappingURL=bootstrap.css.map */
