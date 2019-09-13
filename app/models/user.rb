@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :ratings
   has_many :rating_outlets
   has_many :rating_noise_levels
-  has_many :rating_wifi_qualities
+  has_many :rating_wifis
   has_many :rating_comforts
   has_many :favorite_places, through: :favorites, class_name: "Place"
 
@@ -71,12 +71,12 @@ class User < ApplicationRecord
     return rating
   end
 
-  def rate_place_wifi_qualities(place, wifi_qualities)
-    rating = self.rating_wifi_qualities.find_by(place_id: place.id)
+  def rate_place_wifis(place, wifis)
+    rating = self.rating_wifis.find_by(place_id: place.id)
     if rating
-      rating.wifi_qualities = wifi_qualities
+      rating.wifis = wifis
     else
-      rating = self.rating_wifi_qualities.new(place_id: place.id, wifi_qualities: wifi_qualities)
+      rating = self.rating_wifis.new(place_id: place.id, wifis: wifis)
     end
     return rating
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_151537) do
+ActiveRecord::Schema.define(version: 2019_09_13_155440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,26 @@ ActiveRecord::Schema.define(version: 2019_09_13_151537) do
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_rating_outlets_on_place_id"
     t.index ["user_id"], name: "index_rating_outlets_on_user_id"
+  end
+
+  create_table "rating_wifi_qualities", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "place_id"
+    t.integer "rating_wifi_qualities"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_rating_wifi_qualities_on_place_id"
+    t.index ["user_id"], name: "index_rating_wifi_qualities_on_user_id"
+  end
+
+  create_table "rating_wifis", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "place_id"
+    t.integer "wifis"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_rating_wifis_on_place_id"
+    t.index ["user_id"], name: "index_rating_wifis_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|

@@ -1,3 +1,13 @@
+<p >Qualité du réseau wifi :
+<% 1.upto(5) do |i| %>
+	<% if @place.average_rating_wifis >= i %>
+		<i id="av-star-<%= i %>" class="fas fa-wifi text-teal"></i>
+	<% else %>
+		<i id="av-star-<%= i %>" class="fas fa-wifi text-black-50"></i>
+	<% end %>
+<% end %>
+<span id="av-rating"><%= @place.average_rating_wifis %></span></p>
+
 <p >Niveau de confort :
 <% 1.upto(5) do |i| %>
 	<% if @place.average_rating_comforts >= i %>
