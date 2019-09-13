@@ -1,6 +1,14 @@
 
-
-<h1 class="card-title"><%= @place.name %></h1>
+<div class="row">
+  <div class="col-lg-6">
+    <h1 class="card-title"><%= @place.name %></h1>
+  </div>
+    <div class="col-lg-6 my-auto">
+      <a href="note" data-toggle="modal" data-target="#note">
+        <h6><%= render "average_rating", place: @place %></h6>
+      </a>
+  </div>
+</div>
 
 <h4><%= @place.address %></h4>
 <p><strong>Description : </strong><%= @place.description %></p>
@@ -25,4 +33,39 @@
       <%= @place.wifi_password %>
     </p>
   </div>
+
+
  </div> 
+
+ <div class="modal fade" id="note">
+  <div class="modal-dialog modal-md">
+
+    <div class="modal-content modal-dialog modal-dialog-scrollable modal-xl">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2 id="titre">Mon évaluation </h2>
+          </div>
+        </div>
+        
+        <div class="row justify-content-center">
+          <div class="modal-body col-lg-6">
+            <%= render "my_rating", place: @place %>
+          </div> 
+        </div> 
+
+      <div class="modal-footer">
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+        </div>
+        
+      </div>
+      </div>
+
+     </div> 
+      
+    </div>
+  </div>
+</div>

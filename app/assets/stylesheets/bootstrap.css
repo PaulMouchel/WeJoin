@@ -63,6 +63,24 @@ body {
   background-color: #fff;
 }
 
+.btn-back {
+  font-weight: 500;
+  color: black;
+  border: 2px solid black;
+  border-radius: 45px;
+  transition: border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
+  padding:10px;
+}
+
+
+.btn-back:hover {
+  color: white;
+  background-color: black;
+  border: 2px solid black;
+}
+
+
+
 .favorite{
   z-index: 999;
   position: relative;
