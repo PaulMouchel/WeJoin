@@ -2,14 +2,16 @@
 	<div class="card">
 		<%if place.place_pics.attached?%>
 			<%= image_tag place.place_pics.first, class:"card-img-top" %>
+		<% else %>
+			<p>Veuillez ajouter une photo</p>	
 		<% end %>
 		<div class="card-body">
 			<h4 class="card-title"><%= place.name %></h4>
 			<p class="card-text"><%= place.address %></p>
 			<% if @is_admin %>
-				<%= link_to 'Show', admin_city_place_path(place.city, place) %>
-				<%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
-				<%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= link_to 'Voir', admin_city_place_path(place.city, place) %>
+				<%= link_to 'Éditer', edit_admin_city_place_path(place.city, place) %>
+				<%= link_to 'Supprimer', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Es-tu sûr ?' } %>
 			<% else %>
 				<%= link_to '', city_place_path(place.city, place), class:'btn-primary, stretched-link' %>
 			<% end %>
@@ -18,7 +20,7 @@
 		</div>
 		<div class="position_favorite">
 			<div class="favorite">
-			<%= render "places/favorite_place_icon", place: place %>
+				<%= render "places/favorite_place_icon", place: place %>
 			</div>
 		</div>	
 	</div>	

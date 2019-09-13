@@ -9,6 +9,7 @@
   --gray_light: #F0F0F0;
 
   --indigo: #6610f2;
+  --brown: #CA5900;
   --purple: #6f42c1;
   --pink: #e83e8c;
   --red: #dc3545;
@@ -4761,17 +4762,10 @@ filter: none;
   flex: 1 1 auto;
   padding: 1.25rem;
 }
-.card-title-position {
-
-}
 
 .card-title-cities {
   color: white;
   margin-top: -170px;
-}
-
-.card-title {
-  
 }
 
 .card-subtitle {
@@ -10126,6 +10120,22 @@ a.text-dark:hover, a.text-dark:focus {
   color: rgba(255, 255, 255, 0.5) !important;
 }
 
+.text-purple {
+  color: #6f42c1 !important;
+}
+
+.text-brown {
+  color: #ca5900 !important;
+}
+
+.text-teal {
+  color: #20c997 !important;
+}
+
+.text-orange {
+  color: #fd7e14 !important;
+}
+
 .text-hide {
   font: 0/0 a;
   color: transparent;
@@ -10233,5 +10243,10 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+#add-place {
+  font-size: 150px;
+  width: 180px;
 }
 /*# sourceMappingURL=bootstrap.css.map */

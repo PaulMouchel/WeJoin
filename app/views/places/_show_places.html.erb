@@ -3,41 +3,44 @@
   <div class="col-lg-6">
     <h1 class="card-title"><%= @place.name %></h1>
   </div>
-    <div class="col-lg-6 my-auto">
-      <a href="note" data-toggle="modal" data-target="#note">
-        <h6><%= render "average_rating", place: @place %></h6>
-      </a>
+  <div class="col-lg-6 my-auto">
+    <a href="note" data-toggle="modal" data-target="#note">
+      <h6><%= render "places/average_rating", place: @place %></h6>
+    </a>
+  </div>
+  <div class="col-lg-12">
+    <h4><%= @place.address %></h4>
+    <p><strong>Description : </strong><%= @place.description %></p>
   </div>
 </div>
 
-<h4><%= @place.address %></h4>
-<p><strong>Description : </strong><%= @place.description %></p>
-<br> <br>
-<div class="row">
-  <div class="col-lg-3">
-    <p><strong>Coffee price : </strong><%= @place.coffee_price %></p>
+<div class="row mt-5">
+  <div class="col-lg-4">
+    <p><strong>Prix du café : </strong><%= @place.coffee_price %>€</p>
 
-    <p>
-      <strong>Tea price : </strong>
-      <%= @place.tea_price %>
-    </p>
+    <p><strong>Prix du thé: </strong><%= @place.tea_price %>€</p>
 
-    <p>
-      <strong>Beer price : </strong>
-      <%= @place.beer_price %>
-    </p>
+    <p><strong>Prix de la bière : </strong><%= @place.beer_price %>€</p>
   </div>
+
   <div class="col-lg-4">
     <p>
-      <strong>Wifi password : </strong>
+      <strong>Identifiant du réseau WIFI : </strong>
+      <%= @place.wifi_identification %>
+    </p>
+    <p>
+      <strong>Mot de passe du réseau WIFI : </strong>
       <%= @place.wifi_password %>
     </p>
   </div>
+</div></br>
 
+<div>
+  <strong>Evaluation générale du lieu :</strong></br></br>
+  <%= render 'average_rating_others' %>
+</div>
 
- </div> 
-
- <div class="modal fade" id="note">
+<div class="modal fade" id="note">
   <div class="modal-dialog modal-md">
 
     <div class="modal-content modal-dialog modal-dialog-scrollable modal-xl">
@@ -51,7 +54,7 @@
         
         <div class="row justify-content-center">
           <div class="modal-body col-lg-6">
-            <%= render "my_rating", place: @place %>
+            <%= render "places/my_rating", place: @place %>
           </div> 
         </div> 
 
