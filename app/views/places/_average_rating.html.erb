@@ -1,0 +1,8 @@
+<% 1.upto(5) do |i| %>
+	<% if place.average_rating >= i %>
+		<i id="av-star-<%= i %>" class="fas fa-star text-warning"></i>
+	<% else %>
+		<i id="av-star-<%= i %>" class="far fa-star text-warning"></i>
+	<% end %>
+<% end %>
+<span id="av-rating"><%= place.average_rating %></span>

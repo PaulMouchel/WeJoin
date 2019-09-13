@@ -1,29 +1,44 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6 col-md-6 mt-5"><br/><br/>
-      <% if current_user != nil %>
-        <% if @is_admin %>
-          <h1 class="h3 mb-3 font-weight-normal text-center">EDITER PROFIL n°<%= @user.id %></h1>
-        <% else %>
-          <h1 class="h3 mb-3 font-weight-normal text-center">EDITER MON PROFIL</h1>
-        <% end %>
-      <% end %><br/> <br/>
+<div class="row justify-content-center">
+  <div class="col-lg-7 bloc">
 
-      <% if current_user != nil %>
-        <% if @is_admin %>
-      <%= render 'users/form', model: [:admin, @user], is_admin: @is_admin %>
-        <% else %>
-      <%= render 'users/form', model: @user, is_admin: @is_admin %>
+    <div class="row title_bloc">
+      <div class="col-lg-12 text-center ">
+       
+        <% if current_user != nil %>
+          <% if @is_admin %>
+            <h2>EDITER PROFIL n°<%= @user.id %></h2>
+          <% else %>
+            <h2>EDITER MON PROFIL</h2>
+          <% end %>
         <% end %>
-      <% end %>
-
-      <% if current_user != nil %>
-        <% if @is_admin %>
-          <%= link_to 'Retour', admin_users_path %>
-        <% else %>
-          <%= link_to 'Retour', user_path(current_user.id) %>
-        <% end %>
-      <% end %>
+        
+      </div>
     </div>
+
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-10 col-sm-10">
+
+        <% if current_user != nil %>
+          <% if @is_admin %>
+        <%= render 'users/form', model: [:admin, @user], is_admin: @is_admin %>
+          <% else %>
+        <%= render 'users/form', model: @user, is_admin: @is_admin %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-lg-7 mt-5">
+    <% if current_user != nil %>
+      <% if @is_admin %>
+        <%= link_to 'Retour', admin_users_path, class:'btn-back'%>
+      <% else %>
+        <%= link_to 'Retour', user_path(current_user.id), class:'btn-back' %>
+      <% end %>
+    <% end %>
   </div>
 </div>
