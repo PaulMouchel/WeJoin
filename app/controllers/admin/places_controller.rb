@@ -73,7 +73,7 @@ class Admin::PlacesController < AdminController
     end
 
     def place_params
-      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password, :all_tags,
+      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_identification, :wifi_password, :all_tags,
       place_pics: [])
     end
 end
