@@ -14,7 +14,7 @@ class PlaceEditionsController < ApplicationController
     @place_edition.place = @place
       if @place_edition.save
         redirect_to city_place_path(@city, @place) 
-        flash[:success] = 'Merci ! Notre équipe validera tes modifications bientôt !'
+        flash[:success] = "Merci ! Notre équipe validera tes modifications d'ici peu !"
       else
         flash.now[:error] = @place_edition.errors.full_messages.to_sentence
         render :new
