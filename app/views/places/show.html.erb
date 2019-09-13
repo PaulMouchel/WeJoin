@@ -1,25 +1,26 @@
 <div class="space"></div>
 <div class="row justify-content-center">
 	<div class="col-lg-8">
-		<div class="card">
+		<%= link_to 'Back', city_places_path(@city), class:'btn-back' %>
+		<div class="card mt-5">
 			<%if @place.place_pics.attached?%>
-			<% @place.place_pics.each do |image| %>
-			  <%= image_tag image, class:"card-img-top"%> <br />
-			<% end %>
+				<% @place.place_pics.each do |image| %>
+				  <%= image_tag image, class:"card-img-top"%>
+				<% end %>
 			<%else%>
 			<p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>
 			<%end%>
+
 		  	<div class="card-body">
 				<%= render 'show_places' %>
-
 				<p><%= render "places/tags_list", tags: @place.tags %></p>
-				<br><br>
-				
+				<%= link_to 'Éditer', new_city_place_place_edition_path(@city, @place), class:'btn-submit btn-block' %>				
 			</div>
 			<div class="position_favorite">
-			<%= render "favorite_place_icon", place: @place %>
+				<%= render "favorite_place_icon", place: @place %>
 			</div>
 		</div>
+		<div class="space"></div>
 
 		<%= month_calendar events: @attendances do |date, attendances| %>
 		  <%= date %>
@@ -33,9 +34,6 @@
 		  	<%= link_to 'Rejoindre', user_attendances_path(current_user, date: date, place_id: @place.id), method: :post %>
 		  <% end %>
 		<% end %>
-
-		<%= link_to 'Update', new_city_place_place_edition_path(@city, @place), class:'btn-back' %>
-		<%= link_to 'Back', city_places_path(@city), class:'btn-back' %>
 	</div>
 </div>
 
