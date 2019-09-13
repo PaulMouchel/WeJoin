@@ -9,6 +9,7 @@
   --gray_light: #F0F0F0;
 
   --indigo: #6610f2;
+  --brown: #CA5900;
   --purple: #6f42c1;
   --pink: #e83e8c;
   --red: #dc3545;
@@ -10105,6 +10106,10 @@ a.text-dark:hover, a.text-dark:focus {
 
 .text-purple {
   color: #6f42c1 !important;
+}
+
+.text-brown {
+  color: #ca5900 !important;
 }
 
 .text-teal {

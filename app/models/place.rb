@@ -12,6 +12,7 @@ class Place < ApplicationRecord
 	has_many :rating_outlets, dependent: :destroy
 	has_many :rating_noise_levels, dependent: :destroy
 	has_many :rating_wifi_qualities, dependent: :destroy
+	has_many :rating_comforts, dependent: :destroy
 	has_many :place_tags, dependent: :destroy
 	has_many :tags, through: :place_tags
 
@@ -86,6 +87,25 @@ class Place < ApplicationRecord
 		rating = self.rating_wifi_qualities.find_by(user: user)
 		if rating != nil
 			return rating.wifi_qualities
+		else
+			return 0
+		end
+	end
+
+	def average_rating_comforts
+		if self.rating_comforts.length > 0
+			ratings_sum = self.rating_comforts.all.inject(0){|sum,e| sum + e.comforts }
+			ratings_average = ratings_sum.to_f/self.rating_comforts.length
+			return ratings_average
+		else
+			return 0.0
+		end
+	end
+
+	def my_rating_comforts(user)
+		rating = self.rating_comforts.find_by(user: user)
+		if rating != nil
+			return rating.comforts
 		else
 			return 0
 		end
