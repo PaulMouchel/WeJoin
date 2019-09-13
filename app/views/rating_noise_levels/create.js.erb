@@ -5,8 +5,8 @@ for (i=1 ; i<=5 ; i++) {
 	avStarsArray.push(document.getElementById("av-noise-" + i));
 }
 
-myStars = <%= @rating_noise.noise %>;
-avStars = <%= @rating_noise.place.average_rating_noises %>;
+myStars = <%= @rating.noise %>;
+avStars = <%= @rating.place.average_rating_noises %>;
 
 actualizeStars(myStarsArray, myStars);
 actualizeStars(avStarsArray, Math.trunc(avStars));

@@ -5,8 +5,8 @@ for (i=1 ; i<=5 ; i++) {
 	avStarsArray.push(document.getElementById("av-outlets-" + i));
 }
 
-myStars = <%= @rating_outlets.outlets %>;
-avStars = <%= @rating_outlets.place.average_rating_outlets %>;
+myStars = <%= @rating.outlets %>;
+avStars = <%= @rating.place.average_rating_outlets %>;
 
 actualizeStars(myStarsArray, myStars);
 actualizeStars(avStarsArray, Math.trunc(avStars));

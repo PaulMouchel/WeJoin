@@ -5,8 +5,8 @@ for (i=1 ; i<=5 ; i++) {
 	avStarsArray.push(document.getElementById("av-wifi-" + i));
 }
 
-myStars = <%= @rating_wifis.wifis %>;
-avStars = <%= @rating_wifis.place.average_rating_wifis %>;
+myStars = <%= @rating.wifis %>;
+avStars = <%= @rating.place.average_rating_wifis %>;
 
 actualizeStars(myStarsArray, myStars);
 actualizeStars(avStarsArray, Math.trunc(avStars));
