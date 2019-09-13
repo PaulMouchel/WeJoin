@@ -20,6 +20,8 @@
 			<%= render "favorite_place_icon", place: @place %>
 			</div>
 		</div>
+
+		<%= link_to 'Update', new_city_place_place_edition_path(@city, @place), class:'btn-back' %>
 		<%= link_to 'Back', city_places_path(@city), class:'btn-back' %>
 	</div>
 </div>

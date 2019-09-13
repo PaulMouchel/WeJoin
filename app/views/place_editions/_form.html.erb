@@ -1,0 +1,41 @@
+<%= form_with(model: [@city, @place, @place_edition], local: true) do |form| %>
+
+  <div >
+    <%= form.text_field :name, placeholder:"nom",class:"form-control" %>
+  </div>
+
+  <div >
+    <%= form.text_field :address, placeholder:"adresse", class:"form-control" %>
+  </div>
+
+  <div >
+    <%= form.text_area :description, placeholder:"description", class:"form-control" %>
+  </div>
+
+  <div >
+    <%= form.label :coffee_price %>
+    <%= form.number_field(:coffee_price, in: 0.0..20.0, step: 0.05) %>
+  </div>
+
+  <div >
+    <%= form.label :tea_price %>
+    <%= form.number_field(:tea_price, in: 0.0..20.0, step: 0.05) %>
+  </div>
+
+  <div >
+    <%= form.label :beer_price %>
+    <%= form.number_field(:beer_price, in: 0.0..20.0, step: 0.05) %>
+  </div>
+
+  <div >
+    <%= form.text_field :wifi_password, placeholder:"mot de passe wifi", class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.file_field :place_pics, multiple: true, placeholder:"photo", class:"btn-primary" %><br />
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn-submit float-right" %>
+  </div>
+<% end %>
