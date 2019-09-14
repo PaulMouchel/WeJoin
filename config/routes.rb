@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :user_pics, only: [:create, :destroy]
   	resources :favorites, only: [:index, :create, :destroy]
-  	resources :attendances
+  	resources :attendances, only: [:index, :create, :destroy]
   	resources :ratings, only: [:create]
     resources :rating_outlets, only: [:create]
     resources :rating_noise_levels, only: [:create]
