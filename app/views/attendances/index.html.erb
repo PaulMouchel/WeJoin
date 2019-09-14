@@ -10,6 +10,13 @@
 		    <%= link_to user_attendance_path(current_user, attendance), method: :delete do %>
 		    	<i class="fas fa-times-circle text-danger"></i>
 		    <% end %>
+		    <p>
+		    	<% attendance.users.each do |user| %>
+				    <%= link_to user do %>
+				      <%= render 'users/user_pic', user: user, class_list:"h-25 w-25" %>
+				    <% end %>
+			    <% end %>
+			</p>
 		</div>
 	<% end %>
 <% end %>
