@@ -6,14 +6,14 @@
 		      <%= render 'users/user_pic', user: attendance.user, class_list:"h-25 w-25 circle" %>
 		      <% end %>
 		      <% if attendance.user == current_user %>
-			    <%= link_to user_attendance_path(current_user, attendance, date: date, place_id: @place.id), method: :delete do %>
+			    <%= link_to user_attendance_path(current_user, attendance, date: date, place_id: @place.id), method: :delete, remote: true do %>
 			    	<i class="fas fa-times-circle text-danger"></i>
 			    <% end %>
 		      <% end %>
 		    </div>
 		  <% end %>
 		  <% if !current_user.has_attendance(date) %>
-		  	<%= link_to user_attendances_path(current_user, date: date, place_id: @place.id), method: :post do %>
+		  	<%= link_to user_attendances_path(current_user, date: date, place_id: @place.id), method: :post, remote: true do %>
 			   	<i class="fas fa-plus-circle text-success"></i>
 			<% end %>
 		  <% end %>
