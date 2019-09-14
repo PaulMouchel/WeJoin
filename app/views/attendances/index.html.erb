@@ -2,23 +2,19 @@
 
 <h1>Attendances</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<%= month_calendar events: @attendances do |date, attendances| %>
+	<%= date %>
+	<% attendances.each do |attendance| %>
+		<div>
+		    <%= link_to attendance.place.name, city_place_path(attendance.place.city, attendance.place) %>
+		    <%= link_to user_attendance_path(current_user, attendance), method: :delete do %>
+		    	<i class="fas fa-times-circle text-danger"></i>
+		    <% end %>
+		</div>
+	<% end %>
+<% end %>
 
-  <tbody>
-    <% @attendances.each do |attendance| %>
-      <tr>
-        <td><%= attendance.date %></td>
-        <td><%= link_to 'Supprimer', user_attendance_path(current_user, attendance), method: :delete, data: { confirm: 'Es-tu sûr ?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
 
 <br>
 

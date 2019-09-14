@@ -3,7 +3,7 @@ class AttendancesController < ApplicationController
   before_action :set_attendance, only: [:destroy]
 
   def index
-    @attendances = Attendance.all
+    @attendances = current_user.attendances
   end
 
   def create
