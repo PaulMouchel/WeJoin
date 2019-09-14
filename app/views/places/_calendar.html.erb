@@ -6,7 +6,7 @@
 		      <%= render 'users/user_pic', user: attendance.user, class_list:"h-25 w-25 circle" %>
 		      <% end %>
 		      <% if attendance.user == current_user %>
-			    <%= link_to user_attendance_path(current_user, attendance, date: date, place_id: @place.id), method: :delete, remote: true do %>
+			    <%= link_to user_attendance_path(current_user, attendance, date: date, place_id: @place.id, from: "place"), method: :delete, remote: true do %>
 			    	<i class="fas fa-times-circle text-danger"></i>
 			    <% end %>
 		      <% end %>
