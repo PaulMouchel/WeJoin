@@ -26,12 +26,20 @@
 		  <%= date %>
 		  <% attendances.each do |attendance| %>
 		    <div>
+		    	<%= link_to attendance.user do %>
 		      <%= render 'users/user_pic', user: attendance.user, class_list:"h-25 w-25" %>
-		      <%= link_to 'supprimer', user_attendance_path(current_user, attendance, date: date, place_id: @place.id), method: :delete %>
+		      <% end %>
+		      <% if attendance.user == current_user %>
+			    <%= link_to user_attendance_path(current_user, attendance, date: date, place_id: @place.id), method: :delete do %>
+			    	<i class="fas fa-times-circle text-danger"></i>
+			    <% end %>
+		      <% end %>
 		    </div>
 		  <% end %>
 		  <% if !current_user.has_attendance(date) %>
-		  	<%= link_to 'Rejoindre', user_attendances_path(current_user, date: date, place_id: @place.id), method: :post %>
+		  	<%= link_to user_attendances_path(current_user, date: date, place_id: @place.id), method: :post do %>
+			   	<i class="fas fa-plus-circle text-success"></i>
+			<% end %>
 		  <% end %>
 		<% end %>
 	</div>
