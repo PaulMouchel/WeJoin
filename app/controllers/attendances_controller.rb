@@ -30,7 +30,12 @@ class AttendancesController < ApplicationController
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path)
       flash[:success] = 'Attendance was successfully destroyed.' }
-      format.js { }
+      format.js { 
+      	params.delete :place_id
+      	params.delete :id
+      	params[:action] = "index"
+
+      }
     end
   end
 
