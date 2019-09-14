@@ -27,7 +27,7 @@
 		  <% attendances.each do |attendance| %>
 		    <div>
 		    	<%= link_to attendance.user do %>
-		      <%= render 'users/user_pic', user: attendance.user, class_list:"h-25 w-25" %>
+		      <%= render 'users/user_pic', user: attendance.user, class_list:"h-25 w-25 circle" %>
 		      <% end %>
 		      <% if attendance.user == current_user %>
 			    <%= link_to user_attendance_path(current_user, attendance, date: date, place_id: @place.id), method: :delete do %>

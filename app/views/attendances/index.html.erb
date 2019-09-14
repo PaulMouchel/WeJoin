@@ -13,7 +13,7 @@
 		    <p>
 		    	<% attendance.users.each do |user| %>
 				    <%= link_to user do %>
-				      <%= render 'users/user_pic', user: user, class_list:"h-25 w-25" %>
+				      <%= render 'users/user_pic', user: user, class_list:"h-25 w-25 circle" %>
 				    <% end %>
 			    <% end %>
 			</p>

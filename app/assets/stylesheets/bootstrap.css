@@ -10251,4 +10251,9 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 150px;
   width: 180px;
 }
+
+.circle
+{
+  border-radius: 50%;
+}
 /*# sourceMappingURL=bootstrap.css.map */
