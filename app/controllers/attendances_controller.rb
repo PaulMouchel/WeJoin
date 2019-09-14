@@ -13,11 +13,12 @@ class AttendancesController < ApplicationController
       if @attendance.save
         format.html { redirect_back(fallback_location: root_path)
         flash[:success] = 'Attendance was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance }
+        format.js { }
       else
         format.html { flash.now[:error] = @attendance.errors.full_messages.to_sentence
           redirect_back(fallback_location: root_path) }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
+        format.js { flash.now[:error] = @attendance.errors.full_messages.to_sentence
+          redirect_back(fallback_location: root_path) }
       end
     end
   end

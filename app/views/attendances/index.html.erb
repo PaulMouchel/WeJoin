@@ -2,26 +2,8 @@
 
 <h1>Attendances</h1>
 
-<%= month_calendar events: @attendances do |date, attendances| %>
-	<%= date %>
-	<% attendances.each do |attendance| %>
-		<div>
-		    <%= link_to attendance.place.name, city_place_path(attendance.place.city, attendance.place) %>
-		    <%= link_to user_attendance_path(current_user, attendance), method: :delete do %>
-		    	<i class="fas fa-times-circle text-danger"></i>
-		    <% end %>
-		    <p>
-		    	<% attendance.users.each do |user| %>
-				    <%= link_to user do %>
-				      <%= render 'users/user_pic', user: user, class_list:"h-25 w-25 circle" %>
-				    <% end %>
-			    <% end %>
-			</p>
-		</div>
-	<% end %>
-<% end %>
-
-
+<div id="events_calendar">
+  <%= render partial: "calendar", locals: {events: @attendances} %>
+</div>
 
 <br>
-
