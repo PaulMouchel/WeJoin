@@ -38,10 +38,20 @@ class AttendancesController < ApplicationController
       format.html { redirect_back(fallback_location: root_path)
       flash[:success] = 'Attendance was successfully destroyed.' }
       format.js { 
-      	params.delete :place_id
-      	params.delete :id
-      	params[:action] = "index"
-
+      	if params[:from] == "attendances"
+      		#if the request comes from view Attendances/Index
+	      	params.delete :place_id
+	      	params.delete :id
+	      	params[:action] = "index"
+	      elsif params[:from] == "place"
+	      	#if the request comes from view Place/Show
+	      	params[:controller] = "places"
+        	params[:action] = "show"
+        	params[:city_id] = @place.city.id
+        	params[:id] = params[:place_id]
+        	params.delete :user_id
+        	params.delete :date
+	      end
       }
     end
   end
