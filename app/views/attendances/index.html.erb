@@ -6,7 +6,7 @@
 	<%= date %>
 	<% attendances.each do |attendance| %>
 		<div>
-		    <%= attendance.place.name %>
+		    <%= link_to attendance.place.name, city_place_path(attendance.place.city, attendance.place) %>
 		    <%= link_to user_attendance_path(current_user, attendance), method: :delete do %>
 		    	<i class="fas fa-times-circle text-danger"></i>
 		    <% end %>
