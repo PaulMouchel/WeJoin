@@ -13,7 +13,14 @@ class AttendancesController < ApplicationController
       if @attendance.save
         format.html { redirect_back(fallback_location: root_path)
         flash[:success] = 'Attendance was successfully created.' }
-        format.js { }
+        format.js {
+        	params[:controller] = "places"
+        	params[:action] = "show"
+        	params[:city_id] = @place.city.id
+        	params[:id] = params[:place_id]
+        	params.delete :user_id
+        	params.delete :date
+        }
       else
         format.html { flash.now[:error] = @attendance.errors.full_messages.to_sentence
           redirect_back(fallback_location: root_path) }
