@@ -4701,7 +4701,7 @@ input[type="button"].btn-block {
 }
 
 
-.card-cities {
+.card-cities .light {
   filter: brightness(.7);
   -webkit-filter: brightness(.7);
   position: relative;
@@ -4722,11 +4722,10 @@ input[type="button"].btn-block {
 	transition: .3s ease-in-out;
 }
 
-.card-cities:hover {
+.card-cities:hover .light {
 filter: none;
   -webkit-filter: none;
 }
-
 
 .card {
   margin-bottom: 60px;
