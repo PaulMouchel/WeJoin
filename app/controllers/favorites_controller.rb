@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.new(user_id: params[:user_id], favorite_place_id: params[:place])
+    @favorite = Favorite.new(user: current_user, favorite_place_id: params[:place])
 
     respond_to do |format|
       if @favorite.save
