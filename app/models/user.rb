@@ -95,6 +95,14 @@ class User < ApplicationRecord
   	return self.attendances.where(date: date).length != 0
   end
 
+  def add_favorite(place)
+		favorite = self.favorite_places.find_by(name: place.name)
+		if !favorite
+			favorite = Favorite.new(user: self, favorite_place: place)
+		end
+		return favorite
+	end
+
   private
 
   def validate_age
