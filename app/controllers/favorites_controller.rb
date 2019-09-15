@@ -22,7 +22,9 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite.destroy
+  	if @favorite.user == current_user
+	    @favorite.destroy
+	  end
     respond_to do |format|
     	format.html { redirect_back(fallback_location: root_path) }
       format.js { }

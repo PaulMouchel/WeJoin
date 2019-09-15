@@ -9,48 +9,42 @@ class AttendancesController < ApplicationController
   def create
     @attendance = Attendance.new(attendance_params)
     @attendances = @place.attendances
-    respond_to do |format|
-      if @attendance.save
-        format.html { redirect_back(fallback_location: root_path)
-        flash[:success] = 'Attendance was successfully created.' }
-        format.js {
-        	params[:controller] = "places"
-        	params[:action] = "show"
-        	params[:city_id] = @place.city.id
-        	params[:id] = params[:place_id]
-        	params.delete :user_id
-        	params.delete :date
-        }
-      else
-        format.html { flash.now[:error] = @attendance.errors.full_messages.to_sentence
-          redirect_back(fallback_location: root_path) }
-        format.js { flash.now[:error] = @attendance.errors.full_messages.to_sentence
-          redirect_back(fallback_location: root_path) }
-      end
-    end
+    @attendance.user = current_user
+    if current_user.has_attendance(@attendance.date)
+      redirect_back(fallback_location: root_path)
+      flash[:error] = 'Impossible de créer deux participations à la même date'
+    else
+	    respond_to do |format|
+	      if @attendance.save
+	        format.html { redirect_back(fallback_location: root_path)
+	        	flash[:success] = 'Attendance was successfully created.' }
+	        format.js { set_params_for_place_show_view }
+	      else
+	        format.html { flash.now[:error] = @attendance.errors.full_messages.to_sentence
+	          redirect_back(fallback_location: root_path) }
+	        format.js { flash.now[:error] = @attendance.errors.full_messages.to_sentence
+	          redirect_back(fallback_location: root_path) }
+	      end
+	    end
+  	end
   end
 
   def destroy
-    @attendance.destroy
+  	if @attendance.user == current_user
+    	@attendance.destroy
+    end
     @attendances = @place.attendances
     @my_attendances = current_user.attendances
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path)
-      flash[:success] = 'Attendance was successfully destroyed.' }
+      	flash[:success] = 'Attendance was successfully destroyed.' }
       format.js { 
       	if params[:from] == "attendances"
       		#if the request comes from view Attendances/Index
-	      	params.delete :place_id
-	      	params.delete :id
 	      	params[:action] = "index"
 	      elsif params[:from] == "place"
 	      	#if the request comes from view Place/Show
-	      	params[:controller] = "places"
-        	params[:action] = "show"
-        	params[:city_id] = @place.city.id
-        	params[:id] = params[:place_id]
-        	params.delete :user_id
-        	params.delete :date
+        	set_params_for_place_show_view
 	      end
       }
     end
@@ -67,5 +61,12 @@ class AttendancesController < ApplicationController
 
     def attendance_params
       params.permit(:date, :user_id, :place_id)
+    end
+
+    def set_params_for_place_show_view
+    	params[:controller] = "places"
+    	params[:action] = "show"
+    	params[:city_id] = @place.city.id
+    	params[:id] = params[:place_id]
     end
 end
