@@ -44,7 +44,8 @@ class PlacesController < ApplicationController
     end
 
     def place_params
-      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_identification, :wifi_password, :city_id,
+      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_identification, 
+      :wifi_password, :city_id, all_tags: [],
       place_pics: [])
     end
 end
