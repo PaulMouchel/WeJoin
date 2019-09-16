@@ -5,6 +5,8 @@
 
   <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control", placeholder:"Nom" %> 
 
+  <%= f.text_field :profession,  autofocus: true, autocomplete: "profession", class: "form-control", placeholder:"Profession" %>
+  
   <%= f.date_field :birth_date,  autofocus: true, autocomplete: "birth_date", class: "form-control", placeholder:"Date de naissance" %>
   
   <%= f.collection_select :city_id, City.order(:name),:id,:name, autocomplete: "city_id", include_blank: true %><br>
