@@ -71,6 +71,7 @@ gem 'faker'
 gem 'dotenv-rails' 
 gem "aws-sdk-s3", require: false
 gem "simple_calendar", "~> 2.0"
+gem 'rails-i18n'
 
 # Rails 5.2 and Rails 6
 gem 'active_storage_validations'
