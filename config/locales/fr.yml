@@ -1,0 +1,12 @@
+fr:
+  hello: "Salut monde"
+
+fr:
+activerecord:
+  errors:
+    models:
+      user:
+        attributes:
+          email:
+          password:
+

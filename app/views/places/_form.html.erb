@@ -23,10 +23,18 @@
     </button>
   </div>
 
-  <%= render "places/tags_list", tags: Tag.all %>
-	<%= form.text_field :all_tags, placeholder: "choisir un ou plusieurs tags" ,  class:"form-control"%>
+	<%= form.select(:all_tags, Tag.all.map{|tag|tag.name}, { }, { multiple: true, id: "tags_list" })  %>
 
   <div class="actions mt-5">
     <%= form.submit 'ENVOYER', class:"btn-submit btn-block" %>
   </div>
 <% end %>
+
+<script>
+  $(document).ready(function() {   
+    $('#tags_list').chosen({
+      allow_single_deselect: true,
+      width: '100%'
+    })
+  });
+</script>
