@@ -17,4 +17,13 @@ class UserMailer < ApplicationMailer
 	    end
 	  end
 
+	  def edit_place_email(place_edition)
+	    @admins = User.where(is_admin: true)
+	    @place = place_edition
+
+	    @admins.each do |admin|
+	    	mail(to: admin.email, subject: "Un lieu a été édité : #{@place.name}.")
+	    end
+	  end
+
 end
