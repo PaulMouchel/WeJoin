@@ -1,7 +1,1 @@
-favorite = document.getElementById("favorite-<%= @favorite.favorite_place.id %>");
-favorite.classList.remove("fas");
-favorite.classList.remove("text-warning");
-favorite.classList.add("far");
-favoriteLink = document.getElementById("link-favorite-<%= @favorite.favorite_place.id %>");
-favoriteLink.setAttribute('data-method', 'post');
-favoriteLink.setAttribute('href', "/users/<%= @favorite.user.id %>/favorites?place=<%= @favorite.favorite_place.id %>");
+$("#place-div-<%=@favorite.favorite_place.id%>").html("<%= escape_javascript render(partial: "places/favorite_place_icon", locals: {place: @favorite.favorite_place}) %>");

@@ -1,14 +1,16 @@
 class FavoritesController < ApplicationController
 	before_action :set_user
   before_action :set_favorite, only: [:destroy]
+  before_action :check_user, only: [:create, :destroy]
 
   def index
     @favorite_places = @user.favorite_places.all
   end
 
   def create
-    @favorite = Favorite.new(user_id: params[:user_id], favorite_place_id: params[:place])
-
+    place = Place.find(params[:place])
+    @favorite = current_user.add_favorite(place)
+    
     respond_to do |format|
       if @favorite.save
   			format.html { redirect_back(fallback_location: root_path) }
@@ -16,13 +18,14 @@ class FavoritesController < ApplicationController
       else
         format.html { flash.now[:error] = @favorite.errors.full_messages.to_sentence
           redirect_back(fallback_location: root_path) }
-        format.js { }
+        format.js { flash.now[:error] = @favorite.errors.full_messages.to_sentence
+          redirect_back(fallback_location: root_path) }
       end
     end
   end
 
   def destroy
-    @favorite.destroy
+	  @favorite.destroy
     respond_to do |format|
     	format.html { redirect_back(fallback_location: root_path) }
       format.js { }
@@ -41,4 +44,8 @@ class FavoritesController < ApplicationController
     def favorite_params
       params.fetch(:favorite, {})
     end
+
+	  def check_user
+	    redirect_to cities_path if @user != current_user
+	  end
 end
