@@ -37,7 +37,7 @@ class User < ApplicationRecord
       now = Time.now
       return  (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
     else
-      return "Non renseigné"
+      return "Pas renseigné"
     end
   end
 
