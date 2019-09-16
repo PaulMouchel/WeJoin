@@ -51,7 +51,6 @@ class User < ApplicationRecord
   	return rating
   end
 
-<<<<<<< HEAD
   def rate_place_outlets(place, outlets)
     rating = self.rating_outlets.find_by(place_id: place.id)
     if rating
