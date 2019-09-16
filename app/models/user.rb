@@ -103,6 +103,14 @@ class User < ApplicationRecord
 		return favorite
 	end
 
+  def get_city
+    if self.city != nil
+      return self.city.name
+    else
+      return "Pas renseignée"
+    end
+  end
+
   private
 
   def validate_age
