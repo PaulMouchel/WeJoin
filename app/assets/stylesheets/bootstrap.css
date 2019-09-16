@@ -103,24 +103,23 @@ body {
 
 }
 
-.card-hover{
-    -webkit-transition: all .3s ease; /* Safari and Chrome */
-    -moz-transition: all .3s ease; /* Firefox */
-    -o-transition: all .3s ease; /* IE 9 */
-    -ms-transition: all .3s ease; /* Opera */
-    transition: all .3s ease;
-    position:relative;
+.card-hover {
+	-webkit-transition: .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out; /* Firefox */
+    -o-transition: all .3s ease-in-out; /* IE 9 */
+    -ms-transition: all .3s ease-in-out; /* Opera */
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	transition: .3s ease-in-out;
 }
+
 .card-hover:hover {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform:translateZ(0) scale(1.05); /* Safari and Chrome */
-    -moz-transform:scale(1.05); /* Firefox */
-    -ms-transform:scale(1.05); /* IE 9 */
-    -o-transform:translatZ(0) scale(1.05); /* Opera */
-    transform:translatZ(0) scale(1.05);
+	-webkit-transform: scale(1.1);
+	-moz-transform:scale(1.1); /* Firefox */
+    -ms-transform:scale(1.1); /* IE 9 */
+    -o-transform:scale(1.1); /* Opera */
+	transform: scale(1.1);
 }
-  
 
 
 .bloc {
@@ -129,7 +128,6 @@ body {
 	padding: 80px;
 	border-radius: 30px;
 }
-
 
 .title_bloc {
 	position: absolute;
@@ -4703,7 +4701,7 @@ input[type="button"].btn-block {
 }
 
 
-.card-cities {
+.card-cities .light {
   filter: brightness(.7);
   -webkit-filter: brightness(.7);
   position: relative;
@@ -4717,13 +4715,17 @@ input[type="button"].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  -webkit-transition: .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out; /* Firefox */
+    -o-transition: all .3s ease-in-out; /* IE 9 */
+    -ms-transition: all .3s ease-in-out; /* Opera */
+	transition: .3s ease-in-out;
 }
 
-.card-cities:hover {
+.card-cities:hover .light {
 filter: none;
   -webkit-filter: none;
 }
-
 
 .card {
   margin-bottom: 60px;
@@ -10248,5 +10250,10 @@ a.text-dark:hover, a.text-dark:focus {
 #add-place {
   font-size: 150px;
   width: 180px;
+}
+
+.circle
+{
+  border-radius: 50%;
 }
 /*# sourceMappingURL=bootstrap.css.map */

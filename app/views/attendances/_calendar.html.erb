@@ -1,0 +1,18 @@
+<%= month_calendar events: events, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
+	<%= date %>
+	<% events.each do |attendance| %>
+		<div>
+		    <%= link_to attendance.place.name, city_place_path(attendance.place.city, attendance.place) %>
+		    <%= link_to user_attendance_path(current_user, attendance, place_id: attendance.place.id, from: "attendances", start_date: params[:start_date]), method: :delete, remote: true do %>
+		    	<i class="fas fa-times-circle text-danger"></i>
+		    <% end %>
+		    <p>
+		    	<% attendance.users.each do |user| %>
+				    <%= link_to user do %>
+				      <%= render 'users/user_pic', user: user, class_list:"h-25 w-25 circle" %>
+				    <% end %>
+			    <% end %>
+			</p>
+		</div>
+	<% end %>
+<% end %>

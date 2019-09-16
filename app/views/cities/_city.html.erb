@@ -2,9 +2,9 @@
   	<div class="card-hover">
     	<div class="card-cities">
       		<%if city.city_pic.attached?%>
-        		<%= image_tag city.city_pic, alt: 'city', class:"card-img-top" %>
+        		<%= image_tag city.city_pic, alt: 'city', class:"card-img-top light" %>
       		<%else%>
-        		<p>=== Il n'y a pas encore de photo lié à cette ville ===</p>
+        		<div class="card-img-top"></div>
       		<%end%>
       		<div class="card-img-overlay">
             <% if current_user == nil %>
@@ -20,11 +20,12 @@
             	<% end %>
           	<% end %>
       		</div>
+      		<div class="row ml-2 mr-2">
+	    		<div class="col-lg-12 text-center">
+	      			<h2 class="card-title-cities"><%= city.name %></h2>
+	    		</div>
+	    	</div>
     	</div>
-    	<div class="row">
-    		<div class="col-lg-12 text-center ">
-      		<h2 class="card-title-cities"><%= city.name %></h2>
-    		</div>
-    	</div>
+    	
   	</div>
 </div>

@@ -16,24 +16,18 @@
 				<p><%= render "places/tags_list", tags: @place.tags %></p>
 				<%= link_to 'Éditer', new_city_place_place_edition_path(@city, @place), class:'btn-submit btn-block' %>				
 			</div>
-			<div class="position_favorite">
+			<div id="place-div-<%=@place.id%>" class="position_favorite">
 				<%= render "favorite_place_icon", place: @place %>
 			</div>
 		</div>
 		<div class="space"></div>
 
-		<%= month_calendar events: @attendances do |date, attendances| %>
-		  <%= date %>
-		  <% attendances.each do |attendance| %>
-		    <div>
-		      <%= render 'users/user_pic', user: attendance.user, class_list:"h-25 w-25" %>
-		      <%= link_to 'supprimer', user_attendance_path(current_user, attendance, date: date, place_id: @place.id), method: :delete %>
-		    </div>
-		  <% end %>
-		  <% if !current_user.has_attendance(date) %>
-		  	<%= link_to 'Rejoindre', user_attendances_path(current_user, date: date, place_id: @place.id), method: :post %>
-		  <% end %>
-		<% end %>
+		<div id="events_calendar">
+		  <%= render partial: "calendar", locals: {events: @attendances} %>
+		</div>
+
+
+		
 	</div>
 </div>
 
