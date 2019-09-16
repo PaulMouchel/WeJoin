@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="space"></div>
+	<h1>Attendances</h1>
 
-<h1>Attendances</h1>
+	<div id="my-events_calendar">
+	  <%= render partial: "calendar", locals: {events: @attendances} %>
+	</div>
 
-<div id="my-events_calendar">
-  <%= render partial: "calendar", locals: {events: @attendances} %>
 </div>
-
-<br>
