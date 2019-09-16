@@ -6,6 +6,8 @@
   <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control", placeholder:"Nom" %> 
 
   <%= f.date_field :birth_date,  autofocus: true, autocomplete: "birth_date", class: "form-control", placeholder:"Date de naissance" %>
+  
+  <%= f.collection_select :city_id, City.order(:name),:id,:name, autocomplete: "city_id", include_blank: true %><br>
 
   <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder:"Description" %>
 
@@ -14,7 +16,7 @@
   <% end %>
 
   <div class="btn-input mb-2">
-    <button class="btn-submit btn-block">Sélectionne un fichier
+    <button class="btn-submit btn-block">Sélectionne ta photo !
     <%= f.file_field :user_pic, autocomplete: :user_pic %>
     </button>
   </div>
