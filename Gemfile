@@ -77,6 +77,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
   gem 'rails-assets-chosen'
 end
+gem 'rails-i18n'
 
 # Rails 5.2 and Rails 6
 gem 'active_storage_validations'
