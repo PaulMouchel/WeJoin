@@ -1,4 +1,7 @@
 class Place < ApplicationRecord
+
+	after_create :new_place_send
+
 	has_many_attached :place_pics
 	validates :name, presence: true
 	validates :address, presence: true
@@ -15,6 +18,10 @@ class Place < ApplicationRecord
 	has_many :place_tags, dependent: :destroy
 	has_many :tags, through: :place_tags
 	has_many :place_editions
+
+	def new_place_send
+		UserMailer.new_place_email(self).deliver_now
+	end
 
 	def average_rating
 		if self.ratings.length > 0
