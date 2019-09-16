@@ -1,2 +1,0 @@
-class ComfortsController < ApplicationController
-end
