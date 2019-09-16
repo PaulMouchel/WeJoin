@@ -117,7 +117,8 @@ class Place < ApplicationRecord
 	end
 
 	def all_tags=(names)
-	  self.tags = names.split(",").map {|name| Tag.where(name: name.strip).first} - [nil]
+		names.delete("")
+	  self.tags = names.map {|name| Tag.where(name: name.strip).first} - [nil]
 	end
 
 	def all_tags
