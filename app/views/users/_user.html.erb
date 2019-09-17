@@ -21,7 +21,8 @@
               <p>Description : <%= @user.description %></p>
               <p>Email : <%= @user.email %></p>
               <p>Âge : <%= @user.age %></p>
-              <p>Ville : <%= @city %></p>
+              <p>Profession : <%= @user.get_profession %></p>
+              <p>Ville : <%= @user.get_city %></p>
             </p>
               <div class="space"></div>
               <%if current_user == @user%>

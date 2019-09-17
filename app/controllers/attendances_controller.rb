@@ -14,18 +14,16 @@ class AttendancesController < ApplicationController
       redirect_back(fallback_location: root_path)
       flash[:error] = 'Impossible de créer deux participations à la même date'
     else
-	    respond_to do |format|
-	      if @attendance.save
+	    if @attendance.save
+      	respond_to do |format|
 	        format.html { redirect_back(fallback_location: root_path)
 	        	flash[:success] = 'Attendance was successfully created.' }
 	        format.js { set_params_for_place_show_view }
-	      else
-	        format.html { flash.now[:error] = @attendance.errors.full_messages.to_sentence
-	          redirect_back(fallback_location: root_path) }
-	        format.js { flash.now[:error] = @attendance.errors.full_messages.to_sentence
-	          redirect_back(fallback_location: root_path) }
-	      end
-	    end
+      	end
+      else
+        flash.now[:error] = @attendance.errors.full_messages.to_sentence
+          redirect_back(fallback_location: root_path)
+      end
   	end
   end
 
