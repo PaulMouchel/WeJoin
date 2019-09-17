@@ -19,7 +19,6 @@
 
 <div id="mapid" class="container"></div>
 
-<!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 	 
 	<script>
@@ -33,9 +32,9 @@
 		accessToken: 'pk.eyJ1IjoianVsaWVudGV4aWVyIiwiYSI6ImNrMG53cjQ4ZDA0MzgzbXJ1OHBraWU1emcifQ.JVgZSraZTxwT5cA0sGlGbA'
 	}).addTo(mymap);
 	<% @places.each do |place| %>
-		L.marker([<%= place.latitude %>, <%= place.longitude %>]).addTo(mymap);
-			marker.bindPopup('<%= place.name %>');
+		marker = L.marker([<%= place.latitude %>, <%= place.longitude %>]).addTo(mymap);
+
+		marker.bindPopup("<b><a href='<%= city_place_path(place.city, place)%>'><%= place.name%></a></b><br><%= place.address %>");
 	<% end %>
-	
 
 	</script>
