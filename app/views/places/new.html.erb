@@ -14,9 +14,9 @@
 
 		<% if current_user != nil %>
 		  <% if @is_admin %>
-		<%= render 'places/form', model: [:admin, @city, @place], is_admin: @is_admin %>
+		<%= render 'places/form', model: [:admin, @city, @place] %>
 		  <% else %>
-		<%= render 'places/form', model: [@city, @place], is_admin: @is_admin %>
+		<%= render 'places/form', model: [@city, @place] %>
 		  <% end %>
 		<% end %>
     <br>
