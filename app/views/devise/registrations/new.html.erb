@@ -1,38 +1,39 @@
 <%= devise_error_messages! %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7 bloc">
 
-<div class="row justify-content-center">
-  <div class="col-lg-7 bloc">
-
-    <div class="row title_bloc">
-      <div class="col-lg-12 text-center ">
-       
-        <h2>S'INSCRIRE</h2>
-        
-      </div>
-    </div>
-
-
-    <div class="row justify-content-center">
-      <div class="col-lg-10 col-md-10 col-sm-10">
-
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"email", class:"form-control"  %>
-
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %>
-          <%= f.password_field :password, placeholder:"mot de passe", class:"form-control"  %>
+      <div class="row title_bloc">
+        <div class="col-lg-12 text-center ">
+         
+          <h2>S'INSCRIRE</h2>
           
-          <%= f.password_field :password_confirmation, placeholder:"confirmation mot de passe", class:"form-control"  %>
+        </div>
+      </div>
 
-          <div class="actions">
-            <%= f.submit "S'INSCRIRE", class:"btn-submit btn-block " %>
-          </div>
-        <% end %>
-        <br><br>
-        <%= render "devise/shared/links" %>
-        
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-10 col-sm-10">
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"email", class:"form-control"  %>
+
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, placeholder:"mot de passe", class:"form-control"  %>
+            
+            <%= f.password_field :password_confirmation, placeholder:"confirmation mot de passe", class:"form-control"  %>
+
+            <div class="actions">
+              <%= f.submit "S'INSCRIRE", class:"btn-submit btn-block " %>
+            </div>
+          <% end %>
+          <br><br>
+          <%= render "devise/shared/links" %>
+          
+        </div>
       </div>
     </div>
   </div>
