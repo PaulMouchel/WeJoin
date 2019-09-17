@@ -21,11 +21,13 @@
       Dimanche 11:00 - 15:00</p>
       <div class="space"></div>
       
-      <h4 class="text-center">PRÉSENCE</h4>
-      <p>Indique aux autres utilisateurs les jours où tu seras présent dans ce lieu.</p>
-      <div id="events_calendar">
-        <%= render partial: "places/calendar", locals: {events: @attendances} %>
-      </div>  
+      <% if !@is_admin %>
+	      <h4 class="text-center">PRÉSENCE</h4>
+	      <p>Indique aux autres utilisateurs les jours où tu seras présent dans ce lieu.</p>
+	      <div id="events_calendar">
+	        <%= render partial: "places/calendar", locals: {events: @attendances} %>
+	      </div> 
+      <% end %> 
   </div>
 
   <div class="col-lg-4">   
