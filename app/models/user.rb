@@ -111,6 +111,14 @@ class User < ApplicationRecord
     end
   end
 
+  def get_profession
+    if self.profession == nil || self.profession.tr(" ", "") == ""
+      return "Pas renseignée"    
+    else
+      return self.profession
+    end
+  end
+
   private
 
   def validate_age

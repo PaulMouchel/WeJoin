@@ -8,7 +8,6 @@ class Admin::UsersController < AdminController
 
   def show
     @user = User.all.find(params[:id])
-    @city = @user.get_city
   end
   
   def update
