@@ -80,6 +80,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-chosen'
 end
 gem 'rails-i18n'
+gem 'geocoder'
 
 # Rails 5.2 and Rails 6
 gem 'active_storage_validations'
