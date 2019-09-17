@@ -4228,7 +4228,7 @@ input[type="button"].btn-block {
 }
 
 .banner-area {
-  background: url(coffee.jpg) center no-repeat;
+  background: url(https://active-storage-wejoin-thprennes.s3.eu-west-3.amazonaws.com/coffee.jpg) center no-repeat;
   background-size: cover;
   position: relative; 
   z-index: -15;
