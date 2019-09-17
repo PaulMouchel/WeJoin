@@ -18,7 +18,7 @@ class PlaceEdition < ApplicationRecord
 	end
 
 	def all_tags
-	  self.tags.map(&:name).join(", ")
+	  self.tags.map(&:name)
 	end
 
 end
