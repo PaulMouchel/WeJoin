@@ -10347,5 +10347,8 @@ a.text-dark:hover, a.text-dark:focus {
   to {opacity: 1}
 }
 
-
+#mapid {
+  height: 100vh;
+  width: 100vh;
+}
 /*# sourceMappingURL=bootstrap.css.map */
