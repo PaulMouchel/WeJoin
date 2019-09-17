@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_095005) do
+ActiveRecord::Schema.define(version: 2019_09_17_141730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_095005) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -106,6 +108,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_095005) do
     t.boolean "validated", default: false
     t.boolean "reviewed", default: false
     t.string "wifi_identification"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["city_id"], name: "index_places_on_city_id"
   end
 

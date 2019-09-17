@@ -46,6 +46,6 @@ class Admin::CitiesController < AdminController
     end
 
     def city_params
-      params.require(:city).permit(:name, :city_pic)
+      params.require(:city).permit(:name, :latitude, :longitude, :address, :city_pic)
     end
 end
