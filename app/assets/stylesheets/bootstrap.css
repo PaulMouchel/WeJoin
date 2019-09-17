@@ -4936,6 +4936,14 @@ filter: none;
   border-top-right-radius: calc(0.25rem - 1px);
 }
 
+.img-place{
+  object-fit: cover; 
+  width: 100%;
+  height: 600px;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
 .profile-img-top{
   object-fit: cover; 
   width: 250px;

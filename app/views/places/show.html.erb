@@ -1,9 +1,7 @@
 
 <div class="container">
-	<div class="space"></div>
 	<div class="row justify-content-center">
-		<div class="col-lg-8">
-			<%= link_to 'Back', city_places_path(@city), class:'btn-back' %>
+		<div class="col-lg-12">
 			<div class="card mt-5">
 				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 				<a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -11,14 +9,17 @@
 				<%if @place.place_pics.attached?%>
 					<% @place.place_pics.each do |pic| %>
 						<div class="mySlides">
-							<%= image_tag pic, class:"card-img-top", style:"width:100%" %>
+							<%= image_tag pic, class:"img-place", style:"width:100%" %>
 						</div>
 						<% count += 1 %>
 					<% end %>
 				<%else%>
 					<p>=== Il n'y a pas encore de photo lié à cet endroit ===</p>
 				<%end%>
-
+			</div>
+		</div>	
+		<div class="col-lg-8">		
+			<div class="card mt-5">
 			  	<div class="card-body">
 					<%= render 'show_places' %>
 					<p><%= render "places/tags_list", tags: @place.tags %></p>
@@ -35,7 +36,7 @@
 			<div id="events_calendar">
 			  <%= render partial: "calendar", locals: {events: @attendances} %>
 			</div>	
-
+			<%= link_to 'Back', city_places_path(@city), class:'btn-back' %>
 		</div>
 	</div>
 </div>	
