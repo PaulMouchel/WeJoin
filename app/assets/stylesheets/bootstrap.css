@@ -80,8 +80,9 @@ aside {
 }
 
 #mapid {
-  height: 100vh;
-  width: 100vh;
+  height: 400px;
+  width: 100%;
+  border-radius: 45px;
 }
 
 #map_place {
@@ -4870,6 +4871,7 @@ filter: none;
 }
 
 .card-title {
+  text-transform: uppercase;
   color:var(--orange);
 }
 

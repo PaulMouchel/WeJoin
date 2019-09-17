@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="space"></div>
-	<h1 class="home_text text-center" ><%= @city.name %></h1>
+	<h1 class="text-center card-title" ><%= @city.name %></h1>
+	<div id="mapid" class="container"></div>
 	<div class="space"></div>
 	<%= link_to 'Back', cities_path, class:'btn-back' %>
 	<div class="row mt-5">
@@ -16,8 +17,6 @@
 		</div>
 	</div>
 </div>
-
-<div id="mapid" class="container"></div>
 
  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 	 
