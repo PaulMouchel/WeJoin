@@ -5,6 +5,8 @@ class PlacesController < ApplicationController
 
   def index
     @places = @city.places.where(validated: true)
+    @latitude = @city.latitude
+    @longitude = @city.longitude
   end
 
   def show
