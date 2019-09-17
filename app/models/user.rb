@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def name
-      return "#{first_name} #{last_name}"
+    return "#{first_name} #{last_name}"
   end
 
   def age
@@ -37,7 +37,7 @@ class User < ApplicationRecord
       now = Time.now
       return  (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
     else
-      return "Non renseigné"
+      return "Pas renseigné"
     end
   end
 
@@ -111,11 +111,19 @@ class User < ApplicationRecord
     end
   end
 
+  def get_profession
+    if self.profession == nil || self.profession.tr(" ", "") == ""
+      return "Pas renseignée"    
+    else
+      return self.profession
+    end
+  end
+
   private
 
   def validate_age
-    if birth_date.present? && birth_date > 0.years.ago.to_date
-      errors.add(:birth_date, 'You must be born. Nice try !')
+    if birth_date.present? && (birth_date > 0.years.ago.to_date || birth_date <= 110.years.ago.to_date)
+      errors.add(:birth_date, 'Rentre ta vraie date de naissance... On est pas dupe !')
     end
   end
 end

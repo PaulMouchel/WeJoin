@@ -44,8 +44,14 @@
   box-sizing: border-box;
 }
 
+@font-face {
+ font-family: "Sinkin Sans";
+ src: url("https://active-storage-wejoin-thprennes.s3.eu-west-3.amazonaws.com/SinkinSans-700Bold.woff") format("woff");
+}
+
+
 html {
-  font-family: sans-serif;
+    font-family: 'Sinkin Sans', sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -57,7 +63,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Sinkin Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
@@ -116,19 +122,21 @@ body {
 }
 
 .card-hover:hover {
-	-webkit-transform: scale(1.1);
-	-moz-transform:scale(1.1); /* Firefox */
-    -ms-transform:scale(1.1); /* IE 9 */
-    -o-transform:scale(1.1); /* Opera */
-	transform: scale(1.1);
+	-webkit-transform: scale(1.05);
+	-moz-transform:scale(1.05); /* Firefox */
+    -ms-transform:scale(1.05); /* IE 9 */
+    -o-transform:scale(1.05); /* Opera */
+	transform: scale(1.05);
 }
 
 
 .bloc {
 	margin-top: 150px;
-	background-color: var(--green_light);
+	background-color: white;
 	padding: 80px;
 	border-radius: 30px;
+  box-shadow: 0px 0px 25px var(--green_light);
+
 }
 
 .title_bloc {
@@ -210,6 +218,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+  font-family: 'Work Sans', sans-serif;
   font-size:17px;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -499,10 +508,12 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
+  text-transform: uppercase;
   font-size: 2.5rem;
 }
 
 h2, .h2 {
+  text-transform: uppercase;
   font-size: 2rem;
 }
 
@@ -678,6 +689,7 @@ pre code {
 }
 
 .container {
+  padding-top: 150px;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -1998,9 +2010,8 @@ pre code {
   color: #495057;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 30px;
-  
-  color: var(--green);
+  border-radius: 30px;  
+  color: var(--orange);
   background-color: white;
   border: 2px solid var(--green);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2013,49 +2024,74 @@ pre code {
 }
 
 .form-control::-ms-expand {
-  background-color: transparent;
+  background-color: white;
   border: 0;
 }
 
+
+.form-control:hover {
+  border: 2px solid var(--orange);
+}
 .form-control:focus {
   outline: 0;
-  box-shadow: 0px 0px 0px 0px var(--green);
-  /*box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);*/
+  background-color: white;
+  border: 2px solid var(--orange);
+  box-shadow: 0 0 0 0.2rem rgba(255, 64, 43, 0.25);
 }
 
 .form-control::-webkit-input-placeholder {
-  color: var(--green);
+  color: var(--orange);
   opacity: 1;
 }
 
 .form-control::-moz-placeholder {
-  color: var(--green);
+  color: var(--orange);
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: var(--green);
+  color: var(--orange);
   opacity: 1;
 }
 
 .form-control::-ms-input-placeholder {
-  color: var(--green);
+  color: var(--orange);
   opacity: 1;
 }
 
 .form-control::placeholder {
-  color: var(--green);
+  color: var(--orange);
   opacity: 1;
 }
 
 .form-control:disabled, .form-control[readonly] {
-  background-color: #e9ecef;
+  background-color: white;
   opacity: 1;
 }
 
 select.form-control:focus::-ms-value {
-  color: #495057;
-  background-color: #fff;
+  color: white;
+  background-color: #white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+select:-webkit-autofill,
+select:-webkit-autofill:hover {
+  border: 2px solid var(--green);
+  -webkit-text-fill-color: var(--orange);
+  -webkit-box-shadow: 1 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+textarea:-webkit-autofill:focus,
+input:-webkit-autofill:focus,
+select:-webkit-autofill:focus{  
+  border: 2px solid var(--orange);
+  -webkit-text-fill-color: var(--orange);
+  -webkit-box-shadow: 1 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .form-control-file,
@@ -4195,7 +4231,7 @@ input[type="button"].btn-block {
 }
 
 .banner-area {
-  background: url(coffee.jpg) center no-repeat;
+  background: url(https://active-storage-wejoin-thprennes.s3.eu-west-3.amazonaws.com/banner.jpg) center no-repeat;
   background-size: cover;
   position: relative; 
   z-index: -15;
@@ -4205,7 +4241,7 @@ input[type="button"].btn-block {
 }
 
 .banner-content{
-	margin-top: 300px;
+	margin-top: 150px;
 }
 
 
@@ -4243,6 +4279,7 @@ input[type="button"].btn-block {
 }
 
 .nav-tabs .nav-link {
+  margin:10px 0 10px 0;
   border: 1px solid transparent;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
@@ -4304,21 +4341,26 @@ input[type="button"].btn-block {
 }
 
 .btn-nav {
-	font-weight: 500;
-  color: white;
-  border: 2px solid white;
+  font-size: 11px;
+  color: var(--green);
+  border: 1px solid var(--green);
   border-radius: 45px;
+  padding-bottom: 3px;
 }
 
 .btn-nav:hover {
-  color: white;
-  background-color:var(--orange); 
-  border: 2px solid var(--orange);
+  color: var(--orange);
+  border: 1px solid  var(--orange);
+}
 
+.btn-nav-link {
+  background-color: rgba(255,255,255,0.5);
 }
 
 .btn-nav:focus, .btn-primary.focus {
   color: white;
+  background-color:var(--orange);
+  border: 1px solid var(--orange);
 }
 
 .btn-nav.disabled, .btn-primary:disabled {
@@ -4329,7 +4371,7 @@ input[type="button"].btn-block {
 
 .navbar {
 	border-radius: 45px;
-	background-color: rgba(0, 43, 18, 0.5);
+	background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   width: 80%;
   margin:10%;
@@ -4357,6 +4399,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand {
+  width: 40%;
   display: inline-block;
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
@@ -4365,11 +4408,7 @@ input[type="button"].btn-block {
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 600;
-  color: white;
-  background-color: var(--green);
-  border-radius: 45px;
+
 }
 
 .navbar-brand:hover {
@@ -4390,10 +4429,11 @@ input[type="button"].btn-block {
 
 .navbar-nav .nav-link {
   margin-left: 15px;
-  padding-right: 0;
-  padding-left: 0;
+  padding: 12px 6px 10px 6px;
 }
-
+.nav-link {
+  text-align: center;
+}
 .navbar-nav .dropdown-menu {
   position: static;
   float: none;
@@ -4889,7 +4929,6 @@ filter: none;
 }
 
 .card-img-top {
-
   object-fit: cover; 
   width: 100%;
   height: 300px;
@@ -4897,6 +4936,13 @@ filter: none;
   border-top-right-radius: calc(0.25rem - 1px);
 }
 
+.profile-img-top{
+  object-fit: cover; 
+  width: 250px;
+  height: 250px;
+  align-items: center;
+  border-radius: 50%;
+}
 
 .card-img-bottom {
   object-fit: cover; 
@@ -6300,7 +6346,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Sinkin Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -10182,7 +10228,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-orange {
-  color: #fd7e14 !important;
+  color: var(--orange) !important;
 }
 
 .text-hide {
@@ -10256,6 +10302,7 @@ a.text-dark:hover, a.text-dark:focus {
     size: a3;
   }
   body {
+    font-family: 'Sinkin Sans', sans-serif;
   	height: 100%;
     min-width: 992px !important;
   }
@@ -10347,5 +10394,8 @@ a.text-dark:hover, a.text-dark:focus {
   to {opacity: 1}
 }
 
-
+#mapid {
+  height: 100vh;
+  width: 100vh;
+}
 /*# sourceMappingURL=bootstrap.css.map */

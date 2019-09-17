@@ -23,7 +23,7 @@
     </button>
   </div>
 
-	<%= form.select(:all_tags, Tag.all.map{|tag|tag.name}, { }, { multiple: true, id: "tags_list" })  %>
+  <%= form.select(:all_tags, Tag.all.map{|tag|tag.name}, { }, { multiple: true, id: "tags_list" })  %>
 
   <div class="actions mt-5">
     <%= form.submit 'ENVOYER', class:"btn-submit btn-block" %>

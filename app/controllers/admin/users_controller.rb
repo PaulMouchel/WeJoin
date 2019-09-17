@@ -1,14 +1,12 @@
 class Admin::UsersController < AdminController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @users = User.all
   end
 
   def show
     @user = User.all.find(params[:id])
-    @city = @user.get_city
   end
   
   def update
@@ -25,20 +23,17 @@ class Admin::UsersController < AdminController
   def destroy
     @user.destroy
     @user.user_pic.purge
-    respond_to do |format|
-      format.html { redirect_to admin_users_path 
-      flash[:success] = 'Le compte utilisateur a bien été supprimé.' }
-      format.json { head :no_content }
-    end
+    redirect_to admin_users_path 
+    flash[:success] = 'Le compte utilisateur a bien été supprimé.'
   end
   
   private
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :description, :birth_date, :user_pic, :is_admin)
-    end
+  
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :description, :birth_date, :user_pic, :is_admin)
+  end
 
-    def set_user
-      @user = User.find(params[:id])
-    end
-
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
