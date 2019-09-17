@@ -8,19 +8,16 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    place = Place.find(params[:place])
+    place = Place.find(favorite_params[:place])
     @favorite = current_user.add_favorite(place)
-    
-    respond_to do |format|
-      if @favorite.save
+    if @favorite.save
+    	respond_to do |format|
   			format.html { redirect_back(fallback_location: root_path) }
         format.js { }
-      else
-        format.html { flash.now[:error] = @favorite.errors.full_messages.to_sentence
-          redirect_back(fallback_location: root_path) }
-        format.js { flash.now[:error] = @favorite.errors.full_messages.to_sentence
-          redirect_back(fallback_location: root_path) }
       end
+    else
+      flash.now[:error] = @favorite.errors.full_messages.to_sentence
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -42,7 +39,7 @@ class FavoritesController < ApplicationController
     end
 
     def favorite_params
-      params.fetch(:favorite, {})
+    	params.permit(:place)
     end
 
 	  def check_user
