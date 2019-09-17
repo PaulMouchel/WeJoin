@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "tags/new", type: :view do
+RSpec.describe "admin/tags/new", type: :view do
   before(:each) do
     assign(:tag, Tag.new(
       :name => "MyString"
