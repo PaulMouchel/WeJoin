@@ -37,7 +37,7 @@ class User < ApplicationRecord
       now = Time.now
       return  (now.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
     else
-      return "Non renseigné"
+      return "Pas renseigné"
     end
   end
 
@@ -108,6 +108,14 @@ class User < ApplicationRecord
       return self.city.name
     else
       return "Pas renseignée"
+    end
+  end
+
+  def get_profession
+    if self.profession == nil || self.profession.tr(" ", "") == ""
+      return "Pas renseignée"    
+    else
+      return self.profession
     end
   end
 
