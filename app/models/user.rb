@@ -122,7 +122,7 @@ class User < ApplicationRecord
   private
 
   def validate_age
-    if birth_date.present? && birth_date > 0.years.ago.to_date && birth_date <= 110.years.ago.to_date
+    if birth_date.present? && (birth_date > 0.years.ago.to_date || birth_date <= 110.years.ago.to_date)
       errors.add(:birth_date, 'Rentre ta vraie date de naissance... On est pas dupe !')
     end
   end
