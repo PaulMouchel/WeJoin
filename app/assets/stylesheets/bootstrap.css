@@ -73,9 +73,21 @@ body {
 }
 
 aside {
+  color:var(--green);
   background-color:var(--green_light) ;
   border-radius: 10px;
   padding: 30px;
+}
+
+#mapid {
+  height: 100vh;
+  width: 100vh;
+}
+
+#map_place {
+  /*object-fit: cover; */
+  width: 100%;
+  height: 400px;
 }
 
 .btn-back {
@@ -4851,12 +4863,15 @@ filter: none;
 }
 
 .card-body {
-	color: var(--orange);
+	color: var(--green);
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
 }
 
+.card-title {
+  color:var(--orange);
+}
 
 .card-title-cities {
   color: white;
@@ -5308,7 +5323,7 @@ a.badge-secondary:focus, a.badge-secondary.focus {
 
 .badge-success {
   color: #fff;
-  background-color: #28a745;
+  background-color: var(--orange);
 }
 
 a.badge-success:hover, a.badge-success:focus {
@@ -10421,8 +10436,5 @@ a.text-dark:hover, a.text-dark:focus {
   to {opacity: 1}
 }
 
-#mapid {
-  height: 100vh;
-  width: 100vh;
-}
+
 /*# sourceMappingURL=bootstrap.css.map */
