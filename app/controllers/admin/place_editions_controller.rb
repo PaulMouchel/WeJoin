@@ -10,11 +10,10 @@ class Admin::PlaceEditionsController < AdminController
   end
 
   def show
-
   end
 
   def update
-    @place.update(name: @place_edition.name, address: @place_edition.address, description: @place_edition.description, coffee_price: @place_edition.coffee_price, tea_price: @place_edition.tea_price, beer_price: @place_edition.beer_price, wifi_password: @place_edition.wifi_password)  
+    @place.update(name: @place_edition.name, address: @place_edition.address, description: @place_edition.description, coffee_price: @place_edition.coffee_price, tea_price: @place_edition.tea_price, beer_price: @place_edition.beer_price, wifi_password: @place_edition.wifi_password, tags: @place_edition.tags)  
     @place_edition.destroy
     redirect_to admin_place_editions_path 
     flash[:success] = 'La proposition de modification a bien été pris en compte !' 
@@ -37,10 +36,5 @@ class Admin::PlaceEditionsController < AdminController
 
     def set_place_edition
       @place_edition = PlaceEdition.find(params[:id])
-    end
-
-    def place_edition_params
-      params.require(:place_edition).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password,
-      place_pics: [])
     end
 end

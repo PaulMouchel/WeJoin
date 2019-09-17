@@ -1,4 +1,7 @@
 class Place < ApplicationRecord
+
+	after_create :new_place_send
+
 	has_many_attached :place_pics
 	validates :name, presence: true
 	validates :address, presence: true
@@ -15,6 +18,13 @@ class Place < ApplicationRecord
 	has_many :place_tags, dependent: :destroy
 	has_many :tags, through: :place_tags
 	has_many :place_editions
+
+	geocoded_by :address
+	after_validation :geocode
+	
+	def new_place_send
+		UserMailer.new_place_email(self).deliver_now
+	end
 
 	def average_rating
 		if self.ratings.length > 0
@@ -117,10 +127,11 @@ class Place < ApplicationRecord
 	end
 
 	def all_tags=(names)
-	  self.tags = names.split(",").map {|name| Tag.where(name: name.strip).first} - [nil]
+		names.delete("")
+	  self.tags = names.map {|name| Tag.where(name: name.strip).first} - [nil]
 	end
 
 	def all_tags
-	  self.tags.map(&:name).join(", ")
+	  self.tags.map(&:name)
 	end
 end

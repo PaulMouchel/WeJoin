@@ -11,7 +11,7 @@
 
 	<div class="row justify-content-center">
       <div class="col-lg-10 col-md-10 col-sm-10">
-    		<%= render 'form' %>
+    		<%= render 'places/form', model: [@city, @place, @place_edition] %>
     		<br>
     		<%= link_to 'retour', city_place_path(@city, @place), class:'btn-back' %>
         </div>

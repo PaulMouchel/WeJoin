@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.2.3)
       actionpack (= 5.2.3)
@@ -106,9 +107,15 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     execjs (2.7.0)
+    factory_bot (5.0.2)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.2)
+      factory_bot (~> 5.0.2)
+      railties (>= 4.2.0)
     faker (2.2.2)
       i18n (~> 1.6.0)
     ffi (1.11.1)
+    geocoder (1.5.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.6.0)
@@ -148,6 +155,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (1.1.4)
+    popper_js (1.11.1)
     public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
@@ -166,11 +174,20 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.3)
       sprockets-rails (>= 2.0.0)
+    rails-assets-chosen (1.8.7)
+    rails-assets-tether (1.4.7)
+    rails-controller-testing (1.0.4)
+      actionpack (>= 5.0.1.x)
+      actionview (>= 5.0.1.x)
+      activesupport (>= 5.0.1.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
+    rails-i18n (5.1.3)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     railties (5.2.3)
       actionpack (= 5.2.3)
       activesupport (= 5.2.3)
@@ -218,6 +235,8 @@ GEM
     selenium-webdriver (3.142.4)
       childprocess (>= 0.5, < 3.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    shoulda-matchers (4.0.0.rc1)
+      activesupport (>= 4.2.0)
     simple_calendar (2.3.0)
       rails (>= 3.0)
     spring (2.1.0)
@@ -268,18 +287,26 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  factory_bot_rails
   faker
+  geocoder
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener
   listen (>= 3.0.5, < 3.2)
   mini_magick (>= 4.9.5)
   pg (>= 0.18, < 2.0)
+  popper_js (~> 1.11.1)
   puma (~> 3.11)
   rails (~> 5.2.3)
+  rails-assets-chosen!
+  rails-assets-tether (>= 1.3.3)!
+  rails-controller-testing
+  rails-i18n
   rspec-rails (~> 3.8)
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers (= 4.0.0.rc1)
   simple_calendar (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)

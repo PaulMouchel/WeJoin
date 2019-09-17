@@ -1,36 +1,43 @@
   <%= render 'layouts/admin_navbar' %>
+  
    <nav class="navbar navbar-expand-lg mt-5"  id="navbar">
-    <a class="navbar-brand" href="<%= cities_path%>">TRYP</a>
+    <a href="<%= cities_path%>"><img class="navbar-brand" src="https://active-storage-wejoin-thprennes.s3.eu-west-3.amazonaws.com/logo-02.svg"></a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-<!--     <div class="container"> -->
         <div class="collapse navbar-collapse offset"  id="navbarSupportedContent1">
           <ul class="nav navbar-nav ml-auto">
 
-            <li class="nav-item"><%= link_to "EXPLORER", cities_path, class: "nav-link nav-item btn-primary" %></li>
-            
+            <% if !user_signed_in? %>
+              <li class="nav-item"><%= link_to "EXPLORER", cities_path, class: "nav-link nav-item btn-nav" %></li>
+            <% else %>
+              <% if current_user.city_id == nil %>
+                <li class="nav-item"><%= link_to "EXPLORER", cities_path, class: "nav-link nav-item btn-nav" %></li>
+              <% else %>
+                <li class="nav-item"><%= link_to "EXPLORER", city_places_path(current_user.city_id), class: "nav-link nav-item btn-nav" %></li>
+              <% end %>
+            <% end %>
 
               <% if !user_signed_in? %>
                 <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle btn-primary" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONNEXION</a>
+                <a href="#" class="nav-link dropdown-toggle btn-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONNEXION</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><%= link_to "S'INSCRIRE", new_user_registration_path, class: "nav-link  btn-primary" %></li>
-                  <li class="nav-item"><%= link_to "SE CONNECTER", new_user_session_path, class: "nav-link btn-primary" %></li>
+                  <li class="nav-item"><%= link_to "S'INSCRIRE", new_user_registration_path, class: "nav-link  btn-nav btn-nav-link" %></li>
+                  <li class="nav-item"><%= link_to "SE CONNECTER", new_user_session_path, class: "nav-link btn-nav btn-nav-link" %></li>
                 </ul>
                 </li>
               <% else %>
               <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle btn-primary" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROFIL / DÉCONNEXION</a>
+                <a href="#" class="nav-link dropdown-toggle btn-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROFIL / DÉCONNEXION</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><%= link_to "MON PROFIL", user_path(current_user.id), class: "nav-link btn btn-primary" %></li>
-                  <li class="nav-item"><%= link_to "MES LIEUX FAVORIS", user_favorites_path(current_user), class: "nav-link btn btn-primary" %></li>
-                  <li class="nav-item"><%= link_to "MON PLANNING", user_attendances_path(current_user), class: "nav-link btn btn-primary" %></li>
-                  <li class="nav-item"><%= link_to "SE DÉCONNECTER", destroy_user_session_path, method: :delete, class: "nav-link btn btn-primary" %></li>
+                  <li class="nav-item"><%= link_to "MON PROFIL", user_path(current_user.id), class: "nav-link btn btn-nav btn-nav-link" %></li>
+                  <li class="nav-item"><%= link_to "MES LIEUX FAVORIS", user_favorites_path(current_user), class: "nav-link btn btn-nav btn-nav-link" %></li>
+                  <li class="nav-item"><%= link_to "MON PLANNING", user_attendances_path(current_user), class: "nav-link btn btn-nav btn-nav-link" %></li>
+                  <li class="nav-item"><%= link_to "SE DÉCONNECTER", destroy_user_session_path, method: :delete, class: "nav-link btn btn-nav btn-nav-link" %></li>
               <% end %>
           </ul>
         </div>      
-      <!-- </div> -->
+
     </nav>

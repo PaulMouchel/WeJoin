@@ -1,16 +1,40 @@
-<div class="space"></div>
-<h1 class="home_text text-center" ><%= @city.name %></h1>
-<div class="space"></div>
-<%= link_to 'Back', cities_path, class:'btn-back' %>
-<div class="row mt-5">
-  	<%= render "places", places: @places %>    
-	
-	<div class="col-lg-4">	    			    
-		<div class="card">
-			<div class="card-body text-center d-flex justify-content-center ">
-			<h1  id="add-place" class="text-white rounded-circle bg-dark">+</h1>
-				<h4 class="card-title"><%= link_to '', new_city_place_path(@city), class:'stretched-link' %></h4>
+<div class="container">
+	<div class="space"></div>
+	<h1 class="home_text text-center" ><%= @city.name %></h1>
+	<div class="space"></div>
+	<%= link_to 'Back', cities_path, class:'btn-back' %>
+	<div class="row mt-5">
+	  	<%= render "places", places: @places %>    
+		
+		<div class="col-lg-4">	    			    
+			<div class="card">
+				<div class="card-body text-center d-flex justify-content-center ">
+				<h1  id="add-place" class="text-white rounded-circle bg-dark">+</h1>
+					<h4 class="card-title"><%= link_to '', new_city_place_path(@city), class:'stretched-link' %></h4>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<div id="mapid" class="container"></div>
+
+ <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+	 
+	<script>
+	var city = [<%= @latitude %>, <%= @longitude %>]
+	 var mymap = L.map('mapid').setView(city, 13);
+
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		maxZoom: 18,
+		id: 'mapbox.streets',
+		accessToken: 'pk.eyJ1IjoianVsaWVudGV4aWVyIiwiYSI6ImNrMG53cjQ4ZDA0MzgzbXJ1OHBraWU1emcifQ.JVgZSraZTxwT5cA0sGlGbA'
+	}).addTo(mymap);
+	<% @places.each do |place| %>
+		marker = L.marker([<%= place.latitude %>, <%= place.longitude %>]).addTo(mymap);
+
+		marker.bindPopup("<b><a href='<%= city_place_path(place.city, place)%>'><%= place.name%></a></b><br><%= place.address %>");
+	<% end %>
+
+	</script>

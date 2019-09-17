@@ -12,6 +12,9 @@
 //
 //= require jquery3
 //= require jquery_ujs
+//= require popper
+//= require tether
 //= require activestorage
 //= require turbolinks
+//= require chosen
 //= require_tree .
