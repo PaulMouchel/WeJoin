@@ -1,40 +1,47 @@
 
 <div class="row">
-  <div class="col-lg-6">
+
+  <div class="col-lg-12 text-center">
     <h1 class="card-title"><%= @place.name %></h1>
-  </div>
-  <div class="col-lg-6 my-auto">
     <a href="note" data-toggle="modal" data-target="#note">
       <h6><%= render "places/average_rating", place: @place %></h6>
     </a>
   </div>
-  <div class="col-lg-12">
-    <h4><%= @place.address %></h4>
-    <p><strong>Description : </strong><%= @place.description %></p>
-  </div>
 </div>
-
-<div class="row mt-5">
-  <div class="col-lg-4">
-    <p><strong>Prix du café : </strong><%= @place.coffee_price %>€</p>
-
-    <p><strong>Prix du thé: </strong><%= @place.tea_price %>€</p>
-
-    <p><strong>Prix de la bière : </strong><%= @place.beer_price %>€</p>
+<div class="row mt-5"> 
+  <div class="col-lg-7">   
+    <p><%= @place.description %></p>
+    <p class="text-center mt-5">
+      Lundi 08:00 - 00:00<br>
+      Mardi 08:00 - 00:00<br>
+      Mercredi 08:00 - 00:00<br>
+      Jeudi 08:00 - 00:00<br>  
+      Vendredi 08:00 - 01:00<br>
+      Samedi 08:00 - 01:00<br>
+      Dimanche 11:00 - 15:00</p>
   </div>
 
-  <div class="col-lg-4">
-    <p>
-      <strong>Identifiant du réseau WIFI : </strong>
-      <%= @place.wifi_identification %>
-    </p>
+  <div class="col-lg-5">   
+    <p>MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP MAP<h4><%= @place.address %></h4> </p>
+    
+    <aside class="mt-5">
+      <p><strong>Prix du café : </strong><%= @place.coffee_price %>€</p>
+      <p><strong>Prix du thé: </strong><%= @place.tea_price %>€</p>
+      <p><strong>Prix de la bière : </strong><%= @place.beer_price %>€</p>
+      <p><strong>WIFI : </strong><%= @place.wifi_identification %></p>
     <p>
       <strong>Mot de passe du réseau WIFI : </strong>
       <%= @place.wifi_password %>
     </p>
+    </aside>
   </div>
-</div></br>
+    <div class="col-lg-7 mt-5 text-center">   
+    
+  </div>
 
+</div>
+
+<p><%= render "places/tags_list", tags: @place.tags %></p>
 <div>
   <strong>Evaluation générale du lieu :</strong></br></br>
   <%= render 'places/average_rating_others' %>

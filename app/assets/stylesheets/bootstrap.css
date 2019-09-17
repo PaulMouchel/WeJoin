@@ -72,6 +72,12 @@ body {
   background-color: #fff;
 }
 
+aside {
+  background-color:var(--green_light) ;
+  border-radius: 10px;
+  padding: 30px;
+}
+
 .btn-back {
   font-weight: 500;
   color: var(--green);
@@ -4936,6 +4942,13 @@ filter: none;
   border-top-right-radius: calc(0.25rem - 1px);
 }
 
+.img-place{
+  object-fit: cover; 
+  width: 100%;
+  height: 600px;
+  border-radius: 45px;
+}
+
 .profile-img-top{
   object-fit: cover; 
   width: 250px;
@@ -4984,6 +4997,20 @@ filter: none;
     margin-left: 15px;
   }
 }
+
+.card-place {
+  margin-bottom: 60px;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+}
+
 
 .card-group {
   display: -ms-flexbox;
