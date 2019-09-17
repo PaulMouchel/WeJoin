@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       resources :attendances
     end
   end
-  resources :place_tags
   resources :cities, only: [:index] do
     resources :city_pics, only: [:create, :destroy]
     resources :places, except: [:update, :destroy] do 
