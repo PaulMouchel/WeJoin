@@ -1,7 +1,7 @@
   <%= render 'layouts/admin_navbar' %>
   
    <nav class="navbar navbar-expand-lg mt-5"  id="navbar">
-    <a href="<%= cities_path%>"><img class="navbar-brand" src=""></a>
+    <a href="<%= cities_path%>"><img class="navbar-brand" src="https://active-storage-wejoin-thprennes.s3.eu-west-3.amazonaws.com/logo-02.svg"></a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -17,18 +17,18 @@
                 <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle btn-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONNEXION</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><%= link_to "S'INSCRIRE", new_user_registration_path, class: "nav-link  btn-nav" %></li>
-                  <li class="nav-item"><%= link_to "SE CONNECTER", new_user_session_path, class: "nav-link btn-nav" %></li>
+                  <li class="nav-item"><%= link_to "S'INSCRIRE", new_user_registration_path, class: "nav-link  btn-nav btn-nav-link" %></li>
+                  <li class="nav-item"><%= link_to "SE CONNECTER", new_user_session_path, class: "nav-link btn-nav btn-nav-link" %></li>
                 </ul>
                 </li>
               <% else %>
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle btn-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROFIL / DÉCONNEXION</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><%= link_to "MON PROFIL", user_path(current_user.id), class: "nav-link btn btn-nav" %></li>
-                  <li class="nav-item"><%= link_to "MES LIEUX FAVORIS", user_favorites_path(current_user), class: "nav-link btn btn-nav" %></li>
-                  <li class="nav-item"><%= link_to "MON PLANNING", user_attendances_path(current_user), class: "nav-link btn btn-nav" %></li>
-                  <li class="nav-item"><%= link_to "SE DÉCONNECTER", destroy_user_session_path, method: :delete, class: "nav-link btn btn-nav" %></li>
+                  <li class="nav-item"><%= link_to "MON PROFIL", user_path(current_user.id), class: "nav-link btn btn-nav btn-nav-link" %></li>
+                  <li class="nav-item"><%= link_to "MES LIEUX FAVORIS", user_favorites_path(current_user), class: "nav-link btn btn-nav btn-nav-link" %></li>
+                  <li class="nav-item"><%= link_to "MON PLANNING", user_attendances_path(current_user), class: "nav-link btn btn-nav btn-nav-link" %></li>
+                  <li class="nav-item"><%= link_to "SE DÉCONNECTER", destroy_user_session_path, method: :delete, class: "nav-link btn btn-nav btn-nav-link" %></li>
               <% end %>
           </ul>
         </div>      

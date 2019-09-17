@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2019_09_17_115640) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "place_edition_tags", force: :cascade do |t|
+    t.bigint "place_edition_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_edition_id"], name: "index_place_edition_tags_on_place_edition_id"
+    t.index ["tag_id"], name: "index_place_edition_tags_on_tag_id"
+  end
+
   create_table "place_editions", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -178,4 +187,6 @@ ActiveRecord::Schema.define(version: 2019_09_17_115640) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "place_edition_tags", "place_editions"
+  add_foreign_key "place_edition_tags", "tags"
 end

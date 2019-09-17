@@ -1,9 +1,12 @@
+
+
 <h1>MES LIEUX FAVORIS</h1>
+<div class="container">
+	<div class="row">
+	    <% @favorite_places.each do |place| %>
+	    	<%= render "places/place", place: place %></td>
+	      
+	    <% end %>
 
-<div class="row">
-    <% @favorite_places.each do |place| %>
-    	<%= render "places/place", place: place %></td>
-      
-    <% end %>
-
-</div>
+	</div>
+</div>	
