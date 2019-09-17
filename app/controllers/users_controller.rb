@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :create, :update]
   before_action :set_user, only: [:show, :edit, :update]
- 
-  def show
-    @city = @user.get_city
-  end
   
   def update
     current_user.update(user_params)
