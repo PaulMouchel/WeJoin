@@ -23,7 +23,7 @@
  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 	 
 	<script>
-	var city = [48.1113387, -1.6800198]
+	var city = [<%= @latitude %>, <%= @longitude %>]
 	 var mymap = L.map('mapid').setView(city, 13);
 
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {

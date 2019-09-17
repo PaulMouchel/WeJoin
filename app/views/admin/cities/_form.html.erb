@@ -4,6 +4,16 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.number_field :latitude, step: :any %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.number_field :longitude, step: :any %>
+  </div>
   
   <div class="form-group">
     <%= form.label :city_pic %>
