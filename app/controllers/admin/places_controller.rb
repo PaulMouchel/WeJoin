@@ -48,7 +48,7 @@ class Admin::PlacesController < AdminController
   def destroy
     @place.destroy
     @place.place_pics.purge
-    redirect_to admin_city_places_path(@city) 
+    redirect_to admin_places_path
     flash[:success] = 'Le lieu a bien été supprimé.'
   end
 
@@ -62,7 +62,7 @@ class Admin::PlacesController < AdminController
     end
 
     def place_params
-      params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_identification, :wifi_password, :all_tags,
+      params.require(:place).permit(:name, :address, :longitude, :latitude, :description, :coffee_price, :tea_price, :beer_price, :wifi_identification, :wifi_password, :all_tags,
       place_pics: [])
     end
 end
