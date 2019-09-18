@@ -19,6 +19,9 @@ class Place < ApplicationRecord
 	has_many :tags, through: :place_tags
 	has_many :place_editions
 
+	geocoded_by :address
+	after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
+	
 	def new_place_send
 		UserMailer.new_place_email(self).deliver_now
 	end

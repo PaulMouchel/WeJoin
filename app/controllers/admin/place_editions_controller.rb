@@ -10,7 +10,6 @@ class Admin::PlaceEditionsController < AdminController
   end
 
   def show
-
   end
 
   def update

@@ -14,42 +14,30 @@ class Admin::CitiesController < AdminController
 
   def create
     @city = City.new(city_params)
-
-    respond_to do |format|
-      if @city.save
-        format.html { redirect_to admin_city_places_path(@city) 
-        flash[:success] = 'La nouvelle ville a bien été créée ! :)' }
-        format.json { render :show, status: :created, location: @city }
-      else
-        format.html { flash.now[:error] = @city.errors.full_messages.to_sentence
-          render :new }
-        format.json { render json: @city.errors, status: :unprocessable_entity }
-      end
+    if @city.save
+      redirect_to admin_city_places_path(@city) 
+      flash[:success] = 'La nouvelle ville a bien été créée ! :)'
+    else
+      flash.now[:error] = @city.errors.full_messages.to_sentence
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @city.update(city_params)
-        format.html { redirect_to admin_city_places_path(@city) 
-        flash[:success] = 'La ville a bien été modifiée ! :)' }
-        format.json { render :show, status: :ok, location: @city }
-      else
-        format.html { flash.now[:error] = @city.errors.full_messages.to_sentence
-          render :edit }
-        format.json { render json: @city.errors, status: :unprocessable_entity }
-      end
+    if @city.update(city_params)
+      redirect_to admin_city_places_path(@city) 
+      flash[:success] = 'La ville a bien été modifiée ! :)'
+    else
+      flash.now[:error] = @city.errors.full_messages.to_sentence
+      render :edit
     end
   end
 
   def destroy
     @city.destroy
     @city.city_pic.purge
-    respond_to do |format|
-      format.html { redirect_to admin_cities_path 
-      flash[:success] = 'La ville a bien été supprimée de la base.' }
-      format.json { head :no_content }
-    end
+    redirect_to admin_cities_path 
+    flash[:success] = 'La ville a bien été supprimée de la base.'
   end
 
   private
@@ -58,6 +46,6 @@ class Admin::CitiesController < AdminController
     end
 
     def city_params
-      params.require(:city).permit(:name, :city_pic)
+      params.require(:city).permit(:name, :latitude, :longitude, :city_pic)
     end
 end

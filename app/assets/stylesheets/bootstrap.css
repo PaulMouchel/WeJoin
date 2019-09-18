@@ -72,6 +72,54 @@ body {
   background-color: #fff;
 }
 
+aside {
+  color:var(--green);
+  background-color:var(--green_light) ;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+
+.title-city-admin{
+  z-index: 999;
+  color: white;
+  position: absolute;
+  margin-top: 220px;
+  font-size:70px;
+  text-align:center;
+  width: 100%;
+}
+
+.navbar_admin{
+  color: var(--green);
+  background-color: var(--green_light);
+}
+.navbar_admin a {
+  font-size: 11px;
+  margin-top: 2px;
+  color: var(--green);
+}
+
+.navbar_admin a:hover {
+  font-size: 11px;
+  margin-top: 2px;
+  color: var(--orange);
+}
+
+#mapid {
+  height: 400px;
+  width: 100%;
+  border-radius: 25px;
+}
+
+#map_place {
+  /*object-fit: cover; */
+  width: 100%;
+  height: 400px;
+  border-radius: 5px;
+
+}
+
 .btn-back {
   font-weight: 500;
   color: var(--green);
@@ -108,8 +156,18 @@ body {
     width:  250px;
     height: 170px;
     margin-bottom: 20px;
-
 }
+
+.img-size-city {
+  z-index: 0;
+  position: relative;
+  object-fit: cover; 
+  width:  100%;
+  height: 500px;
+  border-radius: 25px;
+  margin-bottom: 100px;
+}
+
 
 .card-hover {
 	-webkit-transition: .3s ease-in-out;
@@ -689,7 +747,7 @@ pre code {
 }
 
 .container {
-  padding-top: 150px;
+  padding-top: 170px;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -3409,30 +3467,41 @@ input[type="button"].btn-block {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1.5rem;
+  padding: 6px 4px 5px 4px;
   clear: both;
   font-weight: 400;
   color: #212529;
-  text-align: inherit;
+  text-align: center;
   white-space: nowrap;
-  background-color: transparent;
-  border: 0;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 45px;
+  border: 1px solid var(--green);
 }
 
-.dropdown-item:hover, .dropdown-item:focus {
-  color: #16181b;
+
+.dropdown-item:active {
+  color: white;
   text-decoration: none;
-  background-color: #f8f9fa;
 }
 
-.dropdown-item.active, .dropdown-item:active {
-  color: #fff;
+
+.dropdown-item:hover {
+  color: var(--orange);
   text-decoration: none;
-  background-color: #007bff;
+  border: 1px solid var(--orange);
+  background-color: rgba(255,255,255,0.5);
+}
+
+.dropdown-item:focus {
+  color: var(--orange);
+  text-decoration: none;
+  border: 1px solid var(--orange);
+  background-color: rgba(255,255,255,0.5);
+
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
-  color: #6c757d;
+  color: white;
   pointer-events: none;
   background-color: transparent;
 }
@@ -4374,7 +4443,7 @@ input[type="button"].btn-block {
 	background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   width: 80%;
-  margin:10%;
+  margin: 70px 10% 0 10%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -4845,12 +4914,16 @@ filter: none;
 }
 
 .card-body {
-	color: var(--orange);
+	color: var(--green);
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
 }
 
+.card-title {
+  text-transform: uppercase;
+  color:var(--orange);
+}
 
 .card-title-cities {
   color: white;
@@ -4936,6 +5009,13 @@ filter: none;
   border-top-right-radius: calc(0.25rem - 1px);
 }
 
+.img-place{
+  object-fit: cover; 
+  width: 100%;
+  height: 600px;
+  border-radius: 45px;
+}
+
 .profile-img-top{
   object-fit: cover; 
   width: 250px;
@@ -4984,6 +5064,20 @@ filter: none;
     margin-left: 15px;
   }
 }
+
+.card-place {
+  margin-bottom: 60px;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+}
+
 
 .card-group {
   display: -ms-flexbox;
@@ -5281,7 +5375,7 @@ a.badge-secondary:focus, a.badge-secondary.focus {
 
 .badge-success {
   color: #fff;
-  background-color: #28a745;
+  background-color: var(--orange);
 }
 
 a.badge-success:hover, a.badge-success:focus {
@@ -10394,8 +10488,5 @@ a.text-dark:hover, a.text-dark:focus {
   to {opacity: 1}
 }
 
-#mapid {
-  height: 100vh;
-  width: 100vh;
-}
+
 /*# sourceMappingURL=bootstrap.css.map */

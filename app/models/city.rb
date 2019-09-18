@@ -1,4 +1,5 @@
 class City < ApplicationRecord
+
 	has_one_attached :city_pic
 	
 	validates :name, presence: true
@@ -7,4 +8,8 @@ class City < ApplicationRecord
 
 	has_many :users
 	has_many :places, dependent: :destroy
+
+	geocoded_by :name
+	after_validation :geocode, if: ->(obj){ obj.name.present? and obj.name_changed? }
+
 end

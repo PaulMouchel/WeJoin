@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "places/index", type: :view do
+RSpec.describe "cities/1/places/index", type: :view do
   before(:each) do
     assign(:places, [
       Place.create!(
