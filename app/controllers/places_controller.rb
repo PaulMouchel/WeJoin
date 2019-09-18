@@ -7,8 +7,8 @@ class PlacesController < ApplicationController
   	@latitude = @city.latitude
     @longitude = @city.longitude
   	respond_to do |format|
-      format.html { @places = @city.places.where(validated: true) }
-      format.js { @places = @city.places.where(validated: true).where("lower(name) like ?", "%" + params[:search].downcase + "%") }
+      format.html { @places = @city.places.where(validated: true).sort_by{ |place| place.name.upcase} }
+      format.js { @places = @city.places.where(validated: true).where("lower(name) like ?", "%" + params[:search].downcase + "%").sort_by{ |place| place.name.upcase} }
     end
   end
 
