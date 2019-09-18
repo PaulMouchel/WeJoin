@@ -20,7 +20,7 @@ class Place < ApplicationRecord
 	has_many :place_editions
 
 	geocoded_by :address
-	after_validation :geocode
+	after_validation :geocode, if: ->(obj){ obj.name.present? and obj.name_changed? }
 	
 	def new_place_send
 		UserMailer.new_place_email(self).deliver_now
