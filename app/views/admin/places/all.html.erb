@@ -1,58 +1,94 @@
-<h1>Places to be validated</h1>
+<div class="container">
+  <div class="row">
+    
+    <div class="col-lg-12 bloc">
 
-<% @to_be_validated.each do |place| %>
-  <div class="col-lg-4">	    			    
-    <div class="card">
-      <% if place.place_pics.attached?%>
-        <%= image_tag place.place_pics.first, class:"card-img-top" %>
-      <% end %>
-      <div class="card-body">
-        <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
-        <p class="card-text"><%= place.address %></p>
-          <%= link_to 'Show', admin_city_place_path(place.city, place) %>
-          <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
-          <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= render "places/tags_list", tags: place.tags %>
+      <div class="row title_bloc">
+        <div class="col-lg-12 text-center ">
+          <h2>Lieu à valider</h2> 
+        </div>
+      </div>
+
+      <div class="row">
+        <% @to_be_validated.each do |place| %>
+          <div class="col-lg-4">	    			    
+            <div class="card">
+              <% if place.place_pics.attached?%>
+                <%= image_tag place.place_pics.first, class:"card-img-top" %>
+              <% end %>
+              <div class="card-body">
+                <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
+                <p class="card-text"><%= place.address %></p>
+                  <%= link_to 'Show', admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= render "places/tags_list", tags: place.tags %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="col-lg-12 bloc">
+
+      <div class="row title_bloc">
+        <div class="col-lg-12 text-center ">
+          <h2>Lieux validés</h2> 
+        </div>
+      </div>
+
+      <div class="row">
+        <% @validated.each do |place| %>
+          <div class="col-lg-4">	    			    
+            <div class="card">
+              <%if place.place_pics.attached?%>
+                <%= image_tag place.place_pics.first, class:"card-img-top" %>
+              <% end %>
+              <div class="card-body">
+                <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
+                <p class="card-text"><%= place.address %></p>
+                  <%= link_to 'Show', admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= render "places/tags_list", tags: place.tags %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  </div>
-<% end %>
 
-<h1>Validated places</h1>
+    <div class="col-lg-12 bloc">
 
-<% @validated.each do |place| %>
-  <div class="col-lg-4">	    			    
-    <div class="card">
-      <%if place.place_pics.attached?%>
-        <%= image_tag place.place_pics.first, class:"card-img-top" %>
-      <% end %>
-      <div class="card-body">
-        <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
-        <p class="card-text"><%= place.address %></p>
-          <%= link_to 'Show', admin_city_place_path(place.city, place) %>
-          <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
-          <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= render "places/tags_list", tags: place.tags %>
+      <div class="row title_bloc">
+        <div class="col-lg-12 text-center ">
+          <h2>Lieux rejetés</h2> 
+        </div>
+      </div>
+
+      <div class="row">
+        <% @non_validated.each do |place| %>
+          <div class="col-lg-4">	    			    
+            <div class="card">
+              <%if place.place_pics.attached?%>
+                <%= image_tag place.place_pics.first, class:"card-img-top" %>
+              <% end %>
+              <div class="card-body">
+                <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
+                <p class="card-text"><%= place.address %></p>
+                  <%= link_to 'Show', admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= render "places/tags_list", tags: place.tags %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  </div>
-<% end %>
 
-<h1>Rejected places</h1>
-<% @non_validated.each do |place| %>
-  <div class="col-lg-4">	    			    
-    <div class="card">
-      <%if place.place_pics.attached?%>
-        <%= image_tag place.place_pics.first, class:"card-img-top" %>
-      <% end %>
-      <div class="card-body">
-        <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
-        <p class="card-text"><%= place.address %></p>
-          <%= link_to 'Show', admin_city_place_path(place.city, place) %>
-          <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
-          <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= render "places/tags_list", tags: place.tags %>
-      </div>
-    </div>
   </div>
-<% end %>
+</div>
+
