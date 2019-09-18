@@ -1,16 +1,49 @@
+<%= render 'city_choice_modal' %>
 
+<section class="banner-area">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <div class="banner-content">
+          <h1 class="home_text">DÉCOUVRE LES MEILLEURS ENDROITS POUR TRAVAILLER</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="container">
-	<div class="row justify-content-center">
-		<div class="col-lg-10 text-center">
-			<div class="space"></div>
-			<h1 class="home_text">DÉCOUVRE LES MEILLEURS ENDROITS POUR TRAVAILLER</h1>
-		</div>
+	<!-- Search form -->
+	<div class="row mt-4">
+		<input id="search" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Recherche de villes" aria-label="Recherche">
 	</div>
 
-	<div class="space"></div>
-
-	<div class="row">
-	<%= render 'cities' %>
+	<div class="row" id="cities-list">
+		<%= render 'cities/cities', cities: @cities %>
 	</div>
 </div>
+
+<% if !user_signed_in? %>
+	<%= render 'cookies_alert' %>
+<% end %>
+
+
+
+<script>	
+	$(document).ready(function() {
+		search = document.getElementById("search");
+		search.addEventListener("keypress", function (e) {
+			if (e.keyCode == 13) {
+				let url = "cities"
+				$.ajax({
+				    url: url,
+				    type: "GET",
+				    dataType : 'script', 
+				    data: { 
+				        "search": search.value, 
+				    },
+				});
+			}
+		})
+	});
+</script>

@@ -1,25 +1,35 @@
-<div class="space"></div>
-<h1>Places</h1>
-<p><% @place_editions.each do |place| %>
-    <%= link_to place.place.name, admin_place_edition_path(place) %>
-    <% end %>
-</p>
 
+<div class="container">
+	<div class="row">
+    
+	    <div class="col-lg-12 bloc">
 
+	      <div class="row title_bloc">
+	        <div class="col-lg-12 text-center ">
+	          <h2>VALIDATION : édtion d'un lieux</h2> 
+	        </div>
+	      </div>
 
-<%
-=begin%>
- <div class="row">
-  	<%= render "places/places", places: @places %>
+	      <div class="row">
+			<% @place_editions.each do |place| %>
+				<div class="col-lg-4">	    			    
+		            <div class="card">
+		              <% if place.place_pics.attached?%>
+		                <%= image_tag place.place_pics.first, class:"card-img-top" %>
+		              <% end %>
+		              <div class="card-body">
+		                <h4 class="card-title"><%= place.name %></h4>
+		                <p class="card-text"><%= place.address %></p> 
+		                <%= render "places/tags_list", tags: place.tags %>
+		                <%= link_to " ", admin_place_edition_path(place), class:'stretched-link' %>
+
+		              </div>
+		            </div>
+		          </div>
+		    <% end %>
+	      </div>
+
+	    </div>
+
+	</div>
 </div>
-
-<br>
-
-<%= link_to 'Edit', edit_admin_city_path(@city) %> |
-<%= link_to 'Back', admin_cities_path %>
-
-<br>
-
-<%= link_to 'New Place', new_admin_city_place_path(@city) %> 
-<%
-=end%>

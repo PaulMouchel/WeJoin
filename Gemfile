@@ -40,6 +40,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -57,6 +59,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'rails-controller-testing' # If you are using Rails 5.x
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -67,10 +71,16 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'table_print'
 gem 'letter_opener'
-gem 'faker'
 gem 'dotenv-rails' 
 gem "aws-sdk-s3", require: false
 gem "simple_calendar", "~> 2.0"
+gem 'popper_js', '~> 1.11.1'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+  gem 'rails-assets-chosen'
+end
+gem 'rails-i18n'
+gem 'geocoder'
 
 # Rails 5.2 and Rails 6
 gem 'active_storage_validations'

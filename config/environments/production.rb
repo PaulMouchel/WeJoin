@@ -95,4 +95,7 @@ Rails.application.configure do
   # Devise & mailer
   config.action_mailer.default_url_options = { :host => 'https://wejoin-dev.herokuapp.com' }
 
+  #For the map
+  config.serve_static_assets = true
+
 end

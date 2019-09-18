@@ -3,10 +3,9 @@ class PlaceEditionsController < ApplicationController
   before_action :set_place, only: [:create, :new, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
-
   def new
     @place_edition = PlaceEdition.new(name: @place.name, address: @place.address, description: @place.description, coffee_price: @place.coffee_price, tea_price: @place.tea_price, beer_price: @place.beer_price, wifi_password: @place.wifi_password,
-    place_pics: @place.place_pics)  
+    place_pics: @place.place_pics, tags: @place.tags)
   end
 
   def create
@@ -31,7 +30,8 @@ class PlaceEditionsController < ApplicationController
     end
 
     def place_edition_params
-      params.require(:place_edition).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_password,
+      params.require(:place_edition).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_identification, 
+      :wifi_password, :place_id, all_tags: [],
       place_pics: [])
     end
 end

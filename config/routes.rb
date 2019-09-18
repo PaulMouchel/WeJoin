@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       resources :attendances
     end
   end
-  resources :place_tags
   resources :cities, only: [:index] do
     resources :city_pics, only: [:create, :destroy]
     resources :places, except: [:update, :destroy] do 
@@ -27,7 +26,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :user_pics, only: [:create, :destroy]
   	resources :favorites, only: [:index, :create, :destroy]
-  	resources :attendances
+  	resources :attendances, only: [:index, :create, :destroy]
   	resources :ratings, only: [:create]
     resources :rating_outlets, only: [:create]
     resources :rating_noise_levels, only: [:create]

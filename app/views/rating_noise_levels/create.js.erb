@@ -1,0 +1,26 @@
+myStarsArray = [""];
+avStarsArray = [""];
+for (i=1 ; i<=5 ; i++) {
+	myStarsArray.push(document.getElementById("my-noise-" + i));
+	avStarsArray.push(document.getElementById("av-noise-" + i));
+}
+
+myStars = <%= @rating.noise_levels %>;
+avStars = <%= @rating.place.average_rating_noise_levels %>;
+
+actualizeStars(myStarsArray, myStars);
+actualizeStars(avStarsArray, Math.trunc(avStars));
+
+document.getElementById("my-noise-num").textContent = myStars;
+document.getElementById("av-noise-num").textContent = avStars.toFixed(1);
+
+function actualizeStars(stars, rating) {
+	for (i=1 ; i<=rating ; i++) {
+		stars[i].classList.add("text-orange");
+		stars[i].classList.remove("text-black-50");
+	}
+	for (i=rating+1 ; i<=5 ; i++) {
+		stars[i].classList.add("text-black-50");
+		stars[i].classList.remove("text-orange");
+	}
+}

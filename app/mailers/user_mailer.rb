@@ -2,13 +2,28 @@ class UserMailer < ApplicationMailer
 	  default from: 'support.we-join@laposte.net'
 	 
 	  def welcome_email(user)
-	    #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
 	    @user = user 
-
-	    #on définit une variable @url qu'on utilisera dans la view d’e-mail
 	    @url  = 'https://wejoin-rennes.herokuapp.com//users/sign_in' 
 
-	    # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
 	    mail(to: @user.email, subject: 'Bienvenue chez nous !') 
 	  end
-	end
+
+	  def new_place_email(place)
+	    @admins = User.where(is_admin: true)
+	    @place = place
+
+	    @admins.each do |admin|
+	    	mail(to: admin.email, subject: "Un nouveau lieu a été créé : #{@place.name}.")
+	    end
+	  end
+
+	  def edit_place_email(place_edition)
+	    @admins = User.where(is_admin: true)
+	    @place = place_edition
+
+	    @admins.each do |admin|
+	    	mail(to: admin.email, subject: "Un lieu a été édité : #{@place.name}.")
+	    end
+	  end
+
+end

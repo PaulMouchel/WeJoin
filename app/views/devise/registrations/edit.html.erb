@@ -1,55 +1,56 @@
 <%= devise_error_messages! %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7 bloc">
 
-<div class="row justify-content-center">
-  <div class="col-lg-7 bloc">
-
-    <div class="row title_bloc">
-      <div class="col-lg-12 text-center ">
-       
-        <h2>EDITER MES I.D. DE CONNEXION</h2>
-        
+      <div class="row title_bloc">
+        <div class="col-lg-12 text-center ">
+         
+          <h2>EDITER MES I.D. DE CONNEXION</h2>
+          
+        </div>
       </div>
-    </div>
 
 
-    <div class="row justify-content-center">
-      <div class="col-lg-10 col-md-10 col-sm-10">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-10 col-sm-10">
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
-          
-            <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:'email', class: "form-control" %>
-          
-
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Actuellement en attente de confirmation pour : <%= resource.unconfirmed_email %></div>
-            <% end %>
-
-            <% if @minimum_password_length %>
-              <em><%= @minimum_password_length %> caractères minimum</em>
-            <% end %>
-            <%= f.password_field :password, placeholder:'nouveau mot de passe', class: "form-control" %>
             
-            <%= f.password_field :password_confirmation, placeholder:'confirmation nouveau mot de passe', class: "form-control" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:'email', class: "form-control" %>
+            
 
-            <i><%= f.label "nécessaire afin de valider vos modifications" %> </i>
-            <%= f.password_field :current_password, autocomplete: "current-password", placeholder:'mot de passe actuel', class: "form-control" %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Actuellement en attente de confirmation pour : <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <% if @minimum_password_length %>
+                <em><%= @minimum_password_length %> caractères minimum</em>
+              <% end %>
+              <%= f.password_field :password, placeholder:'nouveau mot de passe', class: "form-control" %>
+              
+              <%= f.password_field :password_confirmation, placeholder:'confirmation nouveau mot de passe', class: "form-control" %>
+
+              <i><%= f.label "nécessaire afin de valider vos modifications" %> </i>
+              <%= f.password_field :current_password, autocomplete: "current-password", placeholder:'mot de passe actuel', class: "form-control" %>
 
 
-            <div class="actions mt-5">
-              <%= f.submit "METTRE À JOUR LES INFORMATIONS", class:'btn-submit btn-block' %>
-            </div>
-        <% end %>
-        <br>
-        <%= link_to "Retour", :back, class:'btn-back' %>
+              <div class="actions mt-5">
+                <%= f.submit "METTRE À JOUR LES INFORMATIONS", class:'btn-submit btn-block' %>
+              </div>
+          <% end %>
+          <br>
+          <%= link_to "Retour", :back, class:'btn-back' %>
 
-        <div class="space"></div>
+          <div class="space"></div>
 
-        <h3 class="text-center">SUPPRIMER MON COMPTE</h3>
-        <p><i>Vous désirez supprimer vos données ?</i></p> 
-        <%= button_to "SUPPRIMER MON COMPTE", registration_path(resource_name), data: { confirm: "Êtes-vous sûr (ATTENTION : Cette action sera définitive) ?" }, method: :delete, class: "btn-submit btn-block" %>
-        <br>
-        <%= link_to "Retour", :back, class:'btn-back' %>
+          <h3 class="text-center">SUPPRIMER MON COMPTE</h3>
+          <p><i>Vous désirez supprimer vos données ?</i></p> 
+          <%= button_to "SUPPRIMER MON COMPTE", registration_path(resource_name), data: { confirm: "Êtes-vous sûr (ATTENTION : Cette action sera définitive) ?" }, method: :delete, class: "btn-submit btn-block" %>
+          <br>
+          <%= link_to "Retour", :back, class:'btn-back' %>
+        </div>
       </div>
     </div>
   </div>

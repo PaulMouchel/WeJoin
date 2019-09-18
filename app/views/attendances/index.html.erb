@@ -1,27 +1,10 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="space"></div>
+	<h1>Attendances</h1>
 
-<h1>Attendances</h1>
+	<div id="my-events_calendar">
+	  <%= render partial: "calendar", locals: {events: @attendances} %>
+	</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @attendances.each do |attendance| %>
-      <tr>
-        <td><%= attendance.date %></td>
-        <td><%= link_to 'Voir', attendance %></td>
-        <td><%= link_to 'Éditer', edit_attendance_path(attendance) %></td>
-        <td><%= link_to 'Supprimer', attendance, method: :delete, data: { confirm: 'Es-tu sûr ?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Attendance', new_attendance_path %>
+</div>

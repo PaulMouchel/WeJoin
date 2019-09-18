@@ -1,25 +1,24 @@
-<div class="space"></div>
-<h1 class="home_text text-center" ><%= @city.name %></h1>
+<div class="container mt-5">
 
-<p>
-  <%if @city.city_pic.attached?%>
-    <%= image_tag @city.city_pic, alt: 'city' %>
-  <%else%>
-    <p>=== Il n'y a pas encore de photo lié à cette ville ===</p>
-  <%end%>
-</p>
+	<div class="row justify-content-center">
+    	<div class="col-lg-12 text-center">
+			<h1 class="title-city-admin text-center" ><%= @city.name %></h1>
+			<%if @city.city_pic.attached?%>
+			<%= image_tag @city.city_pic, alt: 'city', class:'img-size-city' %>
+			<%else%>
+			<p>=== Il n'y a pas encore de photo lié à cette ville ===</p>
+			<%end%>
 
-<h1>Places</h1>
+			<%= link_to 'Éditer la ville', edit_admin_city_path(@city), class:'btn-submit' %>
+			<%= link_to 'AJOUTER UN LIEU', new_admin_city_place_path(@city), class:'btn-submit' %>	
+    	</div>
+	</div>
 
-<div class="row">
-  	<%= render "places/places", places: @places %>
+	<div class="row mt-5">
+	  	<%= render "places/places", places: @places %>
+	</div>
+
+	<%= link_to 'Retour', admin_cities_path , class:'btn-back'%>
+
+
 </div>
-
-<br>
-
-<%= link_to 'Edit', edit_admin_city_path(@city) %> |
-<%= link_to 'Back', admin_cities_path %>
-
-<br>
-
-<%= link_to 'New Place', new_admin_city_place_path(@city) %>
