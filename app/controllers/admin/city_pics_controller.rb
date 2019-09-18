@@ -8,6 +8,6 @@ class Admin::CityPicsController < AdminController
   def destroy
     @city = City.find(params[:city_id])
     @city.city_pic.purge
-    redirect_to(admin_cities_path)
+    redirect_back(fallback_location: root_path)
   end
 end
