@@ -12,9 +12,9 @@
             <%end%>
         		<% if current_user != nil %>
             	<% if @is_admin %>
-            		<%= link_to 'Show', admin_city_places_path(city), class: "btn btn-primary" %>
-            		<%= link_to 'Edit', edit_admin_city_path(city), class: "btn btn-primary" %>
-            		<%= link_to 'Destroy', admin_city_path(city), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+            		<%= link_to 'Voir', admin_city_places_path(city), class: "btn btn-primary" %>
+            		<%= link_to 'Éditer', edit_admin_city_path(city), class: "btn btn-primary" %>
+            		<%= link_to 'Supprimer', admin_city_path(city), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
             	<% else %>
               	<%= link_to "", city_places_path(city), class:'stretched-link' %>
             	<% end %>
