@@ -5,9 +5,9 @@
   <%= form.text_field :address, placeholder:"adresse", class:"form-control" %>
 
   <% if @is_admin %>
-    <%= form.number_field :latitude, :step => "0.0000000000000000000001", placeholder:"latitude", class:"form-control" %>
+    <%= form.number_field :latitude, :step => "0.00000000000000001", placeholder:"latitude", class:"form-control" %>
 
-    <%= form.number_field :longitude, :step => "0.0000000000000000000001", placeholder:"longitude", class:"form-control" %>
+    <%= form.number_field :longitude, :step => "0.00000000000000001", placeholder:"longitude", class:"form-control" %>
   <% end %>
 
   <%= form.text_area :description, placeholder:"description", class:"form-control" %>
