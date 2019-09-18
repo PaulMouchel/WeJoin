@@ -79,6 +79,33 @@ aside {
   padding: 30px;
 }
 
+
+.title-city-admin{
+  z-index: 999;
+  color: white;
+  position: absolute;
+  margin-top: 220px;
+  font-size:70px;
+  text-align:center;
+  width: 100%;
+}
+
+.navbar_admin{
+  color: var(--green);
+  background-color: var(--green_light);
+}
+.navbar_admin a {
+  font-size: 11px;
+  margin-top: 2px;
+  color: var(--green);
+}
+
+.navbar_admin a:hover {
+  font-size: 11px;
+  margin-top: 2px;
+  color: var(--orange);
+}
+
 #mapid {
   height: 400px;
   width: 100%;
@@ -129,8 +156,18 @@ aside {
     width:  250px;
     height: 170px;
     margin-bottom: 20px;
-
 }
+
+.img-size-city {
+  z-index: 0;
+  position: relative;
+  object-fit: cover; 
+  width:  100%;
+  height: 500px;
+  border-radius: 25px;
+  margin-bottom: 100px;
+}
+
 
 .card-hover {
 	-webkit-transition: .3s ease-in-out;
@@ -710,7 +747,7 @@ pre code {
 }
 
 .container {
-  padding-top: 150px;
+  padding-top: 170px;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -3430,30 +3467,41 @@ input[type="button"].btn-block {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1.5rem;
+  padding: 6px 4px 5px 4px;
   clear: both;
   font-weight: 400;
   color: #212529;
-  text-align: inherit;
+  text-align: center;
   white-space: nowrap;
-  background-color: transparent;
-  border: 0;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 45px;
+  border: 1px solid var(--green);
 }
 
-.dropdown-item:hover, .dropdown-item:focus {
-  color: #16181b;
+
+.dropdown-item:active {
+  color: white;
   text-decoration: none;
-  background-color: #f8f9fa;
 }
 
-.dropdown-item.active, .dropdown-item:active {
-  color: #fff;
+
+.dropdown-item:hover {
+  color: var(--orange);
   text-decoration: none;
-  background-color: #007bff;
+  border: 1px solid var(--orange);
+  background-color: rgba(255,255,255,0.5);
+}
+
+.dropdown-item:focus {
+  color: var(--orange);
+  text-decoration: none;
+  border: 1px solid var(--orange);
+  background-color: rgba(255,255,255,0.5);
+
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
-  color: #6c757d;
+  color: white;
   pointer-events: none;
   background-color: transparent;
 }
@@ -4395,7 +4443,7 @@ input[type="button"].btn-block {
 	background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   width: 80%;
-  margin:10%;
+  margin: 70px 10% 0 10%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
