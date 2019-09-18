@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<!--      < if flash[:notice] == "Bienvenue, vous êtes connecté."%> -->
+    <% if flash[:notice] == "Bienvenue, vous êtes connecté."%>
         <% if current_user.city == nil %>
             <div id="myModal" class="modal fade">
                 <div class="modal-dialog">
@@ -21,7 +21,7 @@
                 </div>
             </div> 
         <% end %>
-<!--      < end %>  -->
+    <% end %> 
 <% end %> 
 
 <script type="text/javascript">
