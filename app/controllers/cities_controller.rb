@@ -2,8 +2,8 @@ class CitiesController < ApplicationController
   def index
 		@user = current_user
     respond_to do |format|
-      format.html { @cities = City.all }
-      format.js { @cities = City.where("lower(name) like ?", "%" + params[:search].downcase + "%") }
+      format.html { @cities = City.all.sort_by{ |city| city.name.upcase} }
+      format.js { @cities = City.where("lower(name) like ?", "%" + params[:search].downcase + "%").sort_by{ |city| city.name.upcase} }
     end
   end
   
