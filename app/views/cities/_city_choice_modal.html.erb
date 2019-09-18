@@ -1,26 +1,31 @@
-<% if !user_signed_in? %>
-		<div id="myModal" class="modal fade" role="dialog">
-		  <div class="modal-dialog">
-		    <!-- Modal content-->
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal">&times;</button>
-		        <h4 class="modal-title">Modal Header</h4>
-		      </div>
-		      <div class="modal-body">
-		        <p>Some text in the modal.</p>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
+<% if user_signed_in? %>
+    <% if flash[:notice] == "Welcome! You have signed up successfully." || flash[:notice] == "Bienvenue, vous êtes connecté."%>
+        <% if current_user.city == nil %>
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">QUELLE EST TA VILLE ?</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Précisez-nous votre ville de référence afin de pouvoir optimiser vos recherches de lieux :</p>
+                                <%= form_with(model: @user, local: true) do |f| %>
+                                    <%= f.collection_select :city_id, City.order(:name),:id,:name, autocomplete: "city_id", include_blank: true %>
+                                    <div class="actions mt-5">
+                                    <%= f.submit "EDITER", class: "btn-submit btn-block" %>
+                                    </div>
+                                <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        <% end %>
+    <% end %> 
+<% end %> 
 
-		  </div>
-		</div>
-	<% end %>
-
-<script>
-	$(window).load(function(){        
-	  $('#myModal').modal('show');
-	}); 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
 </script>
