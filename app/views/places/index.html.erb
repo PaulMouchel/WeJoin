@@ -30,9 +30,10 @@
 		accessToken: 'pk.eyJ1IjoianVsaWVudGV4aWVyIiwiYSI6ImNrMG53cjQ4ZDA0MzgzbXJ1OHBraWU1emcifQ.JVgZSraZTxwT5cA0sGlGbA'
 	}).addTo(mymap);
 	<% @places.each do |place| %>
-		marker = L.marker([<%= place.latitude %>, <%= place.longitude %>]).addTo(mymap);
-
-		marker.bindPopup("<b><a href='<%= city_place_path(place.city, place)%>'><%= place.name%></a></b><br><%= place.address %>");
+		<% if place.latitude != nil && place.longitude != nil %>
+			marker = L.marker([<%= place.latitude %>, <%= place.longitude %>]).addTo(mymap);
+			marker.bindPopup("<b><a href='<%= city_place_path(place.city, place)%>'><%= place.name%></a></b><br><%= place.address %>");
+		<% end %>
 	<% end %>
 
 	</script>
