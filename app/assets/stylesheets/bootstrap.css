@@ -6216,7 +6216,7 @@ a.close.disabled {
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: var(--gren);
 }
 
 .modal-backdrop.fade {
@@ -10479,7 +10479,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .2} 
   to {opacity: 1}
 }
 
