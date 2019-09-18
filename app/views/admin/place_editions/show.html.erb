@@ -1,55 +1,68 @@
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col"><%= @place_edition.place.id %></th>
-      <th scope="col">Original</th>
-      <th scope="col">Proposition</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Nom</th>
-      <td><%= @place_edition.place.name %></td>
-      <td><%= @place_edition.name %></td>
-    </tr>
-    <tr>
-      <th scope="row">Address</th>
-      <td><%= @place_edition.place.address %></td>
-      <td><%= @place_edition.address %></td>
-    </tr>
-    <tr>
-      <th scope="row">Description</th>
-      <td><%= @place_edition.place.description %></td>
-      <td><%= @place_edition.description %></td>
-    </tr>
-    <tr>
-      <th scope="row">Prix du café</th>
-      <td><%= @place_edition.place.coffee_price %></td>
-      <td><%= @place_edition.coffee_price %></td>
-    </tr>
-    <tr>
-      <th scope="row">Prix du thé</th>
-      <td><%= @place_edition.place.tea_price %></td>
-      <td><%= @place_edition.tea_price %></td>
-    </tr>
-    <tr>
-      <th scope="row">Prix de la bière</th>
-      <td><%= @place_edition.place.beer_price %></td>
-      <td><%= @place_edition.beer_price %></td>
-    </tr>
-    <tr>
-      <th scope="row">Mot de passe Wi-Fi</th>
-      <td><%= @place_edition.place.wifi_password %></td>
-      <td><%= @place_edition.wifi_password %></td>
-    </tr>
-    <tr>
-      <th scope="row">Tags</th>
-      <td><%= @place_edition.place.all_tags %></td>
-      <td><%= @place_edition.all_tags %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"><%= @place_edition.place.id %></th>
+        <th scope="col">Original</th>
+        <th scope="col">Proposition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Nom</th>
+        <td><%= @place_edition.place.name %></td>
+        <td><%= @place_edition.name %></td>
+      </tr>
+      <tr>
+        <th scope="row">Address</th>
+        <td><%= @place_edition.place.address %></td>
+        <td><%= @place_edition.address %></td>
+      </tr>
+      <tr>
+        <th scope="row">Latitude</th>
+        <td><%= @place_edition.place.latitude %></td>
+        <td><%= @place_edition.place.latitude %></td>
+      </tr>
+      <tr>
+        <th scope="row">Longitude</th>
+        <td><%= @place_edition.place.longitude %></td>
+        <td><%= @place_edition.place.longitude %></td>
+      </tr>
+      <tr>
+        <th scope="row">Description</th>
+        <td><%= @place_edition.place.description %></td>
+        <td><%= @place_edition.description %></td>
+      </tr>
+      <tr>
+        <th scope="row">Prix du café</th>
+        <td><%= @place_edition.place.coffee_price %></td>
+        <td><%= @place_edition.coffee_price %></td>
+      </tr>
+      <tr>
+        <th scope="row">Prix du thé</th>
+        <td><%= @place_edition.place.tea_price %></td>
+        <td><%= @place_edition.tea_price %></td>
+      </tr>
+      <tr>
+        <th scope="row">Prix de la bière</th>
+        <td><%= @place_edition.place.beer_price %></td>
+        <td><%= @place_edition.beer_price %></td>
+      </tr>
+      <tr>
+        <th scope="row">Mot de passe Wi-Fi</th>
+        <td><%= @place_edition.place.wifi_password %></td>
+        <td><%= @place_edition.wifi_password %></td>
+      </tr>
+      <tr>
+        <th scope="row">Tags</th>
+        <td><%= @place_edition.place.all_tags %></td>
+        <td><%= @place_edition.all_tags %></td>
+      </tr>
+    </tbody>
+  </table>
 
 <p><%= button_to 'Valider', admin_place_edition_path(@place_edition), method: :put, class:"btn btn-success float-right mt-1" %></p>
 <p><%= link_to 'Refuser', admin_place_edition_path(@place_edition), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger float-right mt-1" %></p>
 
+</div>

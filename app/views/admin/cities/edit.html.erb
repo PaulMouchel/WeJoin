@@ -1,7 +1,22 @@
-<h1>Editing City</h1>
+<div class="container">
+	<div class="row justify-content-center">
+	  <div class="col-lg-7 bloc">
 
-<%= render 'form', city: @city %>
+	    <div class="row title_bloc">
+	      <div class="col-lg-12 text-center ">
+	        <h2>ÉDITER LA VILLE</h2> 
+	      </div>
+	    </div>
 
-<%= link_to 'Show', admin_city_places_path(@city) %> | 
+	    <div class="row justify-content-center">
+	      <div class="col-lg-10 col-md-10 col-sm-10">
 
-<%= link_to 'Back', admin_cities_path %>
+			<%= render 'form', city: @city %>
+			<br>
+			<%= link_to 'Retour', admin_cities_path, class:'btn-back' %>
+	      </div>
+	    </div>
+	    
+	  </div>
+	</div>
+</div>

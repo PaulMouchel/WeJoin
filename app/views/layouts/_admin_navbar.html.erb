@@ -1,11 +1,11 @@
 <% if current_user != nil %>
     <% if current_user.is_admin %>
     
-      <nav class="navbar_admin navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar_admin navbar-expand-sm">
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link">DASHBOARD ADMIN<span class="sr-only">(current)</span></a>
+                <span class="nav-link">DASHBOARD ADMIN</span>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -21,8 +21,8 @@
                   LIEUX
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to "Liste des lieux et validations",  admin_places_path, class: "dropdown-item" %>
-                  <%= link_to "Éditions des lieux à valider",  admin_place_editions_path, class: "dropdown-item" %>
+                  <%= link_to "Validation : nouveau lieu ",  admin_places_path, class: "dropdown-item" %>
+                  <%= link_to "Validation : édition d'un lieu",  admin_place_editions_path, class: "dropdown-item" %>
                 </div>
               </li>
               <li class="nav-item dropdown">

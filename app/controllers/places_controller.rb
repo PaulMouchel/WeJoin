@@ -4,9 +4,12 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :show, :create]
 
   def index
-    @places = @city.places.where(validated: true)
-    @latitude = @city.latitude
+  	@latitude = @city.latitude
     @longitude = @city.longitude
+  	respond_to do |format|
+      format.html { @places = @city.places.where(validated: true) }
+      format.js { @places = @city.places.where(validated: true).where("name like ?", "%" + params[:search] + "%") }
+    end
   end
 
   def show
