@@ -1,5 +1,5 @@
 <%= month_calendar events: events, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
-	<%= date %>
+	<%= date.day %>
 	<% events.each do |attendance| %>
 		<div>
 		    <%= link_to attendance.place.name, city_place_path(attendance.place.city, attendance.place) %>
