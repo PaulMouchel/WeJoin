@@ -2,7 +2,7 @@ class Admin::CitiesController < AdminController
   before_action :set_city, only: [:edit, :update, :destroy]
 
   def index
-    @cities = City.all
+    @cities = City.all.sort_by{ |city| city.name.upcase}
   end
 
   def new
