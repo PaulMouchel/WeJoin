@@ -27,9 +27,10 @@
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(mymap);
 	<% @places.each do |place| %>
-		marker = L.marker([<%= place.latitude %>, <%= place.longitude %>]).addTo(mymap);
-
-		marker.bindPopup("<b><a href='<%= city_place_path(place.city, place)%>'><%= place.name%></a></b><br><%= place.address %>");
+		<% if place.latitude != nil && place.longitude != nil %>
+			marker = L.marker([<%= place.latitude %>, <%= place.longitude %>]).addTo(mymap);
+			marker.bindPopup("<b><a href='<%= city_place_path(place.city, place)%>'><%= place.name%></a></b><br><%= place.address %>");
+		<% end %>
 	<% end %>
 
 	</script>
