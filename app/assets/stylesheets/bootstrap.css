@@ -4854,7 +4854,9 @@ input[type="button"].btn-block {
   color: #fff;
 }
 
-
+.card-cities {
+  padding-bottom: 40px;
+}
 .card-cities .light {
   filter: brightness(.7);
   -webkit-filter: brightness(.7);
@@ -6130,6 +6132,8 @@ a.close.disabled {
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
   -webkit-transform: translate(0, -50px);
   transform: translate(0, -50px);
+
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6216,15 +6220,15 @@ a.close.disabled {
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: var(--gren);
+  background-color: rgba(0, 51, 21, 0.3);
 }
 
 .modal-backdrop.fade {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .modal-backdrop.show {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .modal-header {
@@ -10484,7 +10488,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: 0} 
   to {opacity: 1}
 }
 
