@@ -1,20 +1,20 @@
 <%= month_calendar events: events, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
-		  <%= date %>
-		  <% events.each do |attendance| %>
-		    <div>
-		    	<%= link_to attendance.user do %>
-		      <%= render 'users/user_pic', user: attendance.user, class_list:"h-25 w-25 circle" %>
-		      <% end %>
-		      <% if attendance.user == current_user %>
-			    <%= link_to user_attendance_path(current_user, attendance, date: date, place_id: @place.id, from: "place", start_date: params[:start_date]), method: :delete, remote: true do %>
-			    	<i class="fas fa-times-circle text-danger"></i>
-			    <% end %>
-		      <% end %>
-		    </div>
-		  <% end %>
-		  <% if !current_user.has_attendance(date) %>
-		  	<%= link_to user_attendances_path(current_user, date: date, place_id: @place.id, start_date: params[:start_date]), method: :post, remote: true do %>
-			   	<i class="fas fa-plus-circle text-success"></i>
+	<%= date.day %>
+	<div>
+		<% events.each do |attendance| %>
+			<%= link_to attendance.user do %>
+				<%= render 'users/user_pic', user: attendance.user, class_list:"h-25 w-25 circle" %>
 			<% end %>
-		  <% end %>
+		    <% if attendance.user == current_user %>
+				<%= link_to user_attendance_path(current_user, attendance, date: date, place_id: @place.id, from: "place", start_date: params[:start_date]), method: :delete, remote: true do %>
+			    		<i class="fas fa-times-circle text-danger"></i>
+				<% end %>
+			<% end %>
+		<% end %>
+		<% if !current_user.has_attendance(date) %>
+			<%= link_to user_attendances_path(current_user, date: date, place_id: @place.id, start_date: params[:start_date]), method: :post, remote: true do %>
+				<i class="fas fa-plus-circle text-success"></i>
+			<% end %>
+		<% end %>
+	</div>
 <% end %>
