@@ -8,7 +8,7 @@ class PlacesController < ApplicationController
     @longitude = @city.longitude
   	respond_to do |format|
       format.html { @places = @city.places.where(validated: true) }
-      format.js { @places = @city.places.where(validated: true).where("name like ?", "%" + params[:search] + "%") }
+      format.js { @places = @city.places.where(validated: true).where("lower(name) like ?", "%" + params[:search].downcase + "%") }
     end
   end
 
