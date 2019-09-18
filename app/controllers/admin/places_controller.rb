@@ -9,7 +9,7 @@ class Admin::PlacesController < AdminController
   end
 
   def index
-    @places = @city.places
+    @places = @city.places.sort_by{ |place| place.name.upcase}
   end
 
   def show

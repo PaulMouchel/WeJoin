@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
   before_action :check_user, only: [:create, :destroy]
 
   def index
-    @favorite_places = @user.favorite_places.all
+    @favorite_places = @user.favorite_places.sort_by{ |place| place.name.upcase}
   end
 
   def create
