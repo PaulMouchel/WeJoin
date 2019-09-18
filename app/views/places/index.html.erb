@@ -4,17 +4,14 @@
 	<div id="mapid" class="container"></div>
 	<div class="space"></div>
 	<%= link_to 'Back', cities_path, class:'btn-back' %>
-	<div class="row mt-5">
+
+	<!-- Search form -->
+	<div class="row mt-4">
+		<input id="search" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Recherche de lieux" aria-label="Recherche">
+	</div>
+
+	<div class="row mt-5" id="places-list">
 	  	<%= render "places", places: @places %>    
-		
-		<div class="col-lg-4">	    			    
-			<div class="card">
-				<div class="card-body text-center d-flex justify-content-center ">
-				<h1  id="add-place" class="text-white rounded-circle bg-dark">+</h1>
-					<h4 class="card-title"><%= link_to '', new_city_place_path(@city), class:'stretched-link' %></h4>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 
@@ -35,5 +32,27 @@
 			marker.bindPopup("<b><a href='<%= city_place_path(place.city, place)%>'><%= place.name%></a></b><br><%= place.address %>");
 		<% end %>
 	<% end %>
+
+	</script>
+
+	<script>
+		
+	$(document).ready(function() {
+		search = document.getElementById("search");
+		search.addEventListener("keypress", function (e) {
+			if (e.keyCode == 13) {
+				let url = "places"
+				$.ajax({
+				    url: url,
+				    type: "GET",
+				    dataType : 'script', 
+				    data: { 
+				        "search": search.value, 
+				    },
+				});
+			}
+		})
+	});
+
 
 	</script>
