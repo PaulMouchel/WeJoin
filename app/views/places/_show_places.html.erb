@@ -27,13 +27,14 @@
     <p><%= render "places/tags_list", tags: @place.tags %></p>  
     <p><%= @place.description %></p>
     <p class="text-center mt-5 mb-5">
-      Lundi 08:00 - 00:00<br>
-      Mardi 08:00 - 00:00<br>
-      Mercredi 08:00 - 00:00<br>
-      Jeudi 08:00 - 00:00<br>  
-      Vendredi 08:00 - 01:00<br>
-      Samedi 08:00 - 01:00<br>
-      Dimanche 11:00 - 15:00</p>
+    <% @place.opening_hours.sort_by{ |e| e.order_day }.each do |hour| %>
+      <%= hour.day %>: 
+      <% if hour.closed?%>
+        Fermé
+      <%else%>
+        <%= hour.open.to_formatted_s(:time) %> - <%= hour.close.to_formatted_s(:time) %><br>
+      <%end%>
+    <%end%>
       <div class="space"></div>
       
       <% if !@is_admin %>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <%= form_with(model: [:admin, @city, @place, @opening_hour], local: true) do |form| %>
+
+    <select name="opening_hour[day_of_week]" id="opening_hour_day_of_week", class="form-control" >
+      <option value=1>Lundi</option>
+      <option value=2>Mardi</option>
+      <option value=3>Mercredi</option>
+      <option value=4>Jeudi</option>
+      <option value=5>Vendredi</option>
+      <option value=6>Samedi</option>
+      <option value=0>Dimanche</option>
+    </select>
+
+      <%= form.time_field :open, placeholder:"Ouverture", class:"form-control" %>
+
+      <%= form.time_field :close, placeholder:"Fermeture", class:"form-control" %>
+
+      <div class="actions mt-5">
+        <%= form.submit 'ENVOYER', class:"btn-submit btn-block" %>
+      </div>
+    <% end %>
+
+<%= render 'show_hours' %>

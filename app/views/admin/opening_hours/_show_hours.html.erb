@@ -1,0 +1,30 @@
+
+    <div class="col-lg-12 bloc">
+
+      <div class="row title_bloc">
+        <div class="col-lg-12 text-center ">
+         
+          <h2>HORAIRES</h2>
+          <% @place.opening_hours.sort_by{ |e| e.order_day }.each do |hour| %>
+            <%= hour.day %>: 
+            <% if hour.closed?%>
+              Fermé
+            <%else%>
+              <%= hour.open.to_formatted_s(:time) %> - <%= hour.close.to_formatted_s(:time) %>
+            <%end%>
+            <%= link_to 'Éditer', edit_admin_city_place_opening_hour_path(@place.city, @place, hour) %>
+            <%= link_to 'Suprimer', admin_city_place_opening_hour_path(@place.city, @place, hour), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+         <%end%>
+          <%= link_to 'Nouveau', new_admin_city_place_opening_hour_path(@place.city, @place) %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+        
+
+        </div>
+      </div>
+    </div>
+  </div>  
+</div> 
