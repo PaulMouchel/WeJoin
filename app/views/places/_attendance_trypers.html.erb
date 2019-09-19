@@ -15,7 +15,7 @@
     <span>
     <% if !current_user.has_attendance(DateTime.now.to_date) %>
       <%= link_to user_attendances_path(current_user, date: DateTime.now.to_date, place_id: @place.id, start_date: params[:start_date]), method: :post, remote: true do %>
-        <button class="btn-back">Rejoins le TRY'P !</button>
+        <button class="btn-submit">Rejoins le TRY'P !</button>
       <% end %>
     <% end %>
     </span>
