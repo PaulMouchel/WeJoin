@@ -6,9 +6,9 @@
       <% if current_user != @user %>
         <h2>PROFIL n°<%= @user.id %></h2>
       <% else %>
-        <h2 class="text-orange"><%= @user.first_name %> <%= @user.last_name %></h2>
-        <h6><%= @user.age %> ans, <%= @user.get_profession %></h6>
-        <h6><%= @user.get_city %></h6>
+        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+        <h6 class="text-green"><%= @user.age %> ans, <%= @user.get_profession %></h6>
+        <h6 class="text-green"><%= @user.get_city %></h6>
       <% end %>       
       </div>
     </div>
@@ -23,7 +23,7 @@
             <p class="card-text mt-5 ">
               <%= @user.description %>            
             </p>
-              <a href="mailto:<%= @user.email %>" class="btn-back float-right" >Contacter</a>
+              <a href="mailto:<%= @user.email %>" class="btn-orange float-right" >Contacter</a>
               <div class="space"></div>
               <%if current_user == @user%>
                 <%= link_to "Editer mes identifiants de connexion", edit_user_registration_path, class:'btn-submit btn-block mt-5' %>
