@@ -139,7 +139,10 @@ class Place < ApplicationRecord
 	def is_closed?
 		hours = self.opening_hours.find_by(day_of_week: Time.now.wday)
 		if hours != nil
-			return hours[0].closed?
+			now = Time.at(Time.now.to_i % 86400 + 60*60*2)
+			open = Time.at(hours.open.to_i % 86400)
+			close = Time.at(hours.close.to_i % 86400)
+			return hours.closed? || !now.between?(open, close)
 		end
 		return false
 	end
@@ -147,9 +150,9 @@ class Place < ApplicationRecord
 	def is_open?
 		hours = self.opening_hours.find_by(day_of_week: Time.now.wday)
 		if hours != nil
-			now = Time.at(Time.now.to_i % 86400)
-			open = Time.at(hours[0].open.to_i % 86400)
-			close = Time.at(Thours[0].close.to_i % 86400)
+			now = Time.at(Time.now.to_i % 86400 + 60*60*2)
+			open = Time.at(hours.open.to_i % 86400)
+			close = Time.at(hours.close.to_i % 86400)
 			return now.between?(open, close)
 		end
 		return false
@@ -158,7 +161,7 @@ class Place < ApplicationRecord
 	def will_be_close?(date)
 		hours = self.opening_hours.find_by(day_of_week: date.wday)
 		if hours != nil
-			return hours[0].closed?
+			return hours.closed?
 		end
 		return false
 	end

@@ -14,7 +14,7 @@
 			<% end %>
 		<% end %>
 		<% if !current_user.has_attendance(date) %>
-			<% if date > 1.day.ago %>
+			<% if date > 1.day.ago && !@place.will_be_close?(date) %>
 				<%= link_to user_attendances_path(current_user, date: date, place_id: @place.id, start_date: params[:start_date]), method: :post, remote: true do %>
 					<i class="fas fa-plus-circle text-success"></i>
 				<% end %>
