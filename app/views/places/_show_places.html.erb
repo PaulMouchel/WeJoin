@@ -5,7 +5,14 @@
     <a href="note" data-toggle="modal" data-target="#note">
       <h6><%= render "places/average_rating", place: @place %></h6>
     </a><br>
-    <h6><%= @attendances_today.count %> tryper(s) travaille(nt) ici aujourd'hui !</h6><span><%= button_to  "Rejoins le TRY'P !", user_attendances_path(current_user) %></span>
+    <h6><%= @attendances_today.count %> tryper(s) travaille(nt) ici aujourd'hui !</h6>
+		<span>
+    <% if !current_user.has_attendance(Time.now) %>
+      <%= link_to user_attendances_path(current_user, date: Time.now, place_id: @place.id, start_date: params[:start_date]), method: :post, remote: true do %>
+        <button>Rejoins le TRY'P !</button>
+      <% end %>
+    <% end %>
+    </span>
     <p><% @attendances_today.each do |attendance| %> 
       <%= image_tag attendance.user.user_pic, alt: 'user_pic', class:'rounded-circle' %>
     <% end %></p>
