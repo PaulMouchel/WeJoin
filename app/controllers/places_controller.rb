@@ -15,6 +15,7 @@ class PlacesController < ApplicationController
   def show
     @attendances = @place.attendances
     @attendances_today = @place.attendances.where(date: get_today)
+    @opening_hours = @place.opening_hours
   end
 
   def new
