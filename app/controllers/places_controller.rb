@@ -13,7 +13,8 @@ class PlacesController < ApplicationController
   end
 
   def show
-  	@attendances = @place.attendances
+    @attendances = @place.attendances
+    @attendances_today = @place.attendances.where(date: get_today)
   end
 
   def new
@@ -48,5 +49,9 @@ class PlacesController < ApplicationController
       params.require(:place).permit(:name, :address, :description, :coffee_price, :tea_price, :beer_price, :wifi_identification, 
       :wifi_password, :city_id, all_tags: [],
       place_pics: [])
+    end
+
+    def get_today
+      Time.now.to_date
     end
 end
