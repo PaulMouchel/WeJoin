@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :city_pics, only: [:create, :destroy]
       resources :places do 
         resources :places_submissions, only: [:update, :destroy]
-        resources :opening_hours
+        resources :opening_hours, except: [:show]
       end
     end
     resources :users do
