@@ -4,7 +4,22 @@
     <h1 class="card-title"><%= @place.name %></h1>
     <a href="note" data-toggle="modal" data-target="#note">
       <h6><%= render "places/average_rating", place: @place %></h6>
-    </a>
+    </a><br>
+    <h6><%= @attendances_today.count %> tryper(s) travaille(nt) ici aujourd'hui !</h6>
+		<span>
+    <% if !current_user.has_attendance(DateTime.now.to_date) %>
+      <%= link_to user_attendances_path(current_user, date: DateTime.now.to_date, place_id: @place.id, start_date: params[:start_date]), method: :post, remote: true do %>
+        <button>Rejoins le TRY'P !</button>
+      <% end %>
+    <% end %>
+    </span>
+    <p><% @attendances_today.each do |attendance| %> 
+      <%if attendance.user.user_pic.attached?%>
+        <%= image_tag attendance.user.user_pic, alt: 'user_pic', class:"rounded-circle" %>
+      <%else%>
+        <img src="https://avatar-cdn.atlassian.com/002477b8b40d9d4396b551a8973aa1f8" class="rounded-circle" >
+      <%end%>
+    <%end%></p>
   </div>
 </div>
 <div class="row mt-5 mb-5"> 
@@ -33,9 +48,10 @@
   <div class="col-lg-4">   
     <div id="map_place" class="container"></div>
     <br>
-    <p><%= @place.address %></p>
+    <p class="text-center"><%= @place.address %></p>
     
     <aside class="mt-5">
+      <p class="text-center"><strong>PARTICULARITÉS</strong>
       <p><strong>Prix du café : </strong><%= @place.coffee_price %>€</p>
       <p><strong>Prix du thé: </strong><%= @place.tea_price %>€</p>
       <p><strong>Prix de la bière : </strong><%= @place.beer_price %>€</p>
@@ -44,7 +60,9 @@
       <strong>Mot de passe du réseau WIFI : </strong>
       <%= @place.wifi_password %>
     </p>
-    <p><strong>Evaluation générale du lieu :</strong>
+    </aside></br> 
+    <aside>
+      <p class="text-center"><strong>EVALUATION GÉNÉRALE</strong>
     <%= render 'places/average_rating_others' %></p>
     </aside>
   </div>

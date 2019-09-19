@@ -9,10 +9,11 @@ class Admin::PlacesController < AdminController
   end
 
   def index
-    @places = @city.places
+    @places = @city.places.sort_by{ |place| place.name.upcase}
   end
 
   def show
+    @attendances_today = @place.attendances.where(date: get_today)
   end
 
   def new
@@ -64,5 +65,9 @@ class Admin::PlacesController < AdminController
     def place_params
       params.require(:place).permit(:name, :address, :longitude, :latitude, :description, :coffee_price, :tea_price, :beer_price, :wifi_identification, :wifi_password, :all_tags,
       place_pics: [])
+    end
+
+    def get_today
+      Time.now.to_date
     end
 end

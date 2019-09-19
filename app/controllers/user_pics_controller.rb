@@ -8,6 +8,6 @@ class UserPicsController < ApplicationController
   def destroy
     @user = User.find(params[:user_id])
     @user.user_pic.purge
-    redirect_to(user_path(@user))
+    redirect_back(fallback_location: root_path)
   end
 end
