@@ -19,11 +19,14 @@
           <div class="text-center">
             <%= render 'users/user_pic', user: @user, class_list:"profile-img-top" %>
           </div>
-          <% if !@user.contact_url || @user.contact_url == "" %>
-
-          <%else%>
-            <%= link_to  "Contacter", @user.contact_url, target:"_blank", class:"btn-orange float-right"%>
-          <%end%></br></br></br></br>
+          <div>
+            <% if !@user.contact_url || @user.contact_url == "" %>
+              <button class="btn-orange float-right" data-toggle="modal" data-target="#contactModal">Contacter</button>
+              <%= render 'users/contact_modal' %>
+            <%else%>
+              <%= link_to  "Contacter", @user.contact_url, target:"_blank", class:"btn-orange float-right"%>
+            <%end%>
+          </div></br></br></br></br>
           <h6 class="text-green text-center">DESCRIPTION</h6>
           <p class="card-text mt-5 text-center"><%= @user.description %></p>
           <div class="space"></div>

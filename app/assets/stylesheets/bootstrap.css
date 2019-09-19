@@ -196,6 +196,7 @@ aside {
 .btn-orange {
   font-weight: 500;
   color: var(--orange);
+  background-color: var(--white);
   border: 2px solid var(--orange);
   border-radius: 45px;
   transition: border-color 0.20s ease-in-out, box-shadow 0.20s ease-in-out;
