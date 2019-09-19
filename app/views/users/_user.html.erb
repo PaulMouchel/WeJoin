@@ -22,7 +22,11 @@
             <p class="card-text mt-5 ">
               <%= @user.description %>            
             </p>
-              <a href="mailto:<%= @user.email %>" class="btn-orange float-right" >Contacter</a>
+            <% if !@user.contact_url || @user.contact_url == "" %>
+                
+            <%else%>
+              <%= link_to  "Contacter", @user.contact_url, target:"_blank", class:"btn-orange float-right"%>
+            <%end%>
               <div class="space"></div>
               <%if current_user == @user%>
                 <%= link_to "Editer mes identifiants de connexion", edit_user_registration_path, class:'btn-submit btn-block mt-5' %>
