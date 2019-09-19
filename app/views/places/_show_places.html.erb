@@ -5,27 +5,7 @@
     <a href="note" data-toggle="modal" data-target="#note">
       <h6><%= render "places/average_rating", place: @place %></h6>
     </a><br>
-    <% if @attendances_today.count == 1 %>
-      <h6><%= @attendances_today.count %> Tryper travaille ici aujourd'hui !</h6>
-    <% elsif @attendances_today.count == 0 %>
-      <h6>Aucun Tryper ne travaille encore ici aujourd'hui !</h6>
-    <% else %>
-      <h6><%= @attendances_today.count %> Trypers travaillent ici aujourd'hui !</h6>
-    <% end %></br>
-		<span>
-    <% if !current_user.has_attendance(DateTime.now.to_date) %>
-      <%= link_to user_attendances_path(current_user, date: DateTime.now.to_date, place_id: @place.id, start_date: params[:start_date]), method: :post, remote: true do %>
-        <button class="btn-back">Rejoins le TRY'P !</button>
-      <% end %>
-    <% end %>
-    </span>
-    <p><% @attendances_today.each do |attendance| %> 
-      <%if attendance.user.user_pic.attached?%>
-        <%= image_tag attendance.user.user_pic, alt: 'user_pic', class:"img-tryper-place" %>
-      <%else%>
-        <img src="https://avatar-cdn.atlassian.com/002477b8b40d9d4396b551a8973aa1f8" class="img-tryper-place" title="<%= attendance.user.first_name %> <%= attendance.user.last_name %>">
-      <%end%>
-    <%end%></p>
+    <%= render "places/attendance_trypers" %>
   </div>
 </div>
 <div class="row mt-5 mb-5"> 
