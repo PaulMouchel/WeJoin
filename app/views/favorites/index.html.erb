@@ -1,12 +1,21 @@
-
-
-<h1>MES LIEUX FAVORIS</h1>
 <div class="container">
-	<div class="row">
-	    <% @favorite_places.each do |place| %>
-	    	<%= render "places/place", place: place %></td>
-	      
-	    <% end %>
+	<div class="row justify-content-center">
+		<div class="col-lg-12 bloc">
 
-	</div>
+			<div class="row title_bloc">
+				<div class="col-lg-12 text-center ">
+				 
+				  <h2>Mes lieux favoris</h2>
+				  
+				</div>
+			</div>
+
+			<div class="row">		    	
+			    <% @favorite_places.each do |place| %>
+			    	<%= render "places/place", place: place %></td>  
+			    <% end %>				
+			</div>	
+
+		</div>
+	</div>	
 </div>	
