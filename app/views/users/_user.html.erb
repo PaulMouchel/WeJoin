@@ -6,27 +6,27 @@
       <% if current_user != @user %>
         <h2>PROFIL n°<%= @user.id %></h2>
       <% else %>
-        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+        <h2 class="text-orange"><%= @user.first_name %> <%= @user.last_name %></h2>
+        <h6><%= @user.age %> ans, <%= @user.get_profession %></h6>
+        <h6><%= @user.get_city %></h6>
       <% end %>       
       </div>
     </div>
 
-
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
       <div class="col-lg-10 col-md-10 col-sm-10">
 
         <div class="card-body">
-          <%= render 'users/user_pic', user: @user, class_list:"profile-img-top" %>
-            <p class="card-text mt-5">
-              <p>Description : <%= @user.description %></p>
-              <p>Email : <%= @user.email %></p>
-              <p>Âge : <%= @user.age %></p>
-              <p>Profession : <%= @user.get_profession %></p>
-              <p>Ville : <%= @user.get_city %></p>
+          <div class="text-center">
+            <%= render 'users/user_pic', user: @user, class_list:"profile-img-top" %>
+          </div>
+            <p class="card-text mt-5 ">
+              <%= @user.description %>            
             </p>
+              <a href="mailto:<%= @user.email %>" class="btn-back float-right" >Contacter</a>
               <div class="space"></div>
               <%if current_user == @user%>
-                <%= link_to "Editer mes identifiants de connexion", edit_user_registration_path, class:'btn-submit btn-block' %>
+                <%= link_to "Editer mes identifiants de connexion", edit_user_registration_path, class:'btn-submit btn-block mt-5' %>
                 
                 <%= link_to "Editer mon profil", edit_user_path, class:'btn-submit btn-block' %>
               <%end%>
