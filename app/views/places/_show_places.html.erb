@@ -1,25 +1,11 @@
 
 <div class="row">
   <div class="col-lg-12 text-center">
-    <h1 class="card-title"><%= @place.name %></h1>
+    <h1 class="card-title"><%= @place.name %></h1></br>
     <a href="note" data-toggle="modal" data-target="#note">
       <h6><%= render "places/average_rating", place: @place %></h6>
     </a><br>
-    <h6><%= @attendances_today.count %> tryper(s) travaille(nt) ici aujourd'hui !</h6>
-		<span>
-    <% if !current_user.has_attendance(DateTime.now.to_date) %>
-      <%= link_to user_attendances_path(current_user, date: DateTime.now.to_date, place_id: @place.id, start_date: params[:start_date]), method: :post, remote: true do %>
-        <button>Rejoins le TRY'P !</button>
-      <% end %>
-    <% end %>
-    </span>
-    <p><% @attendances_today.each do |attendance| %> 
-      <%if attendance.user.user_pic.attached?%>
-        <%= image_tag attendance.user.user_pic, alt: 'user_pic', class:"rounded-circle" %>
-      <%else%>
-        <img src="https://avatar-cdn.atlassian.com/002477b8b40d9d4396b551a8973aa1f8" class="rounded-circle" >
-      <%end%>
-    <%end%></p>
+    <%= render "places/attendance_trypers" %>
   </div>
 </div>
 <div class="row mt-5 mb-5"> 
@@ -27,18 +13,19 @@
     <p><%= render "places/tags_list", tags: @place.tags %></p>  
     <p><%= @place.description %></p>
     <p class="text-center mt-5 mb-5">
-      Lundi 08:00 - 00:00<br>
-      Mardi 08:00 - 00:00<br>
-      Mercredi 08:00 - 00:00<br>
-      Jeudi 08:00 - 00:00<br>  
-      Vendredi 08:00 - 01:00<br>
-      Samedi 08:00 - 01:00<br>
-      Dimanche 11:00 - 15:00</p>
+    <% @place.opening_hours.sort_by{ |e| e.order_day }.each do |hour| %>
+      <%= hour.day %>: 
+      <% if hour.closed?%>
+        Fermé
+      <%else%>
+        <%= hour.open.to_formatted_s(:time) %> - <%= hour.close.to_formatted_s(:time) %><br>
+      <%end%>
+    <%end%>
       <div class="space"></div>
       
       <% if !@is_admin %>
 	      <h4 class="text-center">PRÉSENCE</h4>
-	      <p>Indique aux autres utilisateurs les jours où tu seras présent dans ce lieu.</p>
+	      <p class="text-center">Indique aux autres utilisateurs les jours où tu seras présent dans ce lieu.</p>
 	      <div id="events_calendar">
 	        <%= render partial: "places/calendar", locals: {events: @attendances} %>
 	      </div> 
@@ -50,16 +37,13 @@
     <br>
     <p class="text-center"><%= @place.address %></p>
     
-    <aside class="mt-5">
-      <p class="text-center"><strong>PARTICULARITÉS</strong>
-      <p><strong>Prix du café : </strong><%= @place.coffee_price %>€</p>
-      <p><strong>Prix du thé: </strong><%= @place.tea_price %>€</p>
-      <p><strong>Prix de la bière : </strong><%= @place.beer_price %>€</p>
-      <p><strong>WIFI : </strong><%= @place.wifi_identification %></p>
-    <p>
-      <strong>Mot de passe du réseau WIFI : </strong>
-      <%= @place.wifi_password %>
-    </p>
+    <aside class="mt-5 text-center">
+      <p><strong>PARTICULARITÉS</strong>
+      <p><strong>Prix du café : </strong></br><%= @place.coffee_price %> €</p>
+      <p><strong>Prix du thé : </strong></br><%= @place.tea_price %> €</p>
+      <p><strong>Prix de la bière : </strong></br><%= @place.beer_price %> €</p>
+      <p><strong>Identifiant WIFI : </strong></br><%= @place.wifi_identification %></p>
+      <p><strong>Mot de passe WIFI : </strong></br><%= @place.wifi_password %></p>
     </aside></br> 
     <aside>
       <p class="text-center"><strong>EVALUATION GÉNÉRALE</strong>
