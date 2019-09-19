@@ -6,7 +6,7 @@
 			<p>Veuillez ajouter une photo</p>	
 		<% end %>
 		<div class="card-body">
-			<h4 class="card-title"><%= place.name %></h4>
+			<h5 class="card-title"><%= place.name %></h5>
 			<p class="card-text"><%= place.address %></p>
 			<% if @is_admin %>
 				<%= link_to 'Voir', admin_city_place_path(place.city, place) %>
