@@ -13,6 +13,14 @@
     <p><%= render "places/tags_list", tags: @place.tags %></p>  
     <p><%= @place.description %></p>
     <p class="text-center mt-5 mb-5">
+	   	<% if @place.is_open? %>
+	   		<span class="badge badge-success">Ouvert</span>
+	   	<% end %>
+	   	<% if @place.is_closed? %>
+	   		<span class="badge badge-danger">Fermé</span>
+	   	<% end %>
+   </p>
+   <p class="text-center mt-5 mb-5">
     <% @place.opening_hours.sort_by{ |e| e.order_day }.each do |hour| %>
       <%= hour.day %>: 
       <% if hour.closed?%>
