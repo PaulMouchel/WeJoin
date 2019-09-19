@@ -677,6 +677,11 @@ mark,
   content: "\2014\00A0";
 }
 
+.img-tryper-place {
+  width: 50px;
+  height: 50px;
+}
+
 .img-fluid {
   max-width: 100%;
   height: auto;
