@@ -13,6 +13,6 @@ class PlacePicsController < ApplicationController
     if index >= 0 && index < @place.place_pics.length
       @place.place_pics[index].purge
     end
-    redirect_to(admin_city_place_path(@city, @place))
+    redirect_back(fallback_location: root_path)
   end
 end

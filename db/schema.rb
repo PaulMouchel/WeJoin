@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_132327) do
+ActiveRecord::Schema.define(version: 2019_09_19_145400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2019_09_18_132327) do
     t.datetime "updated_at", null: false
     t.integer "favorite_place_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "opening_hours", force: :cascade do |t|
+    t.bigint "place_id"
+    t.integer "day_of_week"
+    t.time "open"
+    t.time "close"
+    t.datetime "valid_from"
+    t.datetime "valid_through"
+    t.index ["place_id"], name: "index_opening_hours_on_place_id"
   end
 
   create_table "place_edition_tags", force: :cascade do |t|
@@ -185,6 +195,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_132327) do
     t.datetime "birth_date"
     t.integer "city_id"
     t.string "profession"
+    t.string "contact_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

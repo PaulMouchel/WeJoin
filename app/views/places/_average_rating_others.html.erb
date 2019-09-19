@@ -1,34 +1,35 @@
-<p >Qualité du réseau wifi :
+<div class="text-center">
+<p ><strong>Qualité du réseau wifi :</strong></br>
 <% 1.upto(5) do |i| %>
 	<% if @place.average_rating_wifis >= i %>
-		<i id="av-wifi-<%= i %>" class="fas fa-wifi text-teal"></i>
+		<i id="av-wifi-<%= i %>" class="fas fa-wifi text-orange"></i>
 	<% else %>
 		<i id="av-wifi-<%= i %>" class="fas fa-wifi text-black-50"></i>
 	<% end %>
 <% end %>
 <span id="av-wifi-num"><%= "%0.1f" % @place.average_rating_wifis %></span></p>
 
-<p >Niveau de confort :
+<p><strong>Niveau de confort :</strong></br>
 <% 1.upto(5) do |i| %>
 	<% if @place.average_rating_comforts >= i %>
-		<i id="av-comfort-<%= i %>" class="fas fa-couch text-brown"></i>
+		<i id="av-comfort-<%= i %>" class="fas fa-couch text-orange"></i>
 	<% else %>
 		<i id="av-comfort-<%= i %>" class="fas fa-couch text-black-50"></i>
 	<% end %>
 <% end %>
 <span id="av-comfort-num"><%= "%0.1f" % @place.average_rating_comforts %></span></p>
 
-<p >Prises disponibles :
+<p><strong>Prises disponibles :</strong></br>
 <% 1.upto(5) do |i| %>
 	<% if @place.average_rating_outlets >= i %>
-		<i id="av-outlets-<%= i %>" class="fas fa-plug text-purple"></i>
+		<i id="av-outlets-<%= i %>" class="fas fa-plug text-orange"></i>
 	<% else %>
 		<i id="av-outlets-<%= i %>" class="fas fa-plug text-black-50"></i>
 	<% end %>
 <% end %>
 <span id="av-outlets-num"><%= "%0.1f" % @place.average_rating_outlets %></span></p>
 
-<p >Niveau de tranquilité :
+<p><strong>Niveau de tranquilité :</strong></br>
 <% 1.upto(5) do |i| %>
 	<% if @place.average_rating_noise_levels >= i %>
 		<i id="av-noise-<%= i %>" class="fas fa-volume-down text-orange"></i>
@@ -37,3 +38,4 @@
 	<% end %>
 <% end %>
 <span id="av-noise-num"><%= "%0.1f" % @place.average_rating_noise_levels %></span></p>
+</div>

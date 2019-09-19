@@ -3,7 +3,8 @@ class AttendancesController < ApplicationController
   before_action :set_attendance, only: [:destroy]
 
   def index
-  	@attendances = current_user.attendances
+    @attendances = current_user.attendances
+    @past_attendances = @attendances.where(date: Date.new..1.day.ago)
   end
 
   def create
@@ -35,7 +36,7 @@ class AttendancesController < ApplicationController
     @my_attendances = current_user.attendances
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path)
-      	flash[:success] = 'Attendance was successfully destroyed.' }
+      	flash[:success] = 'Participation annulée' }
       format.js { 
       	if params[:from] == "attendances"
       		#if the request comes from view Attendances/Index
