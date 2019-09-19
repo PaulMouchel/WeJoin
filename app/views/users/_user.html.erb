@@ -3,13 +3,28 @@
 
     <div class="row title_bloc">
       <div class="col-lg-12 text-center ">
-      <% if current_user != @user %>
+      <% if @user.first_name == nil && @user.last_name == nil || @user.first_name == "" && @user.last_name == ""%>
         <h2>PROFIL n°<%= @user.id %></h2>
-      <% else %>
+      <% end %>
+      <% if @user.first_name == nil && @user.last_name != nil || @user.first_name == "" && @user.last_name != ""%>
+        <h2><%= @user.last_name %></h2>
+      <% elsif @user.first_name != nil && @user.last_name == nil || @user.first_name != "" && @user.last_name == "" %>
+        <h2><%= @user.first_name %></h2>
+      <% elsif @user.first_name != nil && @user.last_name != nil || @user.first_name != "" && @user.last_name != "" %>
         <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <% end %>
+
+      <% if  @user.age == nil && @user.get_profession != nil || @user.age == "" && @user.get_profession != ""%>
+        <h6 class="text-green"><%= @user.get_profession %></h6>
+      <% elsif  @user.age != nil && @user.get_profession == nil || @user.age != "" && @user.get_profession == "" %>
+        <h6 class="text-green"><%= @user.age %> ans</h6>
+      <% elsif  @user.age != nil && @user.get_profession != nil || @user.age != "" && @user.get_profession != "" %>
         <h6 class="text-green"><%= @user.age %> ans, <%= @user.get_profession %></h6>
+      <% end %>
+
+      <% if  @user.get_city != nil %>
         <h6 class="text-green"><%= @user.get_city %></h6>
-      <% end %>       
+      <% end %>     
       </div>
     </div>
 
@@ -19,20 +34,21 @@
           <div class="text-center">
             <%= render 'users/user_pic', user: @user, class_list:"profile-img-top" %>
           </div>
-            <p class="card-text mt-5 ">
-              <%= @user.description %>            
-            </p>
+          <div>
             <% if !@user.contact_url || @user.contact_url == "" %>
-                
+              <button class="btn-orange float-right" data-toggle="modal" data-target="#contactModal">Contacter</button>
+              <%= render 'users/contact_modal' %>
             <%else%>
               <%= link_to  "Contacter", @user.contact_url, target:"_blank", class:"btn-orange float-right"%>
             <%end%>
-              <div class="space"></div>
-              <%if current_user == @user%>
-                <%= link_to "Editer mes identifiants de connexion", edit_user_registration_path, class:'btn-submit btn-block mt-5' %>
-                
-                <%= link_to "Editer mon profil", edit_user_path, class:'btn-submit btn-block' %>
-              <%end%>
+          </div></br></br></br></br>
+          <h6 class="text-green text-center">DESCRIPTION</h6>
+          <p class="card-text mt-5 text-center"><%= @user.description %></p>
+          <div class="space"></div>
+          <%if current_user == @user%>
+            <%= link_to "Editer mes identifiants de connexion", edit_user_registration_path, class:'btn-submit btn-block mt-5' %>
+            <%= link_to "Editer mon profil", edit_user_path, class:'btn-submit btn-block' %>
+          <%end%>
 
       </div>
     </div>
