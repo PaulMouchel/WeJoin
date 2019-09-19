@@ -36,7 +36,7 @@ class AttendancesController < ApplicationController
     @my_attendances = current_user.attendances
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path)
-      	flash[:success] = 'Attendance was successfully destroyed.' }
+      	flash[:success] = 'Participation annulée' }
       format.js { 
       	if params[:from] == "attendances"
       		#if the request comes from view Attendances/Index
