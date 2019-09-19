@@ -135,4 +135,34 @@ class Place < ApplicationRecord
 	def all_tags
 	  self.tags.map(&:name)
 	end
+
+	def is_closed?
+		hours = self.opening_hours.find_by(day_of_week: Time.now.wday)
+		if hours != nil
+			now = Time.at(Time.now.to_i % 86400 + 60*60*2)
+			open = Time.at(hours.open.to_i % 86400)
+			close = Time.at(hours.close.to_i % 86400)
+			return hours.closed? || !now.between?(open, close)
+		end
+		return false
+	end
+
+	def is_open?
+		hours = self.opening_hours.find_by(day_of_week: Time.now.wday)
+		if hours != nil
+			now = Time.at(Time.now.to_i % 86400 + 60*60*2)
+			open = Time.at(hours.open.to_i % 86400)
+			close = Time.at(hours.close.to_i % 86400)
+			return now.between?(open, close)
+		end
+		return false
+	end
+
+	def will_be_close?(date)
+		hours = self.opening_hours.find_by(day_of_week: date.wday)
+		if hours != nil
+			return hours.closed?
+		end
+		return false
+	end
 end
