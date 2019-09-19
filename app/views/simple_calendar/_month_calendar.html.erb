@@ -1,13 +1,13 @@
 <div class="simple-calendar">
   <div class="calendar-heading d-flex justify-content-between">
     <%= link_to calendar.url_for_previous_view, remote: true do %>
-    	<i class="fas fa-arrow-circle-left"></i>
+    	<i class="text-orange fas fa-arrow-circle-left"></i>
     	<%= t('simple_calendar.previous', default: 'Précédent') %>
     <% end %>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to calendar.url_for_next_view, remote: true do %>
     	<%= t('simple_calendar.next', default: 'Suivant') %>
-    	<i class="fas fa-arrow-circle-right"></i>
+    	<i class="text-orange fas fa-arrow-circle-right"></i>
     <% end %>
   </div>
 
