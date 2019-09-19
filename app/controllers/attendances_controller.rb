@@ -3,7 +3,8 @@ class AttendancesController < ApplicationController
   before_action :set_attendance, only: [:destroy]
 
   def index
-  	@attendances = current_user.attendances
+    @attendances = current_user.attendances
+    @past_attendances = @attendances.where(date: Date.new..1.day.ago)
   end
 
   def create
