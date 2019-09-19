@@ -26,7 +26,8 @@
       <% if !@is_admin %>
 	      <h4 class="text-center">PRÉSENCE</h4>
 	      <p class="text-center">Indique aux autres utilisateurs les jours où tu seras présent dans ce lieu.</p>
-	      <div id="events_calendar">
+	      <br><br>
+        <div id="events_calendar">
 	        <%= render partial: "places/calendar", locals: {events: @attendances} %>
 	      </div> 
       <% end %> 
@@ -45,27 +46,30 @@
       <p><strong>Identifiant WIFI : </strong></br><%= @place.wifi_identification %></p>
       <p><strong>Mot de passe WIFI : </strong></br><%= @place.wifi_password %></p>
     </aside></br> 
+    
     <aside>
-      <p class="text-center"><strong>EVALUATION GÉNÉRALE</strong>
-    <%= render 'places/average_rating_others' %></p>
+      <p class="text-center"><strong>EVALUATION GÉNÉRALE</strong></p>
+      <a href="note" data-toggle="modal" data-target="#note">
+         <%= render 'places/average_rating_others' %></p>
+      </a>
     </aside>
   </div>
 </div>
 
 <div class="modal fade" id="note">
-  <div class="modal-dialog modal-md">
+  <div class="modal-dialog  modal-dialog-centered modal-md">
 
-    <div class="modal-content modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content modal-dialog modal-md">
 
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <h2 id="titre">Mon évaluation </h2>
+      <div class="c">
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-12 text-center">
+            <h2 id="titre">Mes évaluations </h2>
           </div>
         </div>
         
         <div class="row justify-content-center">
-          <div class="modal-body col-lg-6">
+          <div class="modal-body col-lg-6 text-center">
             <%= render "places/my_rating", place: @place %>
           </div> 
         </div> 
@@ -73,7 +77,7 @@
       <div class="modal-footer">
       <div class="row">
         <div class="col-md-12">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+          <button class=" btn text-orange" data-dismiss="modal"><i class="fas fa-times-circle fa-3x"></i></button>
         </div>
         
       </div>

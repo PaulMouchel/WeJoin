@@ -80,6 +80,54 @@ aside {
 }
 
 
+
+
+.simple-calendar td {
+  color: var(--orange)!important;
+  border: 1px solid var(--green_light)!important;
+  border-top-color: var(--green_light)!important;
+  border-top-style: solid!important;
+  border-top-width: 1px!important;
+  border-right-color: var(--green_light)!important;
+  border-right-style: solid!important;
+  border-right-width: 1px!important;
+  border-bottom-color: var(--green_light)!important;
+  border-bottom-style: solid!important;
+  border-bottom-width: 1px!important;
+  border-left-color: var(--green_light)!important;
+  border-left-style: solid!important;
+  border-left-width: 1px!important;
+  background-color: white!important;
+}
+
+
+.simple-calendar .prev-month {
+  background-color: var(--green_light)!important;
+}
+
+.simple-calendar .next-month {
+  background-color: var(--green_light)!important;
+}
+.simple-calendar .today {
+  background-color: var(--orange_light)!important;
+}
+
+.table thead th {
+  color: var(--green)!important;
+  border-bottom: 2px solid var(--green_light)!important;
+}
+
+/*.simple-calendar th {
+    padding: 6px;
+    border-bottom: 2px solid #dddddd;
+    border-collapse: collapse;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-top: 0px none #333333;
+    box-sizing: border-box;
+    text-align: left;
+}*/
+
 .title-city-admin{
   z-index: 999;
   color: white;
@@ -121,7 +169,7 @@ aside {
 }
 
 .btn-back {
-  font-weight: 500;
+  font-size:13px;
   color: var(--green);
   border: 2px solid var(--green);
   border-radius: 45px;
@@ -208,7 +256,7 @@ aside {
 	margin-top: 150px;
 	background-color: white;
 	padding: 80px;
-	border-radius: 30px;
+  border-radius: 30px;
   box-shadow: 0px 0px 25px var(--green_light);
 
 
@@ -244,11 +292,11 @@ aside {
 .btn-submit{
   outline: none;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 13px;
   text-align: center;
   font-weight: 500;
   color: white;
-  padding: 10px;
+  padding: 12px 15px 9px 15px;
   background-color: var(--green);
   border: 2px solid var(--green);
   border-radius: 45px;
@@ -371,13 +419,13 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: var(--green);
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
+  color: var(--orange);
   text-decoration: none;
 }
 
@@ -474,10 +522,7 @@ select {
   text-transform: none;
 }
 
-select {
-  padding: 20px;
-  word-wrap: normal;
-}
+
 
 button,
 [type="button"],

@@ -1,7 +1,7 @@
 # ___TRYP (Try your place!)___ 
 
 ### Bievenue dans notre version MVP de TRYP 
->Created by la team Rennes (Julien TEXIER, Paul MOUCHEL, Sarah BOUCHIR et Samuel DENEUBOURG)
+>Created by la team Rennes (Sarah BOUCHIR, Julien TEXIER, Paul MOUCHEL et Samuel DENEUBOURG)
 >
 
 </br>
