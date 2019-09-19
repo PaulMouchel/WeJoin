@@ -9,9 +9,7 @@
   
   <%= f.date_field :birth_date,  autofocus: true, autocomplete: "birth_date", class: "form-control", placeholder:"Date de naissance" %>
   
-  <div class="form-control">
-   <%= f.collection_select :city_id, City.order(:name),:id,:name, autocomplete: "city_id", include_blank: true %>
-  </div>
+   <%= f.collection_select :city_id, City.order(:name),:id,:name, autocomplete: "city_id", include_blank: true, class:"form-control" %>
 
   <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder:"Description" %>
 
