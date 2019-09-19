@@ -19,20 +19,18 @@
           <div class="text-center">
             <%= render 'users/user_pic', user: @user, class_list:"profile-img-top" %>
           </div>
-            <p class="card-text mt-5 ">
-              <%= @user.description %>            
-            </p>
-            <% if !@user.contact_url || @user.contact_url == "" %>
-                
-            <%else%>
-              <%= link_to  "Contacter", @user.contact_url, target:"_blank", class:"btn-orange float-right"%>
-            <%end%>
-              <div class="space"></div>
-              <%if current_user == @user%>
-                <%= link_to "Editer mes identifiants de connexion", edit_user_registration_path, class:'btn-submit btn-block mt-5' %>
-                
-                <%= link_to "Editer mon profil", edit_user_path, class:'btn-submit btn-block' %>
-              <%end%>
+          <% if !@user.contact_url || @user.contact_url == "" %>
+
+          <%else%>
+            <%= link_to  "Contacter", @user.contact_url, target:"_blank", class:"btn-orange float-right"%>
+          <%end%></br></br></br></br>
+          <h6 class="text-green text-center">DESCRIPTION</h6>
+          <p class="card-text mt-5 text-center"><%= @user.description %></p>
+          <div class="space"></div>
+          <%if current_user == @user%>
+            <%= link_to "Editer mes identifiants de connexion", edit_user_registration_path, class:'btn-submit btn-block mt-5' %>
+            <%= link_to "Editer mon profil", edit_user_path, class:'btn-submit btn-block' %>
+          <%end%>
 
       </div>
     </div>
