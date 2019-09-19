@@ -5,16 +5,6 @@ class OpeningHour < ApplicationRecord
   validates :open, presence: true
   validates :close, presence: true
 
-  # def day_of_week
-  #   Date::DAYNAMES[read_attribute(:day_of_week)]
-  # end
- 
-  # # If you want to set the day of week value with a string
-  # def day_of_week=(value)
-  #   day = Date::DAYNAMES.index(value)
-  #   write_attribute(:day_of_week, day) if day.present?
-  # end
-
   def day
     case self.day_of_week
       when 1
