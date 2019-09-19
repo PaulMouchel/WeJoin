@@ -22,6 +22,7 @@
                   <%= link_to 'Voir', admin_city_place_path(place.city, place) %>
                   <%= link_to 'Éditer', edit_admin_city_place_path(place.city, place) %>
                   <%= link_to 'Suprimer', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Voir horaires', admin_city_place_opening_hours_path(place.city, place) %>
                 <%= render "places/tags_list", tags: place.tags %>
               </div>
             </div>
@@ -49,9 +50,10 @@
               <div class="card-body">
                 <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
                 <p class="card-text"><%= place.address %></p>
-                  <%= link_to 'Show', admin_city_place_path(place.city, place) %>
-                  <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
-                  <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Voir', admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Éditer', edit_admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Suprimer', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Voir horaires', admin_city_place_opening_hours_path(place.city, place) %>
                 <%= render "places/tags_list", tags: place.tags %>
               </div>
             </div>
@@ -78,9 +80,10 @@
               <div class="card-body">
                 <h4 class="card-title"><%= place.name %> (<%=place.city.name%>)</h4>
                 <p class="card-text"><%= place.address %></p>
-                  <%= link_to 'Show', admin_city_place_path(place.city, place) %>
-                  <%= link_to 'Edit', edit_admin_city_place_path(place.city, place) %>
-                  <%= link_to 'Destroy', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Voir', admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Éditer', edit_admin_city_place_path(place.city, place) %>
+                  <%= link_to 'Supprimer', admin_city_place_path(place.city, place), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Voir horaires', admin_city_place_opening_hours_path(place.city, place) %>
                 <%= render "places/tags_list", tags: place.tags %>
               </div>
             </div>
