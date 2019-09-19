@@ -18,6 +18,7 @@ class Place < ApplicationRecord
 	has_many :place_tags, dependent: :destroy
 	has_many :tags, through: :place_tags
 	has_many :place_editions
+	has_many :opening_hours, dependent: :destroy
 
 	geocoded_by :address
 	after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
