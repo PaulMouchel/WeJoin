@@ -474,10 +474,7 @@ select {
   text-transform: none;
 }
 
-select {
-  padding: 20px;
-  word-wrap: normal;
-}
+
 
 button,
 [type="button"],
