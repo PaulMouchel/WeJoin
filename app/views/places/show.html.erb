@@ -27,11 +27,17 @@
 				<%= render 'show_places' %>	
 			</div>
 
-			<div class="text-center">
-				<%= link_to 'Proposer une modification', new_city_place_place_edition_path(@city, @place), class:'btn-submit' %>
+			<div class="col-lg-4 float-right">
+				<div class="text-center">
+					<%= link_to 'Proposer une modification', new_city_place_place_edition_path(@city, @place), class:'btn-submit' %>
+				</div>
+			</div>
+			<div class="col-lg-4 float-left">
 				<span><%= link_to 'Back', city_places_path(@city), class:'btn-back' %></span>
 			</div>
 		</div>
+		
+
 	</div>
 </div>	
 <div class="space"></div>

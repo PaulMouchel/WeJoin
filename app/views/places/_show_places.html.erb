@@ -26,7 +26,8 @@
       <% if !@is_admin %>
 	      <h4 class="text-center">PRÉSENCE</h4>
 	      <p class="text-center">Indique aux autres utilisateurs les jours où tu seras présent dans ce lieu.</p>
-	      <div id="events_calendar">
+	      <br><br>
+        <div id="events_calendar">
 	        <%= render partial: "places/calendar", locals: {events: @attendances} %>
 	      </div> 
       <% end %> 
@@ -45,9 +46,12 @@
       <p><strong>Identifiant WIFI : </strong></br><%= @place.wifi_identification %></p>
       <p><strong>Mot de passe WIFI : </strong></br><%= @place.wifi_password %></p>
     </aside></br> 
+    
     <aside>
-      <p class="text-center"><strong>EVALUATION GÉNÉRALE</strong>
-    <%= render 'places/average_rating_others' %></p>
+      <p class="text-center"><strong>EVALUATION GÉNÉRALE</strong></p>
+      <a href="note" data-toggle="modal" data-target="#note">
+         <%= render 'places/average_rating_others' %></p>
+      </a>
     </aside>
   </div>
 </div>
