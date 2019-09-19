@@ -4,7 +4,7 @@ class AttendancesController < ApplicationController
 
   def index
     @attendances = current_user.attendances
-    @past_attendances = current_user.attendances.where(date: Date.new..1.day.ago)
+    @past_attendances = @attendances.where(date: Date.new..1.day.ago)
   end
 
   def create
