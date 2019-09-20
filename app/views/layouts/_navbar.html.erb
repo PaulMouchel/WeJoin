@@ -15,14 +15,14 @@
             <% if !user_signed_in? %>
               <li class="nav-item"><%= link_to "MA VILLE", new_user_session_path, class: "nav-link nav-item btn-nav" %></li>
             <% else %> 
-              <% if current_user.city_id == nil %>
-                <li class="nav-item">
-                   <button class="nav-link btn-nav" data-toggle="modal" data-target="#modal_city">MA VILLE </button><%render 'layouts/modal_city'%>
-                </li>
-
+              <li class="nav-item">
+              <% if current_user.city_id != nil%>
+                <%= link_to "MA VILLE", city_places_path(current_user.city_id), class: "nav-link nav-item btn-nav" %>
               <% else %>
-                <li class="nav-item"><%= link_to "MA VILLE", city_places_path(current_user.city_id), class: "nav-link nav-item btn-nav" %></li>
+                <button class="nav-link nav-item btn-nav" data-toggle="modal" data-target="#modalCity">MA VILLE</button>
+                <%= render 'layouts/modal_city' %>
               <% end %>
+              </li>
             <% end %>
 
               <% if !user_signed_in? %>
@@ -46,7 +46,3 @@
         </div>      
 
     </nav>
-
-
-
-

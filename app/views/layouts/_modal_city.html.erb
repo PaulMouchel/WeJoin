@@ -1,6 +1,5 @@
-<div class="modal fade" id="modal_city">
+<div class="modal fade" id="modalCity" tabindex="-1" role="dialog" aria-labelledby="modalCityLabel" aria-hidden="true">
   <div class="modal-dialog  modal-dialog-centered modal-md">
-
     <div class="modal-content modal-dialog modal-md">
 
       <div class="row justify-content-center mt-5">
@@ -11,7 +10,7 @@
 
       <div class="row justify-content-center">
         <div class="modal-body col-lg-6 text-center">
-          <p>Précisez-nous votre ville de référence afin de pouvoir optimiser vos recherches de lieux :</p>
+         <p>Précisez-nous votre ville de référence afin de pouvoir optimiser vos recherches de lieux :</p>
           <%= form_with(model: @user, local: true) do |f| %>
               <%= f.collection_select :city_id, City.order(:name),:id,:name, {autocomplete: "city_id", include_blank: true}, {class: "form-control"} %>
               <div class="actions mt-5">
@@ -31,4 +30,4 @@
 
     </div>
   </div>
-</div>
+</div>  
