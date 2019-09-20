@@ -79,7 +79,68 @@ aside {
   padding: 30px;
 }
 
+.chosen-container-multi .chosen-choices {
+  background-color: red!important;
+}
+.chosen-choices {
+  background-color: red!important;
+}
 
+.chosen-container-multi .chosen-choices {
+  position: relative!important;
+  overflow: hidden!important;
+  margin: 0!important;
+  padding: 0 5px!important;
+  width: 100%!important;
+  height: auto!important;
+  border: 1px solid #aaa!important;
+  background-color: #fff!important;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1%, var(--green_light)), color-stop(15%, #fff))!important;
+  background-image: linear-gradient(var(--green_light) 1%, #fff 15%)!important;
+  cursor: text;
+  border-radius: 45px!important;
+}
+.chosen-container .chosen-results li.highlighted{
+    background-color: var(--orange)!important;
+    background-image: none!important;
+    border-radius: 45px!important;
+
+}
+.chosen-container {
+  border-radius: 45px!important;
+  border: 1px solid var(--green)!important;
+      -webkit-box-shadow:none!important;
+    box-shadow: none!important;
+}
+.chosen-container.chosen-with-drop .chosen-drop {
+    border:none!important;
+    background: none!important;
+}
+
+.chosen-container .chosen-drop {
+    border: none!important;
+    border-top: 0;
+    background: none!important;
+    -webkit-box-shadow:none!important;
+    box-shadow: none!important;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice {
+
+    border: none!important;
+    border-radius: 45px!important;
+    background-color: var(--orange)!important;
+    background-image:  none!important;
+    background-image:  none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    color: white!important;
+    line-height: 13px;
+}
+
+#down {
+  z-index: 3000;
+}
 .gradient {
   background: rgba(255, 255, 255, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, .1) 40%, rgba(255, 255, 255, .5) 75%, rgba(255, 255, 255, 1) 100%) repeat scroll 0 0;
   position: absolute;
@@ -125,16 +186,6 @@ aside {
   border-bottom: 2px solid var(--green_light)!important;
 }
 
-/*.simple-calendar th {
-    padding: 6px;
-    border-bottom: 2px solid #dddddd;
-    border-collapse: collapse;
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-    border-top: 0px none #333333;
-    box-sizing: border-box;
-    text-align: left;
-}*/
 
 .title-city-admin{
   z-index: 999;
@@ -738,6 +789,9 @@ mark,
   text-transform: uppercase;
 }
 
+.scroll {
+  margin-top: -310px;
+}
 
 .blockquote-footer {
   display: block;
@@ -752,6 +806,10 @@ mark,
 .img-tryper-place {
   width: 50px;
   height: 50px;
+}
+
+.fa-arrow-alt-circle-down {
+
 }
 
 .img-fluid {
@@ -3281,10 +3339,11 @@ fieldset:disabled a.btn {
 }
 
 .btn-lg, .btn-group-lg > .btn {
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
+  padding: 27px 25px;
   line-height: 1.5;
-  border-radius: 0.3rem;
+  border-radius: 45px;
+  font-size: 22px;
+
 }
 
 .btn-sm, .btn-group-sm > .btn {
@@ -4395,7 +4454,7 @@ input[type="button"].btn-block {
 }
 
 .banner-content{
-	margin-top: 90px;
+	margin-top: 70px;
 }
 
 
@@ -4981,8 +5040,23 @@ filter: none;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  height: 470px;
 }
-
+.card-add {
+  margin-bottom: 60px;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  height: 300px;
+}
 
 
 .card > hr {
@@ -5570,7 +5644,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert {
-  position: relative;
+  width: 100%;
+  position: absolute;
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
@@ -5590,6 +5665,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-dismissible .close {
+  width: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -5598,9 +5674,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-primary {
-  color: #004085;
+  color: var(--green);
   background-color: #cce5ff;
-  border-color: #b8daff;
+  border: none;
+  text-align: center;
 }
 
 .alert-primary hr {
@@ -5612,9 +5689,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-secondary {
-  color: #383d41;
+  color: var(--green);
   background-color: #e2e3e5;
-  border-color: #d6d8db;
+  border: none;
+  text-align: center;
 }
 
 .alert-secondary hr {
@@ -5626,9 +5704,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-success {
-  color: #155724;
+  color: var(--green);
   background-color: #d4edda;
-  border-color: #c3e6cb;
+  border: none;
+  text-align: center;
 }
 
 .alert-success hr {
@@ -5640,9 +5719,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-info {
-  color: #0c5460;
-  background-color: #d1ecf1;
-  border-color: #bee5eb;
+  color: var(--green);
+  background-color: rgba(252, 224, 220, 1);
+  border: none;
+  text-align: center;
 }
 
 .alert-info hr {
@@ -5654,9 +5734,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-warning {
-  color: #856404;
-  background-color: #fff3cd;
-  border-color: #ffeeba;
+  color: var(--green);
+  background-color: var(--orange);
+  border: none;
+  text-align: center;
 }
 
 .alert-warning hr {
@@ -5668,9 +5749,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-danger {
-  color: #721c24;
+  color: var(--green);
   background-color: #f8d7da;
-  border-color: #f5c6cb;
+  border: none;
+  text-align: center;
 }
 
 .alert-danger hr {
@@ -5682,9 +5764,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-light {
-  color: #818182;
+  color: var(--green);
   background-color: #fefefe;
-  border-color: #fdfdfe;
+  border: none;
+  text-align: center;
 }
 
 .alert-light hr {
@@ -5696,9 +5779,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-dark {
-  color: #1b1e21;
+  color: var(--green);
   background-color: #d6d8d9;
-  border-color: #c6c8ca;
+  border: none;
+  text-align: center;
 }
 
 .alert-dark hr {
