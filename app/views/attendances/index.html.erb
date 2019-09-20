@@ -34,11 +34,7 @@
 								<td>
 									<% attendance.users.each do |user| %>
 									    <%= link_to user do %>
-									    	<%if user.user_pic.attached?%>
-												<%= image_tag user.user_pic, alt: 'user_pic', class: "circle profile-img-top", title: user.name, style:"height:40px; width:40px;" %>
-											<%else%>
-												<img src="https://avatar-cdn.atlassian.com/002477b8b40d9d4396b551a8973aa1f8" class="circle profile-img-top" style="height:40px; width:40px;" title= <%= user.name %> >
-											<%end%>
+									    	<%= render 'users/user_pic', user: user, class_list:"small-image circle" %>
 									    <% end %>
 								    <% end %>
 								</td>
