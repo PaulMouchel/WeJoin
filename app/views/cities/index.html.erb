@@ -18,7 +18,7 @@
 
 	<div class="row mb-5 justify-content-center">
 		<div class="col-lg-5 text-center">
-			<input id="search" class="form-control text-center" type="text" placeholder="Recherche ta ville" aria-label="Recherche">
+			<input id="search" class="form-control text-center btn-lg" type="text" placeholder="Recherche ta ville" aria-label="Recherche">
 		</div>	
 	</div>
 
@@ -33,3 +33,15 @@
 
 <%= render 'cities/search' %>
 <%= render 'cities/animation' %>
+
+
+<script>
+  $(document).ready(function() {
+    $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+      var page = $(this).attr('href'); // Page cible
+      var speed = 750; // Durée de l'animation (en ms)
+      $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+      return false;
+    });
+  });
+</script>
