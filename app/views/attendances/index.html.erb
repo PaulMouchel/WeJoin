@@ -1,18 +1,15 @@
 <div class="container">
 	<div class="row justify-content-center">
 	    <div class="col-lg-12 bloc">
-
 			<div class="row title_bloc">
 				<div class="col-lg-12 text-center ">
 					<h2>Mon planning</h2>
 				</div>
 			</div>
-
 			<div id="my-events_calendar">
-			  <%= render partial: "calendar", locals: {events: @attendances} %>
+				<%= render partial: "calendar", locals: {events: @attendances} %>
 			</div>
 		</div>
-
 		<div class="col-lg-12 bloc">
 
 			<div class="row title_bloc">
@@ -20,27 +17,36 @@
 				  <h2>Mon historique</h2>
 				</div>
 			</div>
-				
 			<div class="history">
-				<table>
-					<thead>
+				<table class="table">
+					<thead class="thead-light">
 						<tr>
 							<th>Date</th>
 							<th>Nom du lieu</th>
+							<th>Participants</th>
 						</tr>
 					</thead>
-				
 					<tbody>
 						<% @past_attendances.each do |attendance| %>
-								<tr>
-									<td><%= attendance.date.to_date %></td>
-									<td><%= attendance.place.name %></td>
-								</tr>
+							<tr>
+								<td><%= attendance.date.to_date.strftime("%d/%m/%Y") %></td>
+								<td><%= link_to attendance.place.name, city_place_path(attendance.place.city, attendance.place) %></td>
+								<td>
+									<% attendance.users.each do |user| %>
+									    <%= link_to user do %>
+									    	<%if user.user_pic.attached?%>
+												<%= image_tag user.user_pic, alt: 'user_pic', class: "circle profile-img-top", title: user.name, style:"height:40px; width:40px;" %>
+											<%else%>
+												<img src="https://avatar-cdn.atlassian.com/002477b8b40d9d4396b551a8973aa1f8" class="circle profile-img-top" style="height:40px; width:40px;" title= <%= user.name %> >
+											<%end%>
+									    <% end %>
+								    <% end %>
+								</td>
+							</tr>
 						<%end%>
 					</tbody>
 				</table>
 			</div>
-
 		</div>
 	</div>
 </div>
