@@ -7,7 +7,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-        <div class="collapse navbar-collapse offset"  id="navbarSupportedContent1">
+        <div class="collapse navbar-collapse offset"  id="collapsibleNavbar">
           <ul class="nav navbar-nav ml-auto">
 
             <li class="nav-item"><%= link_to "EXPLORER", cities_path, class: "nav-link nav-item btn-nav" %></li>
@@ -16,12 +16,12 @@
               <li class="nav-item"><%= link_to "MA VILLE", new_user_session_path, class: "nav-link nav-item btn-nav" %></li>
             <% else %> 
               <% if current_user.city_id == nil %>
-                <li class="nav-item">
-                   <button class="nav-link btn-nav" data-toggle="modal" data-target="#modal_city">MA VILLE </button><%render 'layouts/modal_city'%>
+                <li class="nav-item ">
+                   <button class="nav-link btn-block-city btn-nav" data-toggle="modal" data-target="#modal_city">MA VILLE </button><%render 'layouts/modal_city'%>
                 </li>
 
               <% else %>
-                <li class="nav-item"><%= link_to "MA VILLE", city_places_path(current_user.city_id), class: "nav-link nav-item btn-nav" %></li>
+                <li class="nav-item"><%= link_to "MA VILLE", city_places_path(current_user.city_id), class: "nav-link btn-nav " %></li>
               <% end %>
             <% end %>
 
