@@ -1,7 +1,7 @@
 <%= render 'city_choice_modal' %>
 
 <section class="banner-area">
-	<div class="gradient"></div>
+	<!-- <div class="gradient"></div> -->
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 text-center">
@@ -13,12 +13,13 @@
     </div>
   </div>
 </section>
-
+<%= render 'cities/scroll_btn' %>
+<div id="city-search-bar"></div>
 <div class="container">
-
 	<div class="row mb-5 justify-content-center">
 		<div class="col-lg-5 text-center">
 			<input id="search" class="form-control text-center" type="text" placeholder="Recherche ta ville" aria-label="Recherche">
+			<%= render 'cities/search' %>
 		</div>	
 	</div>
 
@@ -30,5 +31,3 @@
 <% if !user_signed_in? %>
 	<%= render 'cookies_alert' %>
 <% end %>
-
-<%= render 'cities/search' %>
