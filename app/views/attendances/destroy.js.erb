@@ -1,2 +1,3 @@
 $("#events_calendar").html("<%= escape_javascript render(partial: "places/calendar", locals: {events: @attendances}) %>");
 $("#my-events_calendar").html("<%= escape_javascript render(partial: "attendances/calendar", locals: {events: @my_attendances}) %>");
+$("#trypers_today").html("<%= escape_javascript render(partial: "places/attendance_trypers") %>");

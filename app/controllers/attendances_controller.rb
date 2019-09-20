@@ -11,6 +11,7 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
     @attendances = @place.attendances
     @attendance.user = current_user
+    @attendances_today = @attendances.where(date: Time.now.to_date)
     if current_user.has_attendance(@attendance.date)
       redirect_back(fallback_location: root_path)
       flash[:error] = 'Impossible de créer deux participations à la même date'
@@ -34,6 +35,7 @@ class AttendancesController < ApplicationController
     end
     @attendances = @place.attendances
     @my_attendances = current_user.attendances
+    @attendances_today = @attendances.where(date: Time.now.to_date)
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path)
       	flash[:success] = 'Participation annulée' }

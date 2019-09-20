@@ -1,0 +1,19 @@
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">AUCUN CONTACT</h5>
+      </div>
+      <div class="modal-body">
+        <% if current_user %>
+        <p>Vous n'avez précisé aucun moyen de contact pour le moment.</p>
+        <% else %>
+        <p>Cette personne n'a précisé aucun moyen de contact pour le moment.</p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-orange float-right" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

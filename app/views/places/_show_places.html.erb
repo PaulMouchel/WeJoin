@@ -5,7 +5,9 @@
     <a href="note" data-toggle="modal" data-target="#note">
       <h6><%= render "places/average_rating", place: @place %></h6>
     </a><br>
-    <%= render "places/attendance_trypers" %>
+    <div id="trypers_today">
+	    <%= render "places/attendance_trypers" %>
+	</div>
   </div>
 </div>
 <div class="row mt-5 mb-5"> 
@@ -85,7 +87,7 @@
       <div class="modal-footer">
       <div class="row">
         <div class="col-md-12">
-          <button class=" btn text-orange" data-dismiss="modal"><i class="fas fa-times-circle fa-3x"></i></button>
+          <button class="btn text-orange" data-dismiss="modal"><i class="fas fa-times-circle fa-3x"></i></button>
         </div>
         
       </div>
