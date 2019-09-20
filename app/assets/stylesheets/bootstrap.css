@@ -399,7 +399,9 @@ dd {
 }
 
 blockquote {
-  margin: 0 0 1rem;
+  font-size:20px;
+  font-style: italic;
+  padding-bottom: 15px;
 }
 
 b,
@@ -502,8 +504,8 @@ label {
 }
 
 button {
-  border-radius: 0;
   outline: none;
+  background-color: transparent;
 }
 
 button:focus {
@@ -736,10 +738,6 @@ mark,
   text-transform: uppercase;
 }
 
-.blockquote {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-}
 
 .blockquote-footer {
   display: block;
@@ -3300,6 +3298,9 @@ fieldset:disabled a.btn {
   display: block;
   width: 100%;
 }
+.btn-block-city{
+  width: 97%;
+}
 
 .btn-block + .btn-block {
   margin-top: 0.5rem;
@@ -4394,7 +4395,7 @@ input[type="button"].btn-block {
 }
 
 .banner-content{
-	margin-top: 150px;
+	margin-top: 90px;
 }
 
 
@@ -4518,7 +4519,7 @@ input[type="button"].btn-block {
 
 .btn-nav.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #007bff;
+  background-color:transparent;
   border-color: #007bff;
 }
 
@@ -4536,7 +4537,7 @@ input[type="button"].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 20px 20px;
+  padding: 10px 10px;
 }
 
 .navbar > .container,
@@ -10547,7 +10548,7 @@ a.text-dark:hover, a.text-dark:focus {
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 18%;
+  top: 300px;
   width: auto;
   padding: 16px;
   margin-top: -22px;
@@ -10567,7 +10568,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(255,64,43,0.8);
 }
 
 /* Fading animation */
