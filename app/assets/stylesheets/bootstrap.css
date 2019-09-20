@@ -503,11 +503,11 @@ label {
 
 button {
   border-radius: 0;
+  outline: none;
 }
 
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
 input,
@@ -2692,7 +2692,6 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #212529;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -2715,17 +2714,15 @@ textarea.form-control {
 }
 
 .btn:hover {
-  color: #212529;
   text-decoration: none;
 }
 
 .btn:focus, .btn.focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
 }
 
 .btn.disabled, .btn:disabled {
-  opacity: 0.65;
+  
 }
 
 a.btn.disabled,
@@ -4513,8 +4510,8 @@ input[type="button"].btn-block {
   background-color: rgba(255,255,255,0.5);
 }
 
-.btn-nav:focus, .btn-primary.focus {
-  color: white;
+.btn-nav:active {
+ color: white;
   background-color:var(--orange);
   border: 1px solid var(--orange);
 }
