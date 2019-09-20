@@ -1,18 +1,16 @@
 <script>
-	$(document).ready(function() {
-		word = document.getElementById("verb");
-		// Function to change the text
-		function changeText() {   
-			if (word.textContent.toLowerCase() === "travailler") {
-		    	word.textContent = "rencontrer";
-			} else if  (word.textContent.toLowerCase() === "rencontrer") {
-				word.textContent = "collaborer";
-			} else if  (word.textContent.toLowerCase() === "collaborer") {
-				word.textContent = "travailler";
-			}
+	word = document.getElementById("verb");
+	// Function to change the text
+	function changeText() {   
+		if  (word.textContent.toLowerCase() === "collaborer") {
+			word.textContent = "travailler";
+		} else if  (word.textContent.toLowerCase() === "rencontrer") {
+			word.textContent = "collaborer";
+		} else if  (word.textContent.toLowerCase() === "travailler") {
+			word.textContent = "rencontrer";
 		}
+	}
 
-		// call changeText function every 3 seconds
-		setInterval(changeText, 2500);
-	});
+	// call changeText function every 3 seconds
+	setInterval(changeText, 2000);
 </script>
