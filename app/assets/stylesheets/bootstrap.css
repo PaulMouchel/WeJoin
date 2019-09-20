@@ -399,7 +399,9 @@ dd {
 }
 
 blockquote {
-  margin: 0 0 1rem;
+  font-size:20px;
+  font-style: italic;
+  padding-bottom: 15px;
 }
 
 b,
@@ -502,12 +504,12 @@ label {
 }
 
 button {
-  border-radius: 0;
+  outline: none;
+  background-color: transparent;
 }
 
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
 input,
@@ -736,10 +738,6 @@ mark,
   text-transform: uppercase;
 }
 
-.blockquote {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-}
 
 .blockquote-footer {
   display: block;
@@ -2692,7 +2690,6 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #212529;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -2715,17 +2712,15 @@ textarea.form-control {
 }
 
 .btn:hover {
-  color: #212529;
   text-decoration: none;
 }
 
 .btn:focus, .btn.focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
 }
 
 .btn.disabled, .btn:disabled {
-  opacity: 0.65;
+  
 }
 
 a.btn.disabled,
@@ -3302,6 +3297,9 @@ fieldset:disabled a.btn {
 .btn-block {
   display: block;
   width: 100%;
+}
+.btn-block-city{
+  width: 97%;
 }
 
 .btn-block + .btn-block {
@@ -4397,7 +4395,7 @@ input[type="button"].btn-block {
 }
 
 .banner-content{
-	margin-top: 150px;
+	margin-top: 90px;
 }
 
 
@@ -4513,15 +4511,15 @@ input[type="button"].btn-block {
   background-color: rgba(255,255,255,0.5);
 }
 
-.btn-nav:focus, .btn-primary.focus {
-  color: white;
+.btn-nav:active {
+ color: white;
   background-color:var(--orange);
   border: 1px solid var(--orange);
 }
 
 .btn-nav.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #007bff;
+  background-color:transparent;
   border-color: #007bff;
 }
 
@@ -4539,7 +4537,7 @@ input[type="button"].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 20px 20px;
+  padding: 10px 10px;
 }
 
 .navbar > .container,
@@ -10570,6 +10568,12 @@ a.text-dark:hover, a.text-dark:focus {
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
   animation-duration: 1.5s;
+}
+
+.small-image
+{
+	height:40px;
+	width:40px;
 }
 
 @-webkit-keyframes fade {

@@ -1,0 +1,33 @@
+<div class="modal fade" id="modalCity" tabindex="-1" role="dialog" aria-labelledby="modalCityLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered modal-md">
+    <div class="modal-content modal-dialog modal-md">
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-12 text-center">
+          <h4 class="modal-title">QUELLE EST TA VILLE ?</h4>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="modal-body col-lg-6 text-center">
+         <p>Précisez-nous votre ville de référence afin de pouvoir optimiser vos recherches de lieux :</p>
+          <%= form_with(model: @user, local: true) do |f| %>
+              <%= f.collection_select :city_id, City.order(:name),:id,:name, {autocomplete: "city_id", include_blank: true}, {class: "form-control"} %>
+              <div class="actions mt-5">
+              <%= f.submit "EDITER", class: "btn-submit btn-block" %>
+              </div><br>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn text-orange" data-dismiss="modal"><i class="fas fa-times-circle fa-3x"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>  

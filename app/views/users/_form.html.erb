@@ -13,7 +13,7 @@
 
   <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder:"Description" %>
   
-  <small>Ce lien sera disponible aux autres utilisateurs afin de te contacter, ne le fournis pas si tu veux rester incognito !</small>
+  <small><i>Ce lien sera disponible aux autres utilisateurs afin de te contacter, ne le fournis pas si tu veux rester incognito !<i></small>
   <%= f.text_field :contact_url, autofocus: true, autocomplete: "contact_url", class: "form-control", placeholder:"Lien LinkedIn" %>
 
   <% if is_admin %>
