@@ -26,7 +26,7 @@
     <% @place.opening_hours.sort_by{ |e| e.order_day }.each do |hour| %>
       <%= hour.day %>: 
       <% if hour.closed?%>
-        Fermé
+        Fermé<br>
       <%else%>
         <%= hour.open.to_formatted_s(:time) %> - <%= hour.close.to_formatted_s(:time) %><br>
       <%end%>
