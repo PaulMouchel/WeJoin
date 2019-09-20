@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-10 text-center">
         <div class="banner-content">
-          <h1 class="home_text">DÉCOUVRE LES MEILLEURS ENDROITS POUR TRAVAILLER</h1>
+          <h1 class="home_text">DÉCOUVRE LES MEILLEURS ENDROITS POUR <span id="verb">TRAVAILLER</span></h1>
         </div>
       </div>
     </div>
@@ -28,23 +28,5 @@
 	<%= render 'cookies_alert' %>
 <% end %>
 
-
-
-<script>	
-	$(document).ready(function() {
-		search = document.getElementById("search");
-		search.addEventListener("keypress", function (e) {
-			if (e.keyCode == 13) {
-				let url = "cities"
-				$.ajax({
-				    url: url,
-				    type: "GET",
-				    dataType : 'script', 
-				    data: { 
-				        "search": search.value, 
-				    },
-				});
-			}
-		})
-	});
-</script>
+<%= render 'cities/search' %>
+<%= render 'cities/animation' %>
