@@ -5,7 +5,9 @@
     <a href="note" data-toggle="modal" data-target="#note">
       <h6><%= render "places/average_rating", place: @place %></h6>
     </a><br>
-    <%= render "places/attendance_trypers" %>
+    <div id="trypers_today">
+	    <%= render "places/attendance_trypers" %>
+	</div>
   </div>
 </div>
 <div class="row mt-5 mb-5"> 
