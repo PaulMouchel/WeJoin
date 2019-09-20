@@ -789,6 +789,9 @@ mark,
   text-transform: uppercase;
 }
 
+.scroll {
+  margin-top: -310px;
+}
 
 .blockquote-footer {
   display: block;
@@ -803,6 +806,10 @@ mark,
 .img-tryper-place {
   width: 50px;
   height: 50px;
+}
+
+.fa-arrow-alt-circle-down {
+
 }
 
 .img-fluid {
