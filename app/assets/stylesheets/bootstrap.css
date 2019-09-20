@@ -10541,7 +10541,7 @@ a.text-dark:hover, a.text-dark:focus {
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 18%;
+  top: 300px;
   width: auto;
   padding: 16px;
   margin-top: -22px;
