@@ -11,27 +11,31 @@
   <% end %>
 
   <%= form.text_area :description, placeholder:"description", class:"form-control" %>
+  <div class="row">
+    <div class="col-lg-6">
+      <%= form.number_field(:coffee_price, in: 0.0..20.0, step: 0.05, class:"form-control", placeholder:"Prix du café") %>
+    </div>
 
-  <%= form.label :coffee_price, 'Prix du café' %>
-  <%= form.number_field(:coffee_price, in: 0.0..20.0, step: 0.05) %>
+    <div class="col-lg-6">
+      <%= form.number_field(:tea_price, in: 0.0..20.0, step: 0.05, class:"form-control", placeholder:"Prix du thé") %>
+    </div>
 
-  <%= form.label :tea_price, 'Prix du thé' %>
-  <%= form.number_field(:tea_price, in: 0.0..20.0, step: 0.05) %>
-
-  <%= form.label :beer_price, 'Prix de la bière' %>
-  <%= form.number_field(:beer_price, in: 0.0..20.0, step: 0.05) %>
+    <div class="col-lg-6">
+      <%= form.number_field(:beer_price, in: 0.0..20.0, step: 0.05, class:"form-control", placeholder:"Prix de la bière") %>
+    </div>
+  </div>
 
   <%= form.text_field :wifi_identification, placeholder:"Nom du wifi", class:"form-control" %>
 
   <%= form.text_field :wifi_password, placeholder:"Mot de passe wifi", class:"form-control" %>
 
   <div class="btn-input mb-3">
-    <button class="btn-submit btn-block">Sélectionner un fichier
+    <button class="btn-submit btn-block">Sélectionne un fichier
       <%= form.file_field :place_pics, multiple: true %>
     </button>
   </div>
 
-  <%= form.select(:all_tags, Tag.all.map{|tag|tag.name}, { }, { multiple: true, id: "tags_list" })  %>
+  <%= form.select(:all_tags, Tag.all.map{|tag|tag.name}, {}, { multiple: true, id: "tags_list"})  %>
 
   <div class="actions mt-5">
     <%= form.submit 'ENVOYER', class:"btn-submit btn-block" %>

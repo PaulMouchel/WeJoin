@@ -1,29 +1,31 @@
-<div class="row justify-content-center">
-  <div class="col-lg-7 bloc">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7 bloc">
 
-    <div class="row title_bloc">
-      <div class="col-lg-12 text-center ">
-       
-        <h2>AJOUTER UN LIEU</h2>
-        
-      </div>
-    </div>
-
-	<div class="row justify-content-center">
-      <div class="col-lg-10 col-md-10 col-sm-10">
-
-    		<% if current_user != nil %>
-    		  <% if @is_admin %>
-    		<%= render 'places/form', model: [:admin, @city, @place] %>
-    		  <% else %>
-    		<%= render 'places/form', model: [@city, @place] %>
-    		  <% end %>
-    		<% end %>
-        <br>
-    		<%= link_to 'Back', city_places_path(@city), class:'btn-back' %>
-
+      <div class="row title_bloc">
+        <div class="col-lg-12 text-center ">
+         
+          <h2>AJOUTER UN LIEU</h2>
+          
         </div>
       </div>
+
+  	<div class="row justify-content-center">
+        <div class="col-lg-10 col-md-10 col-sm-10">
+
+      		<% if current_user != nil %>
+      		  <% if @is_admin %>
+      		<%= render 'places/form', model: [:admin, @city, @place] %>
+      		  <% else %>
+      		<%= render 'places/form', model: [@city, @place] %>
+      		  <% end %>
+      		<% end %>
+          <br>
+      		<%= link_to 'Back', city_places_path(@city), class:'btn-back' %>
+
+          </div>
+        </div>
+    </div>
   </div>
 </div>
 <div class="space"></div>

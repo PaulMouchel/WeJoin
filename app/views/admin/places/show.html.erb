@@ -11,6 +11,9 @@
           <% @place.place_pics.each_with_index do |image, index| %>
             <div class="mySlides">
               <%= image_tag image, class:"img-place", style:"width:100%" %>
+              <div><br><br>
+                <%= link_to  "Supprimer la photo", city_place_place_pic_path(@place.city, @place, index: index), method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class:'btn-submit' %>
+              </div>
             </div>
             <% count += 1 %>
           <% end %>
