@@ -1,20 +1,23 @@
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal_city">
   <div class="modal-dialog  modal-dialog-centered modal-md">
+
     <div class="modal-content modal-dialog modal-md">
 
       <div class="row justify-content-center mt-5">
         <div class="col-lg-12 text-center">
-          <h4 class="modal-title">AUCUN CONTACT</h4>
+          <h4 class="modal-title">QUELLE EST TA VILLE ?</h4>
         </div>
       </div>
 
       <div class="row justify-content-center">
         <div class="modal-body col-lg-6 text-center">
-        <% if current_user %>
-          <p>Tu n'as précisé aucun moyen de contact pour le moment.</p>
-          <% else %>
-          <p>Cette personne n'a précisé aucun moyen de contact pour le moment.</p>
-        <% end %>
+          <p>Précisez-nous votre ville de référence afin de pouvoir optimiser vos recherches de lieux :</p>
+          <%= form_with(model: @user, local: true) do |f| %>
+              <%= f.collection_select :city_id, City.order(:name),:id,:name, {autocomplete: "city_id", include_blank: true}, {class: "form-control"} %>
+              <div class="actions mt-5">
+              <%= f.submit "EDITER", class: "btn-submit btn-block" %>
+              </div><br>
+          <% end %>
         </div>
       </div>
 
@@ -28,4 +31,4 @@
 
     </div>
   </div>
-</div>  
+</div>
