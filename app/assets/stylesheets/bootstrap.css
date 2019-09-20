@@ -10569,6 +10569,12 @@ a.text-dark:hover, a.text-dark:focus {
   animation-duration: 1.5s;
 }
 
+.small-image
+{
+	height:40px;
+	width:40px;
+}
+
 @-webkit-keyframes fade {
   from {opacity: .2} 
   to {opacity: 1}
