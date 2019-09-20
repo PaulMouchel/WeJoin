@@ -5570,7 +5570,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert {
-  position: relative;
+  width: 100%;
+  position: absolute;
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
@@ -5590,6 +5591,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-dismissible .close {
+  width: 100%;
   position: absolute;
   top: 0;
   right: 0;
@@ -5598,9 +5600,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-primary {
-  color: #004085;
+  color: var(--green);
   background-color: #cce5ff;
-  border-color: #b8daff;
+  border: none;
+  text-align: center;
 }
 
 .alert-primary hr {
@@ -5612,9 +5615,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-secondary {
-  color: #383d41;
+  color: var(--green);
   background-color: #e2e3e5;
-  border-color: #d6d8db;
+  border: none;
+  text-align: center;
 }
 
 .alert-secondary hr {
@@ -5626,9 +5630,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-success {
-  color: #155724;
+  color: var(--green);
   background-color: #d4edda;
-  border-color: #c3e6cb;
+  border: none;
+  text-align: center;
 }
 
 .alert-success hr {
@@ -5640,9 +5645,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-info {
-  color: #0c5460;
-  background-color: #d1ecf1;
-  border-color: #bee5eb;
+  color: var(--green);
+  background-color: rgba(252, 224, 220, 1);
+  border: none;
+  text-align: center;
 }
 
 .alert-info hr {
@@ -5654,9 +5660,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-warning {
-  color: #856404;
-  background-color: #fff3cd;
-  border-color: #ffeeba;
+  color: var(--green);
+  background-color: var(--orange);
+  border: none;
+  text-align: center;
 }
 
 .alert-warning hr {
@@ -5668,10 +5675,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-danger {
-  color: #721c24;
+  color: var(--green);
   background-color: #f8d7da;
-  border-color: #f5c6cb;
-}
+  border: none;
+  text-align: center;
 
 .alert-danger hr {
   border-top-color: #f1b0b7;
@@ -5682,9 +5689,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-light {
-  color: #818182;
+  color: var(--green);
   background-color: #fefefe;
-  border-color: #fdfdfe;
+  border: none;
+  text-align: center;
 }
 
 .alert-light hr {
@@ -5696,9 +5704,10 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-dark {
-  color: #1b1e21;
+  color: var(--green);
   background-color: #d6d8d9;
-  border-color: #c6c8ca;
+  border: none;
+  text-align: center;
 }
 
 .alert-dark hr {
