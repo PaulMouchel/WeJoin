@@ -108,10 +108,12 @@ class User < ApplicationRecord
   end
 
   def get_profession
-    if self.profession != nil || self.profession.tr(" ", "") != ""
-      return self.profession
-    end
-  end
+   if self.profession == nil || self.profession.tr(" ", "") == ""
+     return ""
+   else
+     return self.profession
+   end
+ end
 
   private
 
