@@ -50,11 +50,36 @@
     
     <aside class="mt-5 text-center">
       <p><strong>PARTICULARITÉS</strong>
-      <p><strong>Prix du café : </strong></br><%= @place.coffee_price %> €</p>
-      <p><strong>Prix du thé : </strong></br><%= @place.tea_price %> €</p>
-      <p><strong>Prix de la bière : </strong></br><%= @place.beer_price %> €</p>
-      <p><strong>Identifiant WIFI : </strong></br><%= @place.wifi_identification %></p>
-      <p><strong>Mot de passe WIFI : </strong></br><%= @place.wifi_password %></p>
+      <p><strong>Prix du café : </strong></br>
+        <% if @place.coffee_price != nil %>
+          <%= @place.coffee_price %> €</p>
+        <% else %>
+          <a>non renseigné</a></p>
+        <% end %>
+      <p><strong>Prix du thé : </strong></br>
+        <% if @place.tea_price != nil %>
+          <%= @place.tea_price %> €</p>
+        <% else %>
+          <a>non renseigné</a></p>
+        <% end %>
+      <p><strong>Prix de la bière : </strong></br>
+        <% if @place.beer_price != nil %>
+          <%= @place.beer_price %> €</p>
+        <% else %>
+          <a>non renseigné</a></p>
+        <% end %>
+      <p><strong>Identifiant WIFI : </strong></br>
+        <% if @place.wifi_identification != nil && @place.wifi_identification != ""%>
+          <%= @place.wifi_identification %></p>
+        <% else %>
+          <a>non renseigné</a></p>
+        <% end %>
+      <p><strong>Mot de passe WIFI : </strong></br>
+        <% if @place.wifi_password != nil && @place.wifi_password != ""%>
+          <%= @place.wifi_password %></p>
+        <% else %>
+          <a>non renseigné</a></p>
+        <% end %>
     </aside></br> 
     
     <aside>
