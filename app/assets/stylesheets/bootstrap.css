@@ -79,12 +79,12 @@ aside {
   padding: 30px;
 }
 
-.chosen-container-multi .chosen-choices {
+/*.chosen-container-multi .chosen-choices {
   background-color: red!important;
 }
 .chosen-choices {
   background-color: red!important;
-}
+}*/
 
 .chosen-container-multi .chosen-choices {
   position: relative!important;
@@ -95,8 +95,8 @@ aside {
   height: auto!important;
   border: 1px solid #aaa!important;
   background-color: #fff!important;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1%, var(--green_light)), color-stop(15%, #fff))!important;
-  background-image: linear-gradient(var(--green_light) 1%, #fff 15%)!important;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #fff), color-stop(15%, #fff))!important;
+  background-image: linear-gradient(#fff 1%, #fff 15%)!important;
   cursor: text;
   border-radius: 45px!important;
 }
@@ -111,10 +111,11 @@ aside {
   border: 1px solid var(--green)!important;
       -webkit-box-shadow:none!important;
     box-shadow: none!important;
+
 }
 .chosen-container.chosen-with-drop .chosen-drop {
     border:none!important;
-    background: none!important;
+    background: #fff!important;
 }
 
 .chosen-container .chosen-drop {
@@ -149,6 +150,87 @@ aside {
   z-index: 9999;
   width:100%;
 }
+
+.form-control-search{
+    display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 25px 20px 22px 20px;
+  margin-bottom:45px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border-radius: 45px;  
+  color: var(--green);
+  background-color: white;
+  border: 2px solid var(--green);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .form-control-search {
+    transition: none;
+  }
+}
+
+.form-control-search::-ms-expand {
+  background-color: white;
+  border: 0;
+}
+
+
+.form-control-search:hover {
+  border: 2px solid var(--orange);
+}
+.form-control-search:focus {
+  outline: 0;
+  background-color: white;
+  border: 2px solid var(--orange);
+  box-shadow: 0 0 0 0.2rem rgba(255, 64, 43, 0.25);
+}
+
+.form-control-search::-webkit-input-placeholder {
+  font-size: 18px;
+  color: var(--green);
+  opacity: 1;
+}
+
+.form-control-search::-moz-placeholder {
+  font-size: 18px;
+  color: var(--green);
+  opacity: 1;
+}
+
+.form-control-search:-ms-input-placeholder {
+  font-size: 12px;
+  color: var(--green);
+  opacity: 1;
+}
+
+.form-control-search::-ms-input-placeholder {
+   font-size: 12px; 
+  color: var(--green);
+  opacity: 1;
+}
+
+.form-control-search::placeholder {
+    font-size: 18px;
+  color: var(--green);
+  opacity: 1;
+}
+
+.form-control-search:disabled, .form-control-search[readonly] {
+  background-color: white;
+  opacity: 1;
+}
+
+select.form-control-search:focus::-ms-value {
+  color: white;
+  background-color: white;
+}
+
 
 
 .simple-calendar td {
@@ -378,8 +460,20 @@ aside {
 .home_text {
 	color: white;
 	font-weight: 800;
-	font-size: 500%;
+	font-size: 80px;
 	text-shadow: rgba(0, 43, 18, 0.5) 0 0 60px;
+}
+
+@media (max-width: 576px) {
+  .home_text {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 976px) {
+  .home_text {
+    font-size: 50px;
+  }
 }
 
 
@@ -401,6 +495,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
+
+
 
 p {
   font-family: 'Work Sans', sans-serif;
@@ -808,9 +904,6 @@ mark,
   height: 50px;
 }
 
-.fa-arrow-alt-circle-down {
-
-}
 
 .img-fluid {
   max-width: 100%;
@@ -4612,12 +4705,12 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand {
-  width: 40%;
+  width: 160px;
   display: inline-block;
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   padding: 12px;
-  margin-right: 1rem;
+
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
@@ -5040,7 +5133,7 @@ filter: none;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-  height: 470px;
+  height: 500px;
 }
 .card-add {
   margin-bottom: 60px;
@@ -10633,6 +10726,8 @@ a.text-dark:hover, a.text-dark:focus {
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  background-color: rgba(255,64,43,0.7);
+
 }
 
 /* Position the "next button" to the right */
@@ -10643,7 +10738,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(255,64,43,0.8);
+  background-color: var(--orange);
 }
 
 /* Fading animation */
